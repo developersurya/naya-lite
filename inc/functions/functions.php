@@ -3,6 +3,33 @@
 if (!defined('ABSPATH'))
     exit('restricted access');
 
+/*=======================================================================
+ * Fire up the engines to start theme setup.
+ *=======================================================================*/
+
+add_action('after_setup_theme', 'sampression_setup');
+
+if (!function_exists('sampression_setup')):
+
+    function sampression_setup() {
+
+        global $content_width;
+
+        /**
+         * Global content width.
+         */
+        if (!isset($content_width))
+            $content_width = 650;
+        
+         /**
+         * Add callback for custom TinyMCE editor stylesheets. (editor-style.css)
+         * @see http://codex.wordpress.org/Function_Reference/add_editor_style
+         */
+        add_editor_style();
+        
+    }
+endif;
+
 /*
  * Sampression - Social Media Icons
  * @param $location header / footer
