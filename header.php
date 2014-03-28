@@ -37,6 +37,12 @@ if ( ! defined('ABSPATH')) exit('restricted access');
         <div class="social-connect">
             <?php echo sampression_social_media_icons($location = 'header', $separater = '') ?>
         </div>
+        <?php $header_image = get_header_image();
+		if ( ! empty( $header_image ) ) : ?>
+                    <div class="jumbotron">
+                                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+                    </div>
+		<?php endif; ?>
         <!-- .social-connect-->
         <nav id="primary-nav"  class="clearfix" role="navigation">
             <a href="#" id="trigger-primary-nav"><i class="icon-menu6"></i><?php _e('Menu', 'sampression');?></a>

@@ -26,7 +26,30 @@ if (!function_exists('sampression_setup')):
          * @see http://codex.wordpress.org/Function_Reference/add_editor_style
          */
         add_editor_style();
-        
+        /**
+         * This feature enables custom background color and image support for a theme
+         */
+        add_theme_support( 'custom-background', array(
+			'default-color' => '',
+		) );
+		
+        /**
+         * This feature enables custom header color and image support for a theme
+         */
+        add_theme_support( 'custom-header', array(
+                // Text color and image (empty to use none).
+                'default-text-color'     => '',
+                'default-image'          => '',
+
+                // Set height and width, with a maximum value for the width.
+                'height'                 => 152,
+                'width'                  => 960,
+                'max-width'              => 2000,
+
+                // Support flexible height and width.
+                'flex-height'            => true,
+                'flex-width'             => true
+        ) );         
     }
 endif;
 
