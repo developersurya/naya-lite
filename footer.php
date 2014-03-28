@@ -29,7 +29,7 @@ if ( ! defined('ABSPATH')) exit('restricted access');
 <!--[if lt IE 7 ]>
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-	<script src="<?php bloginfo('template_url'); ?>/lib/js/dd_belatedpng.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/lib/js/dd_belatedpng.js"></script>
 	<script> DD_belatedPNG.fix('img, .png-bg'); </script>
 <![endif]-->
 <?php do_action('sampression_before_body_close'); ?>
