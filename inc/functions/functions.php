@@ -38,7 +38,7 @@ if (!function_exists('sampression_setup')):
          */
         add_theme_support( 'custom-header', array(
                 // Text color and image (empty to use none).
-                'default-text-color'     => '',
+                'default-text-color'     => '#000000',
                 'default-image'          => '',
 
                 // Set height and width, with a maximum value for the width.
@@ -381,7 +381,7 @@ if (isset($_GET['page']) && $_GET['page'] === 'sam-import-export' && isset($_GET
         $widget = unserialize($widget_manager);
         $widget_manager_array = array('widget_manager' => $widget);
     }
-    //sam-shortcodes-settings ------------ This option code is remaining
+    //sam-shortcodes-settings ------------
     $shortcodes_array = array('shortcodes' => array());
     if (get_option('sam-shortcodes-settings')) {
         $shortcodes = get_option('sam-shortcodes-settings');
@@ -435,10 +435,6 @@ function sampression_additional_image_sizes() {
         add_image_size($custom_sizes[$i]['slug'], $custom_sizes[$i]['width'], $custom_sizes[$i]['height'], true);
     }
     add_filter( 'image_size_names_choose', 'sampression_custom_image_sizes' );
-}
-
-function sampression_image($image, $return) {
-    //timthumb image processing
 }
 
 /**

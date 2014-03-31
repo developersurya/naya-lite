@@ -5,7 +5,7 @@
  * @theme naya 1.0
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(sampression_post_class()); ?> itemtype="http://schema.org/Article" itemscope="" role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( sampression_post_class() ); ?> itemtype="http://schema.org/Article" itemscope="" role="article">
     <header class="entry-header clearfix">
         <?php sampression_the_title() ?>
     </header>

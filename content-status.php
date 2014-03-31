@@ -4,9 +4,9 @@
  * @package sampression framework v 1.0
  * @theme naya 1.0
  */
-if ( ! defined('ABSPATH')) exit('restricted access');
+if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(sampression_post_class()); ?> itemscope="itemscope" itemtype="http://schema.org/Article" role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( sampression_post_class() ); ?> itemscope="itemscope" itemtype="http://schema.org/Article" role="article">
     <header class="entry-header clearfix">
         <?php sampression_the_title() ?>
     </header>

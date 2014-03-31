@@ -69,6 +69,6 @@ if ( post_password_required() )
             'label_submit' => 'Submit',
             'comment_notes_after' => ''
         );
-	comment_form($comment_args);
+	comment_form( $comment_args );
         ?>
 </div><!-- #comments -->

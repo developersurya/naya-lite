@@ -16,10 +16,10 @@
     <div class="entry-content">
         <?php
         sampression_post_thumbnail();
-        if(is_search()) :
+        if( is_search() ) :
             the_excerpt();
         else :
-            if(is_single() || !sampression_get_the_excerpt()) {
+            if( is_single() || !sampression_get_the_excerpt() ) {
                 the_content();
                 wp_link_pages( array(
                         'before'      => '<div class="page-links">',

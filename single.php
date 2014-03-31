@@ -4,7 +4,7 @@
  * @package sampression framework v 1.0
  * @theme naya 1.0
  */
-if ( ! defined('ABSPATH')) exit('restricted access');
+if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 get_header();
 ?>
 
@@ -15,8 +15,8 @@ get_header();
                 <?php if ( have_posts() ) : ?>                    
                 <?php while ( have_posts() ) : the_post(); ?>
                     <?php
-                    $single_format = array('standard');
-                    if( in_array(sampression_get_post_format(), $single_format) ) { //sam_p(sampression_post_class());
+                    $single_format = array( 'standard' );
+                    if( in_array( sampression_get_post_format(), $single_format ) ) { //sam_p(sampression_post_class());
                         ?>
                         <article id="post-<?php the_ID(); ?>" <?php post_class();//sampression_post_class() ?> itemscope="itemscope" itemtype="http://schema.org/Article" role="article">
                             <header class="entry-header">

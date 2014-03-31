@@ -4,18 +4,18 @@
  * @package sampression framework v 1.0
  * @theme naya 1.0
  */
-if ( ! defined('ABSPATH')) exit('restricted access');
+if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 ?>
-<?php do_action('sampression_footer_widget'); ?>
-<?php do_action('sampression_before_footer'); ?>
+<?php do_action( 'sampression_footer_widget' ); ?>
+<?php do_action( 'sampression_before_footer' ); ?>
 <footer id="footer" class="block">
     <div class="container">
         <div class="eleven columns">
-            <div class="site-info"><?php _e('&copy; 2013. nayá. A theme by <a href="http://sampression.com" target="_blank">Sampression</a>. Powered by <a href="http://wordpress.org" target="_blank">WordPress</a>.', 'sampression'); ?></div>
+            <div class="site-info"><?php _e( '&copy; 2013. nayá. A theme by <a href="http://sampression.com" target="_blank">Sampression</a>. Powered by <a href="http://wordpress.org" target="_blank">WordPress</a>.', 'sampression' ); ?></div>
         </div>
         <div class="five columns">
             <div class="social-connect social-withtext">
-                <?php echo sampression_social_media_icons($location = 'footer') ?>
+                <?php echo sampression_social_media_icons( $location = 'footer' ) ?>
             </div>
         </div>
     </div>
@@ -32,6 +32,6 @@ if ( ! defined('ABSPATH')) exit('restricted access');
 	<script src="<?php echo get_template_directory_uri(); ?>/lib/js/dd_belatedpng.js"></script>
 	<script> DD_belatedPNG.fix('img, .png-bg'); </script>
 <![endif]-->
-<?php do_action('sampression_before_body_close'); ?>
+<?php do_action( 'sampression_before_body_close' ); ?>
 </body>
 </html>

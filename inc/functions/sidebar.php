@@ -37,7 +37,6 @@ function sampression_register_sidebars() {
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		));
-	}
-        
+	}      
         
 }

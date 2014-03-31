@@ -4,9 +4,9 @@
  * @package sampression framework v 1.0
  * @theme naya 1.0
  */
-if ( ! defined('ABSPATH')) exit('restricted access');
+if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 get_header();
-setPostViews(get_the_ID());
+setPostViews( get_the_ID() );
 ?>
 
 <section class="block">

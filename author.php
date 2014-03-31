@@ -13,11 +13,11 @@ get_header();
         <div id="content" class="<?php sampression_content_class() ?>">
             <header class="archive-header">
                 <h1 class="archive-title">
-                    <img src="http://www.gravatar.com/avatar/<?php echo md5(get_the_author_meta('user_email')) ?>?s=65" alt="Author Image"> <?php echo get_the_author_meta('display_name'); ?>
+                    <img src="http://www.gravatar.com/avatar/<?php echo md5( get_the_author_meta( 'user_email' ) ) ?>?s=65" alt="Author Image"> <?php echo get_the_author_meta( 'display_name' ); ?>
                 </h1>
                 <?php
                     // Show an optional term description.
-                    $author_bio = get_the_author_meta('description');
+                    $author_bio = get_the_author_meta( 'description' );
                     if ( ! empty( $author_bio ) ) :
                             printf( '<div class="archive-description"><p>%s</p></div>', $author_bio );
                     endif;
