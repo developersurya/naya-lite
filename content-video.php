@@ -6,7 +6,7 @@
  */
 if ( ! defined('ABSPATH')) exit('restricted access');
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(sampression_post_class()); ?> itemtype="http://schema.org/Article" itemscope="" role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class(sampression_post_class()); ?> itemscope  itemtype="http://schema.org/Article" role="article">
     <header class="entry-header clearfix">
         <?php sampression_the_title() ?>
     </header>
@@ -14,7 +14,7 @@ if ( ! defined('ABSPATH')) exit('restricted access');
         <i class=" icon-play2"></i>
         <?php sampression_post_meta(); ?>
     </div>
-    <div class="entry-content" itemprop="articleBody">
+    <div class="entry-content" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
         <?php
         sampression_post_thumbnail();
         the_content();
