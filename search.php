@@ -7,7 +7,7 @@
 if ( ! defined('ABSPATH')) exit('restricted access');
 get_header();
 ?>
-<!--#header-->
+<!-- #header-->
 <section class="block">
     <div class="container">
         <div id="content" class="<?php sampression_content_class() ?>">
@@ -28,9 +28,9 @@ get_header();
                 <?php get_template_part( 'content', 'none' ); ?>
 
             <?php endif; ?>
-            <!--end of .post-->
+            <!-- .post-->
         </div>
-        <!--#content-->
+        <!-- #content-->
         <?php sampression_right_sidebar() ?>
     </div>
 </section>

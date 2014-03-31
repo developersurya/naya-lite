@@ -16,4 +16,4 @@ if (!defined('ABSPATH'))
     ?>
     <?php do_action('sampression_after_sidebar'); ?>
 </div>
-<!--#sidebar-->
+<!-- #sidebar-->

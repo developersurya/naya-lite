@@ -43,7 +43,7 @@ $default_fonts = sampression_fonts_style();
                             </div>
                         </div>
                     </div>
-                    <!--end of .section-->
+                    <!-- .section-->
                 </div>
                 <div id="typography-post-pages" class="box-entry hide typo-post-pages">
                     <section class="row">
@@ -64,7 +64,7 @@ $default_fonts = sampression_fonts_style();
                                         </div>
                                     </div>
                                 </div>
-                                <!--end of .section-->
+                                <!-- .section-->
                             </div>
                             </div>
                     </section>
@@ -86,7 +86,7 @@ $default_fonts = sampression_fonts_style();
                                         </div>
                                     </div>
                                 </div>
-                                <!--end of .section-->
+                                <!-- .section-->
                             </div>
                         </div>
                     </section>

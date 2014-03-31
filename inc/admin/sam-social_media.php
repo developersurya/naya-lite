@@ -80,7 +80,7 @@ $available_social_media = $social_media->link_name;
                 </div>
             </div>
         </section>
-        <!-- end of .row-->
+        <!-- .row-->
         <div id="response"></div>
         <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e('Save', 'sampression');?></a>
     </form>

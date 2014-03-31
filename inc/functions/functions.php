@@ -437,21 +437,6 @@ function sampression_additional_image_sizes() {
     add_filter( 'image_size_names_choose', 'sampression_custom_image_sizes' );
 }
 
-/*
-  add_filter( 'image_size_names_choose', 'sampression_custom_image_sizes' );
-
-  function sampression_custom_image_sizes( $sizes ) {
-  global $image_settings_serialize;
-  $image_option = get_option('sam-image-settings', $image_settings_serialize);
-  $image_settings = unserialize($image_option);
-  $custom_sizes = $image_settings['image_sizes'];
-  $csizes = array();
-  foreach ($custom_sizes as $ckey => $cval) {
-  $csizes[$cval['slug']] = $cval['name'];
-  }
-  return array_merge( $sizes, $csizes );
-  } */
-
 function sampression_image($image, $return) {
     //timthumb image processing
 }
@@ -476,18 +461,6 @@ function sampression_primary_navigation_fallback() {
     );
     wp_page_menu($args);
 }
-
-//function add_menuid ($page_markup) {
-//    //echo $page_markup;
-//    preg_match('/^<div class=\"([a-z0-9-_]+)\">/i', $page_markup, $matches);
-//    $divclass = $matches[1];
-//    $toreplace = array('<div class="'.$divclass.'">', '</div>');
-//    $new_markup = str_replace($toreplace, '', $page_markup);
-//    $new_markup = preg_replace('/^<ul>/i', '<ul id="'.$divclass.'">', $new_markup);
-//    return $new_markup;
-//}
-//
-//add_filter('wp_page_menu', 'add_menuid');
 
 if (!function_exists('sampression_the_title')) :
     function sampression_the_title() {

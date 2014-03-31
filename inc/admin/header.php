@@ -17,6 +17,6 @@
             <li><a href="javascript:void(0);"><i class="icon-support-desk"></i><?php _e('VISIT SUPPORT DESK', 'sampression');?></a></li>
         </ul>
     </nav>
-    <!--end of #top-nav-->
+    <!-- #top-nav-->
     <div id="sam-main-content" class="clearfix">
         <?php message_info() ?>

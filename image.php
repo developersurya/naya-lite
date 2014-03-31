@@ -41,10 +41,10 @@ setPostViews(get_the_ID());
                     <?php get_template_part( 'content', 'none' ); ?>
 
             <?php endif; ?>
-                <!--end of .post-->
+                <!-- .post-->
 
             </div>
-          <!--end of #primary-content-->
+          <!-- #primary-content-->
         </div>
         <?php sampression_right_sidebar() ?>
     </div>

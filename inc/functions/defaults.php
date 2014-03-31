@@ -330,25 +330,6 @@ function sampression_blog($defaults = false) {
 }
 
 /**
- * Miscellaneous setting array
- * If $defaults is set to true, returns default miscellaneous setting array
- * else fetch from table
- *
- * @param $defaults
- * @return array
- */
-//function sampression_miscellaneous_setting($defaults = false) {
-//    $miscellaneous = array(
-//        'show_adminbar_frontend' => 'no'
-//    );
-//    $miscellaneous_serialize = serialize($miscellaneous);
-//    if($defaults === true) {
-//        return unserialize($miscellaneous_serialize);
-//    }
-//    return unserialize(get_option('sam-miscellaneous-settings', $miscellaneous_serialize));
-//}
-
-/**
  * Hook setting defaults
  * If $defaults is set to true, returns default hook setting array
  * else fetch from table

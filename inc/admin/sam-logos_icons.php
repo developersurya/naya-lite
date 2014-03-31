@@ -119,7 +119,7 @@ $default_fonts = (object) sampression_fonts_style();
                 </div>
             </div>
         </section>
-        <!-- end of .row-->
+        <!-- .row-->
         <section class="row">
             <?php
             $apple_favicon = $logo_icon->apple_icon;
@@ -220,7 +220,7 @@ $default_fonts = (object) sampression_fonts_style();
                 </div>
             </div>
         </section>
-        <!-- end of .row-->
+        <!-- .row-->
         <div id="response"></div>
         <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e('Save', 'sampression');?></a>
     </form>

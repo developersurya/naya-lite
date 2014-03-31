@@ -37,7 +37,7 @@ $available_hooks = $hooks->hook;
             </div>
         </section>
     <?php } ?>
-        <!-- end of .row-->
+        <!-- .row-->
         <div id="response"></div>
         <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e('Save', 'sampression');?></a>
     </form>

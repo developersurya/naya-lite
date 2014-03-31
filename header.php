@@ -48,7 +48,7 @@ if ( ! defined('ABSPATH')) exit('restricted access');
             <a href="#" id="trigger-primary-nav"><i class="icon-menu6"></i><?php _e('Menu', 'sampression');?></a>
             <?php sampression_navigation() ?>
         </nav>
-        <!--#primary-nav -->
+        <!-- #primary-nav -->
     </div>
 </header>
 <?php do_action('sampression_after_header'); ?>
