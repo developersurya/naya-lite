@@ -1,5 +1,5 @@
 <?php
-if ( ! defined('ABSPATH')) exit('restricted access');
+if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 
 $hooks = (object) sampression_hooks_setting();
 
@@ -9,8 +9,8 @@ $available_hooks = $hooks->hook;
 <div id="content">
     <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="hooks-settings" />
-    <h3 class="sec-title"><?php _e('Hooks', 'sampression');?></h3>
-    <?php foreach($available_hooks as $available_hook_key => $available_hook_val) {
+    <h3 class="sec-title"><?php _e( 'Hooks', 'sampression' );?></h3>
+    <?php foreach ( $available_hooks as $available_hook_key => $available_hook_val ) {
         ?>
         <section class="row">
             <div class="box titled-box">
