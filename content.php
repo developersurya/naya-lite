@@ -5,7 +5,7 @@
  * @theme naya 1.0
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/Article" itemscope="" role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
         <?php sampression_the_title() ?>
         <div class="entry-meta">

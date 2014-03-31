@@ -6,7 +6,7 @@
  */
 if ( ! defined('ABSPATH')) exit('restricted access');
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(sampression_post_class()); ?> itemtype="http://schema.org/Article" itemscope="" role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class(sampression_post_class()); ?> itemscope="itemscope" itemtype="http://schema.org/Article" role="article">
     <header class="entry-header clearfix">
         <?php sampression_the_title() ?>
     </header>

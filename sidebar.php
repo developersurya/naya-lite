@@ -7,7 +7,7 @@
 if (!defined('ABSPATH'))
     exit('restricted access');
 ?>
-<div id="sidebar" role="complementary" class="<?php sampression_sidebar_class() ?>">
+<aside id="sidebar" role="complementary" class="<?php sampression_sidebar_class() ?>">
     <?php do_action('sampression_before_sidebar'); ?>
     <?php
     if (is_active_sidebar('primary-sidebar')) {
@@ -15,5 +15,5 @@ if (!defined('ABSPATH'))
     }
     ?>
     <?php do_action('sampression_after_sidebar'); ?>
-</div>
+</aside>
 <!-- #sidebar-->

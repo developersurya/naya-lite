@@ -52,5 +52,5 @@ get_header();
         </div>
         <?php sampression_right_sidebar() ?>            
     </div>
-</section>
+</section><!--.block-->
 <?php get_footer(); ?>
