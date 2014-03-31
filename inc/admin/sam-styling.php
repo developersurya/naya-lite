@@ -1,6 +1,6 @@
 <?php
-if (!defined('ABSPATH'))
-    exit('restricted access');
+if ( !defined( 'ABSPATH' ) )
+    exit( 'restricted access' );
 
 $style = sampression_styling();
 //sam_p($style);
@@ -10,10 +10,10 @@ $default_fonts = sampression_fonts_style();
     <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="styling" />
         <section class="row">
-            <h3 class="sec-title"><?php _e('Customize', 'sampression'); ?></h3>
+            <h3 class="sec-title"><?php _e( 'Customize', 'sampression' ); ?></h3>
             <div class="box titled-box">
                 <div  class="box-title">
-                    <h4><?php _e('Sidebar', 'sampression') ?></h4>
+                    <h4><?php _e( 'Sidebar', 'sampression' ) ?></h4>
                 </div>
                 <div class="box-entry">
                     <ul id="sidebar-selector" class="style-selector-list clearfix">
@@ -21,18 +21,18 @@ $default_fonts = sampression_fonts_style();
                         $sidebar = $style['sidebar'];
                         $sidebar_name = $sidebar['name'];
                         $sidebar_active = $sidebar['active'];
-                        for ($i = 0; $i < count($sidebar_name); $i++) {
+                        for ( $i = 0; $i < count( $sidebar_name ); $i++ ) {
                             ?>
                             <li class="<?php
-                            if ($i == 0) {
+                            if ( $i == 0 ) {
                                 echo 'first ';
-                            } if ($sidebar_active == $sidebar_name[$i]) {
+                            } if ( $sidebar_active == $sidebar_name[$i] ) {
                                 echo 'active ';
                             }
                             ?>style-selector">
                                 <a href="javascript:void(0);" data-sidebar="<?php echo $sidebar_name[$i]; ?>" class="sam-style">
                                     <img src="<?php echo SAM_FW_ADMIN_IMAGES_URL; ?>/<?php echo $sidebar_name[$i]; ?>-layout.jpg" alt=""/>
-    <?php echo ucwords($sidebar_name[$i]); ?>
+    <?php echo ucwords( $sidebar_name[$i] ); ?>
                                 </a>
                             </li>
     <?php
@@ -44,6 +44,6 @@ $default_fonts = sampression_fonts_style();
             </div>
         </section>
         <div id="response"></div>
-        <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e('Save', 'sampression');?></a>
+        <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
     </form>
 </div>

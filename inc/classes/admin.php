@@ -1,5 +1,5 @@
 <?php
-if ( ! defined('ABSPATH')) exit('restricted access');
+if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 
 class Sampression_Admin {
 
@@ -7,11 +7,11 @@ class Sampression_Admin {
      * construct
      */
     public function __construct() {
-        add_action( 'admin_menu', array($this, 'add_admin_menu'), 5);
-        add_action( 'admin_print_scripts', array($this, 'admin_scripts'));
-        add_action( 'admin_print_styles', array($this, 'admin_styles'));
-        add_action( 'admin_head', array($this, 'admin_ie_js_css'));
-        add_action( 'wp_enqueue_scripts', array($this, 'sampression_stylesheets_scripts') );
+        add_action( 'admin_menu', array( $this, 'add_admin_menu' ), 5 );
+        add_action( 'admin_print_scripts', array( $this, 'admin_scripts' ) );
+        add_action( 'admin_print_styles', array( $this, 'admin_styles' ) );
+        add_action( 'admin_head', array( $this, 'admin_ie_js_css' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'sampression_stylesheets_scripts' ) );
     }
 
     /**
@@ -23,16 +23,16 @@ class Sampression_Admin {
      * add admin menu
      */
     public function add_admin_menu() {
-        add_theme_page('Sampression', 'Sampression', 'manage_options', 'sampression-options', array($this, 'sampression_load_page'));
+        add_theme_page( 'Sampression', 'Sampression', 'manage_options', 'sampression-options', array( $this, 'sampression_load_page' ) );
     }
     
     function sampression_load_page() {
-        $pages = array('styling', 'typography', 'social-media', 'custom-css', 'blog', 'hooks');
-        if(isset($_GET['sam-page']) && in_array($_GET['sam-page'], $pages)) {
-            $page_slug = str_replace('-', '_', $_GET['sam-page']);
-            $this->layout($page_slug);
+        $pages = array( 'styling', 'typography', 'social-media', 'custom-css', 'blog', 'hooks' );
+        if( isset( $_GET['sam-page'] ) && in_array( $_GET['sam-page'], $pages ) ) {
+            $page_slug = str_replace( '-', '_', $_GET['sam-page'] );
+            $this->layout( $page_slug );
         } else {
-            $this->layout('logos_icons');
+            $this->layout( 'logos_icons' );
         }
     }
 
@@ -86,33 +86,33 @@ class Sampression_Admin {
      * load admin scripts
      */
     public function admin_scripts() {
-        wp_register_script('modernizr', SAM_FW_ADMIN_JS_URL . '/modernizr.js', array(), '2.6.2', false);
-        wp_register_script('selectivizr', SAM_FW_ADMIN_JS_URL . '/selectivizr.js', array('jquery'), '1.0.2', true);
-        wp_register_script('SelectBox', SAM_FW_ADMIN_JS_URL . '/SelectBox.js', array('jquery'), '1.0', true);
-        wp_register_script('jScrollPane', SAM_FW_ADMIN_JS_URL . '/jScrollPane.js', array('jquery'), '1.0', true);
-        wp_register_script('jquerymousewheel', SAM_FW_ADMIN_JS_URL . '/jquery.mousewheel.js', array('jquery'), '1.0', true);
-        wp_register_script('codemirror', SAM_FW_ADMIN_JS_URL . '/codemirror.js', array(), '1.0', true);
-        wp_register_script('csscodemirror', SAM_FW_ADMIN_JS_URL . '/csscodemirror.js', array(), '1.0', true);
-        wp_register_script('admin-script', SAM_FW_ADMIN_JS_URL . '/admin-script.js', array('jquery', 'wp-color-picker','jquery-ui-tooltip'), '1.0', true);//, 'thickbox', 'media-upload'
+        wp_register_script( 'modernizr', SAM_FW_ADMIN_JS_URL . '/modernizr.js', array(), '2.6.2', false );
+        wp_register_script( 'selectivizr', SAM_FW_ADMIN_JS_URL . '/selectivizr.js', array( 'jquery' ), '1.0.2', true );
+        wp_register_script( 'SelectBox', SAM_FW_ADMIN_JS_URL . '/SelectBox.js', array( 'jquery' ), '1.0', true );
+        wp_register_script( 'jScrollPane', SAM_FW_ADMIN_JS_URL . '/jScrollPane.js', array( 'jquery' ), '1.0', true );
+        wp_register_script( 'jquerymousewheel', SAM_FW_ADMIN_JS_URL . '/jquery.mousewheel.js', array( 'jquery' ), '1.0', true );
+        wp_register_script( 'codemirror', SAM_FW_ADMIN_JS_URL . '/codemirror.js', array(), '1.0', true);
+        wp_register_script( 'csscodemirror', SAM_FW_ADMIN_JS_URL . '/csscodemirror.js', array(), '1.0', true);
+        wp_register_script( 'admin-script', SAM_FW_ADMIN_JS_URL . '/admin-script.js', array( 'jquery', 'wp-color-picker','jquery-ui-tooltip' ), '1.0', true );//, 'thickbox', 'media-upload'
         wp_enqueue_media();
-        wp_enqueue_script('jquery-ui-tooltip');
-        wp_enqueue_script('modernizr');
-        wp_enqueue_script('selectivizr');
-        wp_enqueue_script('SelectBox');
-        wp_enqueue_script('jScrollPane');
-        wp_enqueue_script('jquerymousewheel');
-        wp_enqueue_script('codemirror');
-        wp_enqueue_script('csscodemirror');
-        wp_enqueue_script('admin-script');
+        wp_enqueue_script( 'jquery-ui-tooltip' );
+        wp_enqueue_script( 'modernizr' );
+        wp_enqueue_script( 'selectivizr' );
+        wp_enqueue_script( 'SelectBox' );
+        wp_enqueue_script( 'jScrollPane' );
+        wp_enqueue_script( 'jquerymousewheel' );
+        wp_enqueue_script( 'codemirror' );
+        wp_enqueue_script( 'csscodemirror' );
+        wp_enqueue_script( 'admin-script' );
     }
 
     /**
      * load admin styles
      */
     public function admin_styles() {
-        wp_enqueue_style('wp-color-picker');
-        wp_enqueue_style('admin-style', SAM_FW_ADMIN_CSS_URL . '/admin-style.css', false, false, 'screen');
-        wp_enqueue_style('font-style', 'http://fonts.googleapis.com/css?family=Kreon', false, false, 'screen');
+        wp_enqueue_style( 'wp-color-picker' );
+        wp_enqueue_style( 'admin-style', SAM_FW_ADMIN_CSS_URL . '/admin-style.css', false, false, 'screen' );
+        wp_enqueue_style( 'font-style', 'http://fonts.googleapis.com/css?family=Kreon', false, false, 'screen' );
     }
 
     /**
@@ -129,49 +129,49 @@ class Sampression_Admin {
      * Load logo and icon layout
      */
     public function logos_icons() {
-        $this->layout('logos_icons');
+        $this->layout( 'logos_icons' );
     }
 
     /**
      * Load styling layout
      */
     public function styling() {
-        $this->layout('styling');
+        $this->layout( 'styling' );
     }
 
     /**
      * Load typography layout
      */
     public function typography() {
-        $this->layout('typography');
+        $this->layout( 'typography' );
     }
 
     /**
      * Load social media layout
      */
     public function social_media() {
-        $this->layout('social_media');
+        $this->layout( 'social_media' );
     }
 
     /**
      * Load custom css layout
      */
     public function custom_css() {
-        $this->layout('custom_css');
+        $this->layout( 'custom_css' );
     }
 
     /**
      * Load blog layout
      */
     public function blog() {
-        $this->layout('blog');
+        $this->layout( 'blog' );
     }
 
     /**
      * Load hooks layout
      */
     public function hooks() {
-        $this->layout('hooks');
+        $this->layout( 'hooks' );
     }
 
 }
