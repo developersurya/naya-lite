@@ -7,6 +7,7 @@
 if ( ! defined('ABSPATH')) exit('restricted access');
 get_header();
 ?>
+
 <section class="block">
     <div class="container">
         <div class="<?php sampression_content_class() ?>">

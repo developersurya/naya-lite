@@ -8,6 +8,7 @@ if ( ! defined('ABSPATH')) exit('restricted access');
 get_header();
 setPostViews(get_the_ID());
 ?>
+
 <section class="block">
     <div class="container">
         <div class="<?php sampression_content_class() ?>">

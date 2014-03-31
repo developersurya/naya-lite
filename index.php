@@ -8,7 +8,7 @@ if ( ! defined('ABSPATH')) exit('restricted access');
 get_header();
 //sam_p(sampression_hooks_setting());
 ?>
-<!-- #header-->
+
 <section class="block">
     <div class="container">
         <div id="content" class="<?php sampression_content_class() ?>">

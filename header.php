@@ -51,4 +51,5 @@ if ( ! defined('ABSPATH')) exit('restricted access');
         <!-- #primary-nav -->
     </div>
 </header>
+<!--/#header-->
 <?php do_action('sampression_after_header'); ?>
