@@ -796,7 +796,7 @@ input[type="radio"] {
 #inner-wrapper {
     position: relative;
     width: 100%;
-    transition: left 0.5s ease 0s;
+
 }
 
 .block {
