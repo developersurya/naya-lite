@@ -38,7 +38,7 @@ if (!function_exists('sampression_setup')):
          */
         add_theme_support( 'custom-header', array(
                 // Text color and image (empty to use none).
-                'default-text-color'     => '#000000',
+                'default-text-color'     => '',
                 'default-image'          => '',
 
                 // Set height and width, with a maximum value for the width.
@@ -1035,34 +1035,3 @@ function sampression_get_the_excerpt($post_id = '') {
     $excerpt = $post->post_excerpt;
     return $excerpt;
 }
-
-
-add_action('sampression_custom_header_style','sampression_custom_header_style');
-
-function sampression_custom_header_style() {
-	$text_color = get_header_textcolor();
-	// If no custom options for text are set, do nothing
-	if ( $text_color == get_theme_support( 'custom-header', 'default-text-color' ) )
-		return;
-	// Else, we have custom styles.
-	?>
-	<style type="text/css">
-		<?php	// Is the text hidden?
-			if ( ! display_header_text() ) :
-		?>
-			.site-title,
-			.site-description {
-				position: absolute !important;
-				clip: rect(1px 1px 1px 1px); /* IE7 */
-				clip: rect(1px, 1px, 1px, 1px);
-			}
-		<?php	// If the user has set a custom color for the text, lets use that.
-			else : 
-		?>
-			.site-title a.home-link,
-			.site-description {
-				color: #<?php echo $text_color; ?> !important;
-			}
-		<?php endif; ?>
-	</style>
-<?php } 

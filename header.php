@@ -20,8 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 <link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_bloginfo( 'stylesheet_url' ) ); ?>" media="all" />
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
 <?php sampression_favicons(); ?>
-<?php // Custom header styles
-do_action('sampression_custom_header_style'); ?>
 <?php wp_head(); ?>
 <!--[if lt IE 9]>
 <script src="<?php echo SAM_FW_JS_URL; ?>/modernizr.js"></script>
