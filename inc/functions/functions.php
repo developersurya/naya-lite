@@ -1046,9 +1046,6 @@ function sampression_custom_header_style() {
 		return;
 	// Else, we have custom styles.
 	?>
-                <script>
-                    alert('Hello');
-                </script>
 	<style type="text/css">
 		<?php	// Is the text hidden?
 			if ( ! display_header_text() ) :
