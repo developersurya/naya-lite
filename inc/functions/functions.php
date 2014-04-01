@@ -1035,3 +1035,13 @@ function sampression_get_the_excerpt($post_id = '') {
     $excerpt = $post->post_excerpt;
     return $excerpt;
 }
+
+/*=======================================================================
+ * Shows footer credits
+ *=======================================================================*/
+function sampression_footer_text() {
+?>
+    <?php _e( 'A theme by', 'sampression' ); ?> <a href="<?php echo esc_url( __( 'http://sampression.com', 'sampression' ) ); ?>" target="_blank" title="<?php esc_attr_e( 'Sampression', 'sampression' ); ?>"><?php _e( 'Sampression', 'sampression' ); ?></a>. <?php _e( 'Powered by', 'sampression' ); ?> <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'sampression' ) ); ?>" title="<?php esc_attr_e( 'WordPress', 'sampression' ); ?>" target="_blank" ><?php _e( 'WordPress', 'sampression' ); ?></a>.
+<?php
+}
+add_filter( 'sampression_credits', 'sampression_footer_text' );
