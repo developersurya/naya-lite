@@ -50,6 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                 <nav id="primary-nav" class="clearfix" role="navigation">
                     
                     <?php sampression_navigation() ?>
+                    <span class="nav-close"><i class="icon-close4"></i></span>
                 </nav>
                 <!-- #primary-nav -->
             </div>

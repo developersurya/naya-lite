@@ -123,9 +123,20 @@ only screen and (min-device-pixel-ratio: 2) {
         padding-top:5em; 
 
     }
+
+    .nav-close {
+        color: #FFFFFF;
+        display: block;
+        font-size: 21px;
+        left: 50px;
+        position: absolute;
+        top: 40px;
+        cursor: pointer;
+    }
+
     #primary-nav > div > ul li:hover a {
-    color: #666666;
-}
+        color: #666666;
+    }
     #primary-nav > div > ul {
         margin: 5px 0 0 ;
         padding: 0;
@@ -190,7 +201,9 @@ only screen and (min-device-pixel-ratio: 2) {
     #primary-nav > div > ul ul li.menu-item-has-children a{
         border-bottom: 1px solid #555555!important;
     }
-    #primary-nav > div > ul li a:hover{
+    #primary-nav > div > ul li a:hover,
+    #primary-nav ul li.current-menu-item li a:hover
+    {
         color: #57B94A;
     }
     #primary-nav > div > ul li ul{
@@ -202,6 +215,10 @@ only screen and (min-device-pixel-ratio: 2) {
     #primary-nav > div > ul ul ul{
       padding-left:10%;
     }
+    #primary-nav ul li.current-menu-item li a {
+        color: #666666;
+    }
+
 	#primary-nav .icon-arrow-down{
     cursor: pointer;
     display: inline-block;
