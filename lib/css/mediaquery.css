@@ -99,18 +99,33 @@ only screen and (min-device-pixel-ratio: 2) {
         float: none;
         text-align: center;
     }
-
+    #wrapper {
+        overflow: hidden;
+    }
+    .show-nav #inner-wrapper {
+        left: 70%;
+    }
     /* #Navigation Style
        ================================================== */
-    #primary-nav, #primary-nav.sixteen{
-        padding: 20px 0 0;
-		float:left;
-		width:98%;
-		margin-left: 1%;
-   		 margin-right: 1%;
+    #primary-nav {
+        background: none repeat scroll 0 0 #333333;
+        clear: both;
+        left: -70%;
+        padding:0 10%;
+        position: absolute;
+        top: -40px;
+        width: 50%;
+        z-index: 99;
+        margin:0!important;
     }
+    .menu-all-pages-container{
+        padding-top:5em; 
+
+    }
+    #primary-nav > div > ul li:hover a {
+    color: #666666;
+}
     #primary-nav > div > ul {
-        display: none ;
         margin: 5px 0 0 ;
         padding: 0;
     }
@@ -130,15 +145,20 @@ only screen and (min-device-pixel-ratio: 2) {
     #primary-nav > div > ul, #primary-nav.sixteen > div > ul {
         padding: 0;
         float: none;
-        border: 1px solid #e2e2e2;
-        background: #fff;
-    }
+     }
     #primary-nav > div > ul ul{
         position: inherit;
         top: 0;
-        width: 100%;
-        display: none;
-        padding: 0;
+        width: 90%;
+        display: block!important;
+        padding: 0 0 0 10%;
+        visibility: visible!important;
+        background-color:transparent!important;
+    }
+    #primary-nav > div > ul li:hover ul, #primary-nav > div > ul li.sfHover ul {
+        left:0!important;
+        top:0!important;
+        text-indent: none;
     }
     #primary-nav > div > ul li {
         padding: 0;
@@ -149,16 +169,25 @@ only screen and (min-device-pixel-ratio: 2) {
         height: auto;
     }
     #primary-nav > div > ul li a {
-        color: #000;
+        color: #666666;
         text-decoration: none;
         display: block;
         font-size:14px;
-        padding:10px 15px ;
+        padding:10px 0!important;
         height: auto;
-        border-bottom: 1px solid #e2e2e2;
     }
-    #primary-nav > div > ul > li:last-child a{
-        border: none;
+    #primary-nav > div > ul ul li a,
+    #primary-nav > div > ul ul li:last-child li a
+
+    {
+        border-bottom: 1px solid #555555;
+    }
+    #primary-nav > div > ul ul li:last-child a,
+    #primary-nav > div > ul ul li.menu-item-has-children li:last-child a{
+        border-bottom:0!important;
+    }
+    #primary-nav > div > ul ul li.menu-item-has-children a{
+        border-bottom: 1px solid #555555!important;
     }
     #primary-nav > div > ul li a:hover{
         color: #57B94A;
@@ -169,11 +198,8 @@ only screen and (min-device-pixel-ratio: 2) {
         left: 0 ;
         border: none;
     }
-    #primary-nav > div > ul ul li a{
-        padding-left: 35px;
-    }
-    #primary-nav > div > ul ul ul li a{
-        padding-left: 55px ;
+    #primary-nav > div > ul ul ul{
+      padding-left:10%;
     }
 	#primary-nav .icon-arrow-down{
     cursor: pointer;
@@ -219,28 +245,3 @@ only screen and (min-device-pixel-ratio: 2) {
     }
 	
 }
-/*@media only screen and (max-width: 359px) {
-    .gallery {
-        margin-left: 0;
-    }
-    .gallery .gallery-item, .gallery-columns-2.gallery-size-thumbnail .gallery-item {
-        max-width: none;
-        width: calc(50% - 4px);
-    }
-    .gallery-columns-1.gallery-size-medium, .gallery-columns-1.gallery-size-thumbnail, .gallery-columns-2.gallery-size-thumbnail, .gallery-columns-3.gallery-size-thumbnail {
-        display: block;
-    }
-    .gallery-columns-1 .gallery-item, .gallery-columns-1.gallery-size-medium .gallery-item, .gallery-columns-1.gallery-size-thumbnail .gallery-item {
-        text-align: center;
-        width: calc(100% - 4px);
-    }
-    .gallery-columns-3 .gallery-item:nth-of-type(3n), .gallery-columns-5 .gallery-item:nth-of-type(5n), .gallery-columns-7 .gallery-item:nth-of-type(7n), .gallery-columns-9 .gallery-item:nth-of-type(9n) {
-        margin-right: 4px;
-    }
-    .gallery br {
-        display: none;
-    }
-    .gallery .gallery-item:nth-of-type(2n) {
-        margin-right: 0;
-    }
-}*/

@@ -788,6 +788,17 @@ input[type="radio"] {
 	margin: 0;
 }
 
+#wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#inner-wrapper {
+    position: relative;
+    width: 100%;
+    transition: left 0.5s ease 0s;
+}
+
 .block {
     padding: 40px 0 30px;
     border-bottom: 1px solid #e2e2e2;
