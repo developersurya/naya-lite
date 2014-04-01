@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
         <footer id="footer" class="block">
             <div class="container">
                 <div class="eleven columns">
-                    <div class="site-info"><?php _e( '&copy; 2013. nayá. A theme by <a href="http://sampression.com" target="_blank">Sampression</a>. Powered by <a href="http://wordpress.org" target="_blank">WordPress</a>.', 'sampression' ); ?></div>
+                    <div class="site-info"> &copy; <?php _e(date('Y')); ?>. "<?php bloginfo( 'name' ); ?>". <?php do_action( 'sampression_credits' ); ?></div>
                 </div>
                 <div class="five columns">
                     <div class="social-connect social-withtext">
