@@ -504,7 +504,7 @@ if (!function_exists('sampression_post_meta')) :
                 $time = ' ' . get_the_time();
             }
             $posted .= sprintf(
-                        '<time datetime="%2$s" class="entry-date" itemprop="datePublished"><a href="%3$s">%1$s' . $time . '</a></time>',
+                        '<time datetime="%2$s" class="entry-date"><a href="%3$s">%1$s' . $time . '</a></time>',
                         get_the_date($sampression_blog_settings->post_meta['date_time']['date_active']),
                         get_the_date('c'),
                         get_permalink()
