@@ -259,7 +259,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	}
 
     #primary-nav > div > ul li ul li a {
-        padding-left: 30px;
+        padding-left: 33px;
     }
 
     #primary-nav > div > ul li ul li ul li a {
