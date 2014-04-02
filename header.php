@@ -34,7 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
         <header id="header" class="block">
             <div class="container">
                 <div class="six columns">
-                    <?php sampression_blog_title() ?>
+                	<span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i>&nbsp;</a></span>
+                   <div class="site-title-wrap">
+                        <?php sampression_blog_title() ?>
+                    </div>
                 </div>
                 <div class="social-connect">
                     <?php echo sampression_social_media_icons( $location = 'header', $separater = '' ) ?>
@@ -46,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                             </div>
         		<?php endif; ?>
                 <!-- .social-connect-->
-                <span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i>&nbsp;</a></span>
+                
                 <nav id="primary-nav" class="clearfix" role="navigation">
                     
                     <?php sampression_navigation() ?>

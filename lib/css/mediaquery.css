@@ -97,18 +97,18 @@ only screen and (min-device-pixel-ratio: 2) {
         overflow: hidden;
     }
     .show-nav #inner-wrapper {
-        margin-left: 70%;
+        margin-left: -70%;
     }
     /* #Navigation Style
        ================================================== */
     #primary-nav {
-        background: none repeat scroll 0 0 #333333;
+        background: none repeat scroll 0 0 #fff;
         clear: both;
-        left: -70%;
-        padding:2.6em 10% 0;
+        right: -70%;
+        padding:2.7em 0 0;
         position: absolute;
         top: -40px;
-        width: 50%;
+        width: 70%;
         z-index: 99;
         margin:0!important;
     }
@@ -130,11 +130,17 @@ only screen and (min-device-pixel-ratio: 2) {
         margin: 5px 0 0 ;
         padding: 0;
     }
+
+    .site-title-wrap {
+        margin-right: 50px;
+    }
     #trigger-primary-nav{
         display: inline-block;
         color: #000;
         font-size: 25px;
         margin-left:1%;
+        margin-top:10px;
+        float:right;
         -webkit-transition: transform 0.2s ease-in-out;
         -moz-transition: transform 0.2s ease-in-out;
         -ms-transition: transform 0.2s ease-in-out;
@@ -142,11 +148,11 @@ only screen and (min-device-pixel-ratio: 2) {
         transition: transform 0.2s ease-in-out;
     }
     .vertical-transform{
-        -webkit-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
-        -moz-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
-        -ms-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
-        -o-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
-        transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
+        -moz-transform: scale(1) rotate(-90deg);
+        -webkit-transform: scale(1) rotate(-90deg);
+        -o-transform: scale(1) rotate(-90deg);
+        -ms-transform: scale(1) rotate(-90deg);
+        transform: scale(1) rotate(-90deg);
     }
 
     #trigger-primary-nav [class*="icon-"]{
@@ -156,6 +162,19 @@ only screen and (min-device-pixel-ratio: 2) {
         text-decoration: none;
         color: #57B94A;
     }
+    .sub-menu-toggle {
+        background:url(../../images/bg-sprite.png) no-repeat 1px 4px;
+        cursor: pointer;
+        height: 10px;
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        width: 10px;
+        display:block;
+    }
+    .sub-menu-toggle.menu-open{
+        background-position:-21px 0;
+    }
     #primary-nav > div > ul, #primary-nav.sixteen > div > ul {
         padding: 0;
         float: none;
@@ -163,7 +182,7 @@ only screen and (min-device-pixel-ratio: 2) {
     #primary-nav > div > ul ul{
         position: inherit;
         top: 0;
-        width: 90%;
+        width: 100%;
         display: block
         padding: 0 0 0 10%;
         display: none;
@@ -181,28 +200,21 @@ only screen and (min-device-pixel-ratio: 2) {
         display: block;
         width: 100%;
         height: auto;
+        border-bottom: 1px solid #DBDBDB;
+    }
+    #primary-nav > div > ul li:last-child{
+        border-bottom:0;
     }
     #primary-nav > div > ul li a {
         color: #666666;
         text-decoration: none;
         display: block;
         font-size:14px;
-        padding:10px 0!important;
+        padding:10px 0 10px 20px;
         height: auto;
+        margin-right: 30px
     }
-    #primary-nav > div > ul ul li a,
-    #primary-nav > div > ul ul li:last-child li a
 
-    {
-        border-bottom: 1px solid #555555;
-    }
-    #primary-nav > div > ul ul li:last-child a,
-    #primary-nav > div > ul ul li.menu-item-has-children li:last-child a{
-        border-bottom:0!important;
-    }
-    #primary-nav > div > ul ul li.menu-item-has-children a{
-        border-bottom: 1px solid #555555!important;
-    }
     #primary-nav > div > ul li a:hover,
     #primary-nav ul li.current-menu-item li a:hover
     {
@@ -210,12 +222,10 @@ only screen and (min-device-pixel-ratio: 2) {
     }
     #primary-nav > div > ul li ul{
         top: 0 ;
-        border-left: 0;
+        border-width: 1px 0 0 0;
+        border-color: #DBDBDB;
         left: 0 ;
-        border: none;
-    }
-    #primary-nav > div > ul ul ul{
-      padding-left:10%;
+        
     }
     #primary-nav ul li.current-menu-item li a {
         color: #666666;
