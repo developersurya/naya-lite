@@ -574,7 +574,7 @@ if ( ! function_exists( 'sampression_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable
  */
-function sampression_content_nav( $nav_id = '' ) {
+function sampression_content_nav(  ) {
 	global $wp_query, $post;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
@@ -593,7 +593,7 @@ function sampression_content_nav( $nav_id = '' ) {
 	$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 
 	?>
-	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?> clearfix">
+	<nav role="navigation" class="<?php echo $nav_class; ?> clearfix">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'sampression' ); ?></h1>
 
 	<?php if(is_attachment()) {
