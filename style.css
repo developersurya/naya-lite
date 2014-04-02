@@ -796,7 +796,11 @@ input[type="radio"] {
 #inner-wrapper {
     position: relative;
     width: 100%;
-
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .block {
@@ -932,6 +936,15 @@ color: #0274B3;
 }
 .nav-close{
     display: none;
+}
+.nav-height-col {
+    background: none repeat scroll 0 0 #333333;
+    height: 100%;
+    left: -70%;
+    position: absolute;
+    top: 0;
+    width: 70%;
+    color:#333333;
 }
 #primary-nav .icon-arrow-down { 
     display: none;

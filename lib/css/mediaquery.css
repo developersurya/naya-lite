@@ -39,7 +39,7 @@ only screen and (min-device-pixel-ratio: 2) {
 ================================================== */
 
 @media only screen and (max-width: 767px) {
-    .container { width: 100%; }
+    .container { width: 90%; padding:0 5%; }
     .container .columns,
     .container .column { margin-left: 1%; margin-right: 1%; }
 
@@ -83,11 +83,6 @@ only screen and (min-device-pixel-ratio: 2) {
 
     /* #page Style
        ================================================== */
-    #logo,
-    .site-title,
-    .site-description{
-        text-align: center;
-    }
     #logo{
         display: block;
     }
@@ -97,13 +92,12 @@ only screen and (min-device-pixel-ratio: 2) {
     }
     .social-connect{
         float: none;
-        text-align: center;
     }
     #wrapper {
         overflow: hidden;
     }
     .show-nav #inner-wrapper {
-        left: 70%;
+        margin-left: 70%;
     }
     /* #Navigation Style
        ================================================== */
@@ -111,7 +105,7 @@ only screen and (min-device-pixel-ratio: 2) {
         background: none repeat scroll 0 0 #333333;
         clear: both;
         left: -70%;
-        padding:0 10%;
+        padding:2.6em 10% 0;
         position: absolute;
         top: -40px;
         width: 50%;
@@ -119,19 +113,14 @@ only screen and (min-device-pixel-ratio: 2) {
         margin:0!important;
     }
 
-    .menu-all-pages-container{
-        padding-top:5em; 
-
-    }
-
     .nav-close {
         color: #FFFFFF;
+        cursor: pointer;
         display: block;
         font-size: 21px;
-        left: 50px;
+        left: 1em;
         position: absolute;
-        top: 40px;
-        cursor: pointer;
+        top: 1em;
     }
 
     #primary-nav > div > ul li:hover a {
@@ -145,9 +134,22 @@ only screen and (min-device-pixel-ratio: 2) {
         display: inline-block;
         color: #000;
         font-size: 25px;
+        margin-left:1%;
+        -webkit-transition: transform 0.2s ease-in-out;
+        -moz-transition: transform 0.2s ease-in-out;
+        -ms-transition: transform 0.2s ease-in-out;
+        -o-transition: transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
     }
+    .vertical-transform{
+        -webkit-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
+        -moz-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
+        -ms-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
+        -o-transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
+        transform: scale(1) rotate(90deg) translateX(0px) skewX(0deg);
+    }
+
     #trigger-primary-nav [class*="icon-"]{
-        padding-right: 20px;
         font-size: 27px;
     }
     #trigger-primary-nav:hover{
@@ -162,9 +164,9 @@ only screen and (min-device-pixel-ratio: 2) {
         position: inherit;
         top: 0;
         width: 90%;
-        display: block!important;
+        display: block
         padding: 0 0 0 10%;
-        visibility: visible!important;
+        display: none;
         background-color:transparent!important;
     }
     #primary-nav > div > ul li:hover ul, #primary-nav > div > ul li.sfHover ul {

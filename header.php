@@ -46,11 +46,11 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                             </div>
         		<?php endif; ?>
                 <!-- .social-connect-->
-                <span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i><?php _e('Menu', 'sampression');?></a></span>
+                <span id="trigger-primary-nav"><a href="#primary-nav"><i class="icon-menu6"></i>&nbsp;</a></span>
                 <nav id="primary-nav" class="clearfix" role="navigation">
                     
                     <?php sampression_navigation() ?>
-                    <span class="nav-close"><i class="icon-close4"></i></span>
+                    
                 </nav>
                 <!-- #primary-nav -->
             </div>
