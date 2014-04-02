@@ -1,11 +1,18 @@
 /* #Tablet (Portrait)
 ================================================== */
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-pixel-ratio: 2) {
+/* CSS for high-resolution devices */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
 
+    .sub-menu-toggle {
+       background-image: url(../../images/bg-sprite@2x.png);
+       background-size: 30px 9px;
+       background-repeat: no-repeat;
+    }
 }
-
 @media only screen and (min-width: 959px) {
     .mejs-controls div.mejs-time-rail{
         max-width: 200px;
@@ -163,7 +170,7 @@ only screen and (min-device-pixel-ratio: 2) {
         color: #57B94A;
     }
     .sub-menu-toggle {
-        background:url(../../images/bg-sprite.png) no-repeat 1px 4px;
+        background:url(../../images/bg-sprite.png) no-repeat -21px 0;
         cursor: pointer;
         height: 10px;
         position: absolute;
@@ -173,7 +180,7 @@ only screen and (min-device-pixel-ratio: 2) {
         display:block;
     }
     .sub-menu-toggle.menu-open{
-        background-position:-21px 0;
+        background-position:1px 4px;
     }
     #primary-nav > div > ul, #primary-nav.sixteen > div > ul {
         padding: 0;
@@ -250,6 +257,17 @@ only screen and (min-device-pixel-ratio: 2) {
     float: left;
 	 position: static;
 	}
+
+    #primary-nav > div > ul li ul li a {
+        padding-left: 30px;
+    }
+
+    #primary-nav > div > ul li ul li ul li a {
+        padding-left: 45px;
+    }
+    #primary-nav > div > ul li ul li ul li ul li a {
+        padding-left: 60px;
+    }
     .format-icon .entry-meta [class*="icon-"]{
         display: none;
     }
@@ -275,3 +293,5 @@ only screen and (min-device-pixel-ratio: 2) {
     }
 	
 }
+
+
