@@ -491,7 +491,7 @@ if (!function_exists('sampression_post_meta')) :
         if($sampression_blog_settings->post_meta['meta']['author'] === 'yes') {
             global $authordata;
             $posted .= sprintf(
-                        '<span class="author">%4$s by <a href="%1$s"title="%2$s" rel="author">%3$s</a></span> ',
+                        '<span class="author">%4$s by <a href="%1$s" title="%2$s" rel="author">%3$s</a></span> ',
                         esc_url( get_author_posts_url( $authordata->ID, $authordata->user_nicename ) ),
                         esc_attr( sprintf( __( 'Posts by %s', 'sampression' ), get_the_author() ) ),
                         get_the_author(),
