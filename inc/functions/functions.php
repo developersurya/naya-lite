@@ -456,7 +456,6 @@ function sampression_primary_navigation_fallback() {
     $args = array(
         'sort_column' => 'menu_order, post_title',
 	'menu_class'  => 'main-nav-wrapper',
-
     );
     wp_page_menu($args);
 }
