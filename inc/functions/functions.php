@@ -445,6 +445,8 @@ function sampression_navigation() {
         'menu' => 'primary',
         'menu_class' => 'main-nav clearfix',
         'theme_location' => 'primary',
+        'container'       => 'div',
+	'container_class' => 'main-nav-wrapper',
         'fallback_cb' => 'sampression_primary_navigation_fallback'
     );
     wp_nav_menu($args);
@@ -453,7 +455,8 @@ function sampression_navigation() {
 function sampression_primary_navigation_fallback() {
     $args = array(
         'sort_column' => 'menu_order, post_title',
-        'menu_class' => 'main-page-nav',
+	'menu_class'  => 'main-nav-wrapper',
+
     );
     wp_page_menu($args);
 }
