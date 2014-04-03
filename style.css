@@ -946,6 +946,7 @@ color: #0274B3;
     border-left:1px solid #DBDBDB;
     background: none repeat scroll 0 0 #fff;
     color:#fff;
+    display: none;
 }
 #primary-nav .icon-arrow-down { 
     display: none;
