@@ -18,66 +18,66 @@ Installation
 -------------------------------------------
 
 1. Primary:
- = Login to your wp-admin account and go to Appearance -> Themes.
- = Select "Install" tab and click on the "Upload" link.
- = Select "theme .zip" and click on "Install Now" button.
- = In case of errors, use an alternate method.
+ - Login to your wp-admin account and go to Appearance -> Themes.
+ - Select "Install" tab and click on the "Upload" link.
+ - Select "theme .zip" and click on "Install Now" button.
+ - In case of errors, use an alternate method.
 
 2. Alternate:
- = Unzip the template file (naya-lite.zip) that you have downloaded.
- = Upload the entire folder (naya-lite) to your server via FTP and place it in the /wp-content/themes/ folder.
- = Do not change the directory name.
- = The template files should be there now: /wp-content/themes/naya-lite/index.php (example).
+ - Unzip the template file (naya-lite.zip) that you have downloaded.
+ - Upload the entire folder (naya-lite) to your server via FTP and place it in the /wp-content/themes/ folder.
+ - Do not change the directory name.
+ - The template files should be there now: /wp-content/themes/naya-lite/index.php (example).
 
 3. Log into your WP admin panel and click on "Appearance". Go to "Themes" tab.
 4. Now click on naya-lite" to activate the theme.
 5. Complete all of the required inputs in the sampression page (in the WP admin panel) and click "Save".
 
 6. Change Logo and Favicon:
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Logo & Icons" Tab.
- = Upload the logo, favicon and different sizes of apple touch icons that you require.
- = Select for either Logo or website title to show.
- = Change font-family, font-size, font-style and color for website title and description.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Logo & Icons" Tab.
+ - Upload the logo, favicon and different sizes of apple touch icons that you require.
+ - Select for either Logo or website title to show.
+ - Change font-family, font-size, font-style and color for website title and description.
 
 7. Styling
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Styling" Tab
- = Here you can select whether to show the right sidebar or not on the site.
- = You can also change the sidebar settings for the specific post/page that is available below the editor of the post.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Styling" Tab
+ - Here you can select whether to show the right sidebar or not on the site.
+ - You can also change the sidebar settings for the specific post/page that is available below the editor of the post.
 
 8. Typography
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Typography" Tab
- = Here you can change the font-family and font-size of general text or that of post and page.
- = To change font-size and font-family for general body text select General menu on the top beside typography title.
- = Similarly for the page and post select Post/Pages menu.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Typography" Tab
+ - Here you can change the font-family and font-size of general text or that of post and page.
+ - To change font-size and font-family for general body text select General menu on the top beside typography title.
+ - Similarly for the page and post select Post/Pages menu.
 
 9. Social Media:
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Social Media" tab
- = Here you can add your Facebook, Twitter, Youtube and Linkedin id which appears at the top right of the site.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Social Media" tab
+ - Here you can add your Facebook, Twitter, Youtube and Linkedin id which appears at the top right of the site.
 
 10. Custom CSS
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Custom CSS" Tab
- = Here you can add your own custom css to overwrite the default css of the theme.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Custom CSS" Tab
+ - Here you can add your own custom css to overwrite the default css of the theme.
 
 11. Blog
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Blog" Tab
- = Here you select the meta values to show on the blog page and also hide the posts from any specific category from the blog page.
- = You can also write your own text as "read more" text that links to the single post.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Blog" Tab
+ - Here you select the meta values to show on the blog page and also hide the posts from any specific category from the blog page.
+ - You can also write your own text as "read more" text that links to the single post.
 
 12. Hooks:
- = Login to your wp-admin area and go to Appearance -> Sampression.
- = Select "Hooks" tab.
- = Here you can add different codes to the header and footer of theme. Please be careful to add codes because it might crop the functionality and appearance of theme.
- = You can also add the Webmaster verification codes for Google, Bing and Yahoo.
+ - Login to your wp-admin area and go to Appearance -> Sampression.
+ - Select "Hooks" tab.
+ - Here you can add different codes to the header and footer of theme. Please be careful to add codes because it might crop the functionality and appearance of theme.
+ - You can also add the Webmaster verification codes for Google, Bing and Yahoo.
 
 9. Copyright & License
- = Naya Lite, Copyright 2014 Sampression.com
- = Naya Lite is distributed under the terms of the GNU GPL.
+ - Naya Lite, Copyright 2014 Sampression.com
+ - Naya Lite is distributed under the terms of the GNU GPL.
 
 Child Theme Support
 ------------------------------------------------
