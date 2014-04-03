@@ -201,7 +201,7 @@ function sampression_blog_title() {
             echo '<h2 class="site-description">' . get_bloginfo('description') . '</h2>';
         }
     } else {
-        echo '<div id="logo"><a href="'.get_bloginfo('wpurl').'" class="home-link"><img src="' . $logo_icon->logo_icon['image'] . '" title="' . get_bloginfo('name') . '" /></a></div>';
+        echo '<div id="logo"><a href="'.get_bloginfo('wpurl').'" class="home-link"><img src="' . $logo_icon->logo_icon['image'] . '" title="' . get_bloginfo('name') . '" alt="' . get_bloginfo('name') . '" /></a></div>';
     }
 }
 
