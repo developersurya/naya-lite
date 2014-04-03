@@ -176,17 +176,17 @@ only screen and (min-device-pixel-ratio: 1.5) {
         display: block;
     }
     .sub-menu-toggle {
-        background:url(../../images/bg-sprite.png) no-repeat -21px 0;
+        background: url("../../images/bg-sprite.png") no-repeat scroll -16px 5px;
         cursor: pointer;
-        height: 10px;
+        display: block;
+        height: 20px;
         position: absolute;
-        right: 10px;
-        top: 12px;
-        width: 10px;
-        display:block;
+        right: 5px;
+        top: 7px;
+        width: 20px;
     }
     .sub-menu-toggle.menu-open{
-        background-position:1px 4px;
+        background-position:6px 9px;
     }
     #primary-nav > div > ul, #primary-nav.sixteen > div > ul {
         padding: 0;
@@ -259,13 +259,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	 right: 8px;
     top: 9px;
 	}
-	#primary-nav > div > ul li.page_item_has_children > ul {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-width: 1px;
-    display: none;
-    float: left;
-	 position: static;
-	}
+
     #primary-nav > div > ul ul li .sub-menu-toggle{
         display: none;
     }
@@ -282,10 +276,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
     #primary-nav > div > ul li ul li ul li ul li a {
         padding-left: 60px;
     }
-    #primary-nav ul.main-nav li.inactive a{
-        color:#ccc;
+    #primary-nav .main-nav-wrapper ul li.inactive a{
+        color:#E7E6E6;
     }
-    #primary-nav ul.main-nav li.active a{
+    #primary-nav .main-nav-wrapper ul li.active a{
         color:#666666;
     }
     .format-icon .entry-meta [class*="icon-"]{
