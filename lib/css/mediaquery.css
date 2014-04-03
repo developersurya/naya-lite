@@ -165,9 +165,12 @@ only screen and (min-device-pixel-ratio: 1.5) {
     #trigger-primary-nav [class*="icon-"]{
         font-size: 27px;
     }
-    #trigger-primary-nav:hover{
+    a[href="#primary-nav"]{
+        color:#000!important;
+    }
+    #trigger-primary-nav:hover a{
         text-decoration: none;
-        color: #57B94A;
+        color: #57B94A!important;
     }
     .nav-height-col {
         display: block;
@@ -211,6 +214,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
         width: 100%;
         height: auto;
         border-bottom: 1px solid #DBDBDB;
+    }
+    #primary-nav > div > ul li.active{
+
     }
     #primary-nav > div > ul li:last-child{
         border-bottom:0;
@@ -260,7 +266,12 @@ only screen and (min-device-pixel-ratio: 1.5) {
     float: left;
 	 position: static;
 	}
-
+    #primary-nav > div > ul ul li .sub-menu-toggle{
+        display: none;
+    }
+    #primary-nav > div > ul ul ul{
+        display: block!important;
+    }
     #primary-nav > div > ul li ul li a {
         padding-left: 33px;
     }
@@ -271,8 +282,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
     #primary-nav > div > ul li ul li ul li ul li a {
         padding-left: 60px;
     }
+    #primary-nav ul.main-nav li.inactive a{
+        color:#ccc;
+    }
+    #primary-nav ul.main-nav li.active a{
+        color:#666666;
+    }
     .format-icon .entry-meta [class*="icon-"]{
-        display: none;
+        display: #666666;
     }
     .format-icon .entry-header,
     .format-icon .entry-meta,
