@@ -5,7 +5,6 @@ if ( !defined( 'ABSPATH' ) )
 $typo = sampression_typography();
 $general = $typo['typography']['general'];
 $pp = $typo['typography']['post_pages'];
-print_r($pp);
 //sam_p($style);
 $default_fonts = sampression_fonts_style();
 ?>
