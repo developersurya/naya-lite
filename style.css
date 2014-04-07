@@ -820,6 +820,7 @@ p.lead {
 #logo {
     display: inline-block;
 	margin-top: 3px;
+	max-width: 100%;
 }
 
 .site-title {
