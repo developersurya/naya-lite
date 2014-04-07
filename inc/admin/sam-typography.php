@@ -55,7 +55,7 @@ $default_fonts = sampression_fonts_style();
                                 <div class="section row">
                                     <div class="sec-label"><?php _e( 'Title', 'sampression' ) ?></div>
                                     <div class="entry">
-                                        <h1 id="sam-post-title" class="font-demo" style="font: <?php echo $pp['title']['text']['active']['size']; ?>px <?php echo $pp['title']['text']['active']['font']; ?>; color: <?php echo $pp['title']['text']['active']['color']; ?>;"><?php _e( 'The quick brown fox jumps over the lazy dog.', 'sampression' ) ?></h1>
+                                        <h1 id="sam-post-title" class="font-demo" style="font: <?php echo $pp['title']['text']['active']['size']; ?>px <?php echo $pp['title']['text']['active']['font']; ?>;"><?php _e( 'The quick brown fox jumps over the lazy dog.', 'sampression' ) ?></h1>
                                         <div class="select-wrapper font-face large-select alignleft" >
                                             <?php sampression_font_select( 'pp_title_font_face', 'sam-select change-fontface', $pp['title']['text']['active']['font'] ) ?>
                                         </div>
@@ -77,7 +77,7 @@ $default_fonts = sampression_fonts_style();
                                 <div class="section row">
                                     <div class="sec-label"><?php _e( 'Text', 'sampression' ) ?></div>
                                     <div class="entry">
-                                        <div id="sam-meta-text" class="font-demo" style="font: <?php echo $pp['meta']['text']['active']['style']; ?> <?php echo $pp['meta']['text']['active']['size']; ?>px <?php echo $pp['meta']['text']['active']['font']; ?>; color: <?php echo $pp['meta']['text']['active']['color']; ?>;"><?php _e( 'The quick brown fox jumps over the lazy dog.', 'sampression' ) ?></div>
+                                        <div id="sam-meta-text" class="font-demo" style="font: <?php echo $pp['meta']['text']['active']['style']; ?> <?php echo $pp['meta']['text']['active']['size']; ?>px <?php echo $pp['meta']['text']['active']['font']; ?>; "><?php _e( 'The quick brown fox jumps over the lazy dog.', 'sampression' ) ?></div>
                                         <div class="select-wrapper font-face large-select alignleft" >
                                             <?php sampression_font_select( 'pp_meta_font_face', 'sam-select change-fontface', $pp['meta']['text']['active']['font'] ) ?>
                                         </div>
