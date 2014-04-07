@@ -276,6 +276,8 @@ function generate_custom_css() {
         $sampression_style = (object) unserialize($style_option);
         //sam_p($sampression_style);die;
         $css .= 'body { font: ' . $sampression_style->typography['general']['p']['active']['size'] . 'px ' . $sampression_style->typography['general']['p']['active']['font'] . '; }' . PHP_EOL;
+        $css .= '.entry-title { font: ' . $sampression_style->typography['post_pages']['title']['text']['active']['size'] . 'px ' . $sampression_style->typography['post_pages']['title']['text']['active']['font'] . '; }' . PHP_EOL;
+        $css .= '.entry-meta { font: ' . $sampression_style->typography['post_pages']['meta']['text']['active']['size'] . 'px ' . $sampression_style->typography['post_pages']['meta']['text']['active']['font'] . '; }' . PHP_EOL;
     }
     if(get_option('sam-custom-css-settings')) {
         $css_option = get_option('sam-custom-css-settings');
