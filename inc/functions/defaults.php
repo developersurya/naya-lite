@@ -86,19 +86,19 @@ function sampression_logos_icons($defaults = false) {
         ),
         'apple_icon' => array(
             'favicon_57' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/57x57.png',
+                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-57x57.png',
                 'donot_use_favicon' => 'no'
             ),
             'favicon_72' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/72x72.png',
+                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-72x72.png',
                 'donot_use_favicon' => 'no'
             ),
             'favicon_114' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/114x114.png',
+                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-114x114.png',
                 'donot_use_favicon' => 'no'
             ),
             'favicon_144' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/144x144.png',
+                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-144x144.png',
                 'donot_use_favicon' => 'no'
             ),
             'donot_use_apple_icon' => 'no'
