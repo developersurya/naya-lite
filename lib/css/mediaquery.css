@@ -2,7 +2,7 @@
 ================================================== */
 
 /* CSS for high-resolution devices */
-@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+/*@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
 only screen and (-moz-min-device-pixel-ratio: 1.5),
 only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min-device-pixel-ratio: 1.5) {
@@ -12,7 +12,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
        background-size: 30px 9px;
        background-repeat: no-repeat;
     }
-}
+}*/
 @media only screen and (min-width: 959px) {
     .mejs-controls div.mejs-time-rail{
         max-width: 200px;
@@ -33,7 +33,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
     input[type="text"], input[type="password"], input[type="email"], select, .search-form .submit, textarea{
         width: 90%;
     }
-
+    input#s{
+        width:53%;
+    }
 
 }
 @media (min-width: 768px) {

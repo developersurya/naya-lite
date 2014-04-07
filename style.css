@@ -1403,13 +1403,14 @@ input#s {
 
 #searchsubmit {
     height: 34px;
-    padding: 6px 9px;
+    padding: 6px 2%;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
     margin-left: -1px;
     background: transparent;
     cursor: pointer;
+    width:35%;
 }
 
 .search-form .submit:hover,

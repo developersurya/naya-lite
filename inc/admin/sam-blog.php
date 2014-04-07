@@ -8,10 +8,10 @@ $post_meta = $blog_settings['post_meta'];
     <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="blog_page_settings" />
         <section class="row">
-            <h3 class="sec-title"><?php _e( 'Blog Page Setting', 'sampression' );?></h3>
+            <h3 class="sec-title"><?php _e( 'Blog Page Settings', 'sampression' );?></h3>
             <div class="box titled-box">
                 <div  class="box-title">
-                    <h4><?php _e( 'Post Meta Setting', 'sampression' );?></h4>
+                    <h4><?php _e( 'Post Meta Settings', 'sampression' );?></h4>
                 </div>
                 <div class="box-entry sam-lists sam-blogmeta-option">
                     <ul class=" clearfix">
@@ -45,7 +45,7 @@ $post_meta = $blog_settings['post_meta'];
                     $blog_category = $blog_settings['blog_category'];
                     ?>
                 </div>
-                <div class="box-entry sam-lists sam-blogmeta-option">
+                <div class="box-entry sam-lists sam-blogmeta-option exclude-cat-list">
                     <ul class=" clearfix">
                         <li class="clearfix">
                             <?php
