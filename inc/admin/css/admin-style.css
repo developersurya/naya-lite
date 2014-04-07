@@ -266,8 +266,11 @@ or wrap each row of columns in a <div class="row"> */
 }
 #sam-wrapper .tagline {
     color: #ABADB3;
+    font-family: 'Kreon',serif;
     font-size: 12px;
-    font-family: Georgia;
+    font-weight: normal;
+    display:inline-block;
+    padding-top:2px;
 }
 #sam-wrapper .sam-version {
     float: right;
@@ -278,6 +281,10 @@ or wrap each row of columns in a <div class="row"> */
 }
 #header .sam-version span {
     display: block;
+    text-transform: capitalize;
+}
+#header .sam-version span:first-child {
+    text-transform: uppercase;
 }
 #sam-wrapper #top-nav {
     background: #57B94A;
@@ -535,7 +542,7 @@ or wrap each row of columns in a <div class="row"> */
     line-height:15px;
     background-repeat:no-repeat;
     background-position: 0 0;
-    font-size:12px;
+    font-size:11px;
     font-weight: bold;
     vertical-align:middle;
     cursor:pointer;
@@ -777,6 +784,7 @@ or wrap each row of columns in a <div class="row"> */
 #sam-wrapper .sam-info{
     font-weight: normal;
     font-size: 11px;
+    line-height:1.4;
     word-break: break-all;
 }
 #sam-wrapper .large-select .customSelect .selectedValue{
