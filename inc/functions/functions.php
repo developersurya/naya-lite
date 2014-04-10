@@ -1038,6 +1038,17 @@ function sampression_get_the_excerpt($post_id = '') {
     return $excerpt;
 }
 
+// 404 Page error messages
+function sampression_404_text() {
+    return __("Sorry but we couldn't find the page you are looking for. Please check to make sure you've typed the URL correctly. You may also want to search for what you are looking for.", 'sampression');
+}
+
+function sampression_nothing_found_text() {
+    
+    return __("You can start a new search by using the box below.", 'sampression');
+    
+}
+
 /*=======================================================================
  * Shows footer credits
  *=======================================================================*/
