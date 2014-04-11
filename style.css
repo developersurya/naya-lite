@@ -923,6 +923,11 @@ color: #0274B3;
     padding: 0;
 }
 
+.jumbotron{
+    clear: both;
+    padding-top: 10px;
+}
+
 #primary-nav {
 	float: right;
     clear: right;
@@ -1387,6 +1392,7 @@ dl.gallery-item dt.gallery-icon {
 
 #searchform {
     margin-bottom: 0;
+    overflow: hidden;
 }
 
 input#s,
@@ -1638,6 +1644,12 @@ input#s:focus {
 #footer {
     border: none;
     font-size: 12px;
+}
+
+/* 404 Page */
+
+.error404 #content #searchform{
+    margin-bottom: 10px;
 }
 
 /* ie8 Fix */

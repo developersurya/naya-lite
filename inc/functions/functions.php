@@ -92,7 +92,7 @@ function sampression_social_media_icons($location = '', $separater = '') {
 function sampression_post_thumbnail() {
     if ( has_post_thumbnail() && ! post_password_required() ) {
         $link = get_permalink();
-        if(is_single() && wp_get_attachment_url(get_post_thumbnail_id())) {
+        if((is_single() || (is_page())) && wp_get_attachment_url(get_post_thumbnail_id())) {
             $link = wp_get_attachment_url(get_post_thumbnail_id());
         }
         //echo $link; die;
