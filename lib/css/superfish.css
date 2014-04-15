@@ -122,3 +122,7 @@
     margin-top: 20px;	
 	}
 #primary-nav.sixteen > div > ul{float:left;}
+
+#primary-nav ul li.window-right ul ul {
+    left: -172px !important;
+}
