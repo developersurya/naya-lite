@@ -281,10 +281,6 @@ or wrap each row of columns in a <div class="row"> */
 }
 #header .sam-version span {
     display: block;
-    text-transform: capitalize;
-}
-#header .sam-version span:first-child {
-    text-transform: uppercase;
 }
 #sam-wrapper #top-nav {
     background: #57B94A;
