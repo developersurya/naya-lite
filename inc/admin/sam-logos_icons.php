@@ -54,7 +54,7 @@ $default_fonts = (object) sampression_fonts_style();
                         </div>
                     </div>
                     <div class="box-entry sam-add-border"><?php //echo $logo_icon_active['color'] ?>
-                        <div class="sam-site-title font-demo" style="font: <?php echo $logo_icon_active['style']; ?> <?php echo $logo_icon_active['size']; ?>px <?php echo $logo_icon_active['font']; ?>; color: <?php echo $logo_icon_active['color']; ?>;<?php if($logo_icon_active['color'] == '#ffffff') { echo ' background-color: #57B94A;'; } ?>"><?php echo get_bloginfo('name') ? get_bloginfo('name') : _e( 'nayá', 'sampression' ); ?></div>
+                        <div class="sam-site-title font-demo" style="font: <?php echo $logo_icon_active['style']; ?> <?php echo $logo_icon_active['size']; ?>px <?php echo $logo_icon_active['font']; ?>; color: <?php echo $logo_icon_active['color']; ?>;<?php if($logo_icon_active['color'] == '#ffffff') { echo ' background-color: #57B94A;'; } ?>"><?php echo get_bloginfo('name') ? get_bloginfo('name') : _e( 'nay&#225;', 'sampression' ); ?></div>
                         <div class="select-wrapper font-face medium-select alignleft" >
                             <?php sampression_font_select( 'website_font_face', 'sam-select change-site-fontface', $logo_icon_active['font'] ) ?>
                         </div>

@@ -800,6 +800,16 @@ function sampression_recent_post($args=array()){
 	endwhile; wp_reset_postdata();
 }
 
+/*=======================================================================
+ * Comment Reply
+ *=======================================================================*/
+function sampression_enqueue_comment_reply() {
+if ( is_singular() && comments_open() && get_option('thread_comments')) { 
+		wp_enqueue_script('comment-reply'); 
+	}
+}
+add_action( 'wp_enqueue_scripts', 'sampression_enqueue_comment_reply' );
+
 if ( ! function_exists( 'sampression_comment' ) ) :
 /**
  * Template for comments and pingbacks.
