@@ -37,7 +37,7 @@ class SampressionAdminbarMenu {
   }
 
     function sampression_links() {
-        $this->add_root_menu( __( 'Sampression', 'sampression' ), "sam-style" );
+        $this->add_root_menu( __( 'Theme Options', 'sampression' ), "sam-style" );
             $this->add_sub_menu( __( 'Logos &amp; Icons', 'sampression' ), SAM_FW_SITE_WPADMIN_URL . "themes.php?page=sampression-options", "sam-style", "logos-icons" );
             $this->add_sub_menu( __( 'Styling', 'sampression' ), SAM_FW_SITE_WPADMIN_URL . "themes.php?page=sampression-options&sam-page=styling", "sam-style", "style" );
             $this->add_sub_menu( __( 'Typography', 'sampression' ), SAM_FW_SITE_WPADMIN_URL . "themes.php?page=sampression-options&sam-page=typography", "sam-style", "typography" );
