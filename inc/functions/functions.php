@@ -48,7 +48,9 @@ if (!function_exists('sampression_setup')):
 
                 // Support flexible height and width.
                 'flex-height'            => true,
-                'flex-width'             => true
+                'flex-width'             => true,
+		'admin-head-callback'    => 'sampression_admin_header_style',
+		'admin-preview-callback' => 'sampression_admin_header_image',
         ) );         
     }
 endif;
@@ -969,3 +971,59 @@ function sampression_footer_text() {
 <?php
 }
 add_filter( 'sampression_credits', 'sampression_footer_text' );
+
+
+/*=======================================================================
+ * Custom Header Admin Preview
+ *=======================================================================*/
+if ( ! function_exists( 'sampression_admin_header_style' ) ) :
+/**
+ * Styles the header image displayed on the Appearance > Header admin panel.
+ *
+ * @see bijay_custom_header_setup().
+ */
+function sampression_admin_header_style() {
+        $sampression_logo_icon = (object) sampression_logos_icons();
+        
+?>
+	<style type="text/css">
+		.appearance_page_custom-header #admin-heading {
+			border: none;
+		}
+		#admin-heading h1 {
+                    margin: 0;
+		}
+		#admin-heading h1.site-title a {
+                   color: <?php echo $sampression_logo_icon->logo_icon['active']['color']; ?>;
+                   text-decoration: none;
+                   font: <?php echo $sampression_logo_icon->logo_icon['active']['style'].' '. $sampression_logo_icon->logo_icon['active']['size'] . 'px '. $sampression_logo_icon->logo_icon['active']['font']; ?>;
+		}
+		#desc {
+                   color: <?php echo $sampression_logo_icon->logo_icon['web_desc']['color']; ?>;
+                   font: <?php echo $sampression_logo_icon->logo_icon['web_desc']['style'].' '. $sampression_logo_icon->logo_icon['web_desc']['size'] . 'px '. $sampression_logo_icon->logo_icon['web_desc']['font']; ?>;
+                   padding-top: 0;
+                   padding-bottom: 10px;
+		}
+	</style>
+<?php
+}
+endif; // bijay_admin_header_style
+
+if ( ! function_exists( 'sampression_admin_header_image' ) ) :
+/**
+ * Custom header image markup displayed on the Appearance > Header admin panel.
+ *
+ * @see bijay_custom_header_setup().
+ */
+function sampression_admin_header_image() {
+?>
+	<div id="admin-heading">
+		<h1 class="site-title"><a id="name" onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		<h2 class="displaying-header-text" id="desc"><?php bloginfo( 'description' ); ?></h2>
+		<?php if ( get_header_image() ) : ?>
+		<img src="<?php header_image(); ?>" alt="">
+		<?php endif; ?>
+	</div>
+<?php
+}
+endif; // sampression_admin_header_image
