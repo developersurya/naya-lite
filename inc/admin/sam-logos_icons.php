@@ -222,6 +222,6 @@ $default_fonts = (object) sampression_fonts_style();
         </section>
         <!-- .row-->
         <div id="response"></div>
-        <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
+        <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
     </form>
 </div>

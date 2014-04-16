@@ -9,6 +9,6 @@ $css_settings = sampression_custom_css();
         <input type="hidden" name="meta_data" value="custom_css_settings" />
         <textarea id="sam-custom-code" name="code"><?php echo $css_settings['css'] ?></textarea>
         <div id="response"></div>
-        <a href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
+        <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
     </form>
 </div>
