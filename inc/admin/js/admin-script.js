@@ -78,6 +78,25 @@ jQuery(document).ready(function($) {
         }, 5000);
     });
     
+    //sanitize_text_field
+    $('input.sanitize_text').live('blur', function() {
+        $('#save').removeClass('save-data');
+        $('#save').addClass('save-disable');
+        var i = $(this);
+        var val = i.val();
+        var data = {
+            action: 'sanitize_text',
+            value: val
+        };
+        jQuery.post(ajaxurl, data,
+            function(response) {
+                i.val(response);
+                $('#save').addClass('save-data');
+                $('#save').removeClass('save-disable');
+            });
+        return false;
+    });
+    
     // generate wp slug for a string.
     $('#new-widget-name, #edit-widget-name').live('blur', function() {
         var i = $(this);

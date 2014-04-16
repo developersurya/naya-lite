@@ -294,3 +294,11 @@ function return_slug_callback() {
     echo sanitize_title($_POST['value']);
     die;
 }
+
+add_action('wp_ajax_sanitize_text', 'sanitize_text_callback');
+add_action('wp_ajax_nopriv_sanitize_text', 'sanitize_text_callback');
+
+function sanitize_text_callback() {
+    echo sanitize_text_field($_POST['value']);
+    die;
+}
