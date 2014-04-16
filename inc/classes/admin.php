@@ -23,7 +23,7 @@ class Sampression_Admin {
      * add admin menu
      */
     public function add_admin_menu() {
-        add_theme_page( 'Sampression', 'Theme Options', 'manage_options', 'sampression-options', array( $this, 'sampression_load_page' ) );
+        add_theme_page( 'Sampression', 'Theme Options', 'edit_theme_options', 'sampression-options', array( $this, 'sampression_load_page' ) );
     }
     
     function sampression_load_page() {
