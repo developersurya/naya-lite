@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="482befe6-3c48-4358-91cd-29948597749c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/admin/css/admin-style.css" afterPath="$PROJECT_DIR$/inc/admin/css/admin-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/js/main.js" afterPath="$PROJECT_DIR$/lib/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/css/mediaquery.css" afterPath="$PROJECT_DIR$/lib/css/mediaquery.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="naya-lite.iws" />
