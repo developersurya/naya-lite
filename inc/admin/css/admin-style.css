@@ -163,6 +163,9 @@ or wrap each row of columns in a <div class="row"> */
 #sam-wrapper input.button1{
     margin: 0;
 }
+#sam-wrapper .save-disable {
+    opacity: 0.5;
+}
 #sam-wrapper  .button1.small-button{
     font-size: 11px;
     padding: 5px 15px;

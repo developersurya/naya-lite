@@ -14,15 +14,19 @@ only screen and (min-device-pixel-ratio: 1.5) {
     }
 }*/
 @media only screen and (min-width: 959px) {
+
+
     .mejs-controls div.mejs-time-rail{
         max-width: 200px;
-    }  
+    }
 }
 /* Note: Design for a width of 768px */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
- .mejs-controls div.mejs-time-rail{
+    #sidebar th,#sidebar td{padding:4px;}
+    .mejs-controls div.mejs-time-rail{
         max-width: 145px;
-    }  
+    }
+
 
 }
 
@@ -36,7 +40,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
     input#s{
         width:53%;
     }
-
+    form.post-password-form input[type="password"] {
+        margin-bottom: 10px;
+    }
 }
 @media (min-width: 768px) {
     .main-nav {
