@@ -33,5 +33,10 @@
         endif;
         ?>
     </div>
-    <?php sampression_readmore_link() ?>
+    <?php 
+            $position = sampression_sidebar_position();
+            if ($position === 'right') {
+                get_sidebar();
+            }                           
+        ?>
 </article>

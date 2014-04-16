@@ -176,18 +176,6 @@ function sampression_sidebar_position() {
     return $position;
 }
 
-/**
- * get sampression right sidebar
- *
- * @global type $sampression_style
- */
-function sampression_right_sidebar() {
-    $position = sampression_sidebar_position();
-    if ($position === 'right') {
-        get_sidebar();
-    }
-}
-
 
 /**
  * Get blog title if use-title is set in sampression backend
