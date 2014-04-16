@@ -5,7 +5,7 @@ Theme URI: http://sampression.com/themes/naya-lite
 Author: Sampression
 Author URI: http://www.sampression.com
 
-Version: 1.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,18 @@ Tags: white, black, green, one-column, two-columns, responsive-layout, custom-me
 9. Copyright & License
  = Naya Lite, Copyright 2014 Sampression.com
  = Naya Lite is distributed under the terms of the GNU GPL.
+
+== Changelog ==
+Version 1.0.1
+ = Fixed: Non-printable characters were replaced by web save special characters.
+ = Fixed: Enqueued comment-reply script.
+ = Fixed: wp_head() template tag placed immediately before the closing HTML head tag. 
+ = Fixed: wp_footer() template tag placed immediately before the closing HTML body tag. 
+ = Fixed: manage_options replaced by be edit_theme_options on setting page.
+ = Fixed: Read more text field validated.
+ = Fixed: sampression_right_sidebar() replaced by get_sidebar() function.
+ 
+ = Added: Function for custom header preview on admin panel.
 
 == Child Theme Support ===
  Naya Lite supports child themes. Please use child themes for customization of Naya Lite". For further reading: http://codex.wordpress.org/Child_Themes.
