@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="482befe6-3c48-4358-91cd-29948597749c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/js/main.js" afterPath="$PROJECT_DIR$/lib/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="naya-lite.iws" />
@@ -28,18 +29,18 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="658" column="22" selection-start="10621" selection-end="10621" vertical-scroll-proportion="0.0" vertical-offset="11000" max-vertical-offset="28458">
+            <state line="659" column="19" selection-start="10643" selection-end="10643" vertical-scroll-proportion="0.0" vertical-offset="10915" max-vertical-offset="28356">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="18" selection-start="6787" selection-end="6787" vertical-scroll-proportion="0.0" vertical-offset="2432" max-vertical-offset="3706">
+            <state line="174" column="31" selection-start="6855" selection-end="6855" vertical-scroll-proportion="0.7774141" vertical-offset="2432" max-vertical-offset="3706">
               <folding>
-                <marker date="1397636429495" expanded="false" signature="8331:8344" placeholder="..." />
+                <marker date="1397648077249" expanded="false" signature="8331:8344" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -54,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="admin-style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/admin/css/admin-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="16" selection-start="3324" selection-end="3324" vertical-scroll-proportion="0.61047465" vertical-offset="2449" max-vertical-offset="30566">
+            <state line="161" column="1" selection-start="3233" selection-end="3233" vertical-scroll-proportion="0.0" vertical-offset="2449" max-vertical-offset="30566">
               <folding />
             </state>
           </provider>
@@ -90,9 +91,9 @@
         <option value="F:/projects/1. Projects/sampression/sampression.com/wp/style.css" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$USER_HOME$/Desktop/office txt/wp-resources/resources.js" />
-        <option value="$PROJECT_DIR$/lib/js/main.js" />
         <option value="$PROJECT_DIR$/lib/css/mediaquery.css" />
         <option value="$PROJECT_DIR$/inc/admin/css/admin-style.css" />
+        <option value="$PROJECT_DIR$/lib/js/main.js" />
       </list>
     </option>
   </component>
@@ -210,7 +211,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="206" column="0" selection-start="8435" selection-end="8435" vertical-scroll-proportion="0.0" vertical-offset="3502" max-vertical-offset="3672">
           <folding>
-            <marker date="1397636429495" expanded="false" signature="8331:8344" placeholder="..." />
+            <marker date="1397648077249" expanded="false" signature="8331:8344" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -315,7 +316,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="658" column="22" selection-start="10621" selection-end="10621" vertical-scroll-proportion="0.0" vertical-offset="11000" max-vertical-offset="28458">
+        <state line="659" column="19" selection-start="10643" selection-end="10643" vertical-scroll-proportion="0.0" vertical-offset="10915" max-vertical-offset="28356">
           <folding />
         </state>
       </provider>
@@ -324,15 +325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="234" column="0" selection-start="5518" selection-end="5630" vertical-scroll-proportion="0.0" vertical-offset="3571" max-vertical-offset="4216">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="18" selection-start="6787" selection-end="6787" vertical-scroll-proportion="0.0" vertical-offset="2432" max-vertical-offset="3706">
-          <folding>
-            <marker date="1397636429495" expanded="false" signature="8331:8344" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -345,8 +337,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/admin/css/admin-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="16" selection-start="3324" selection-end="3324" vertical-scroll-proportion="0.61047465" vertical-offset="2449" max-vertical-offset="30566">
+        <state line="161" column="1" selection-start="3233" selection-end="3233" vertical-scroll-proportion="0.0" vertical-offset="2449" max-vertical-offset="30566">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="31" selection-start="6855" selection-end="6855" vertical-scroll-proportion="0.7774141" vertical-offset="2432" max-vertical-offset="3706">
+          <folding>
+            <marker date="1397648077249" expanded="false" signature="8331:8344" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
