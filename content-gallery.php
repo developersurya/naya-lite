@@ -26,10 +26,5 @@ if ( ! defined( 'ABSPATH' ) ) exit('restricted access');
             ) );
         ?>
     </div>
-    <?php 
-            $position = sampression_sidebar_position();
-            if ($position === 'right') {
-                get_sidebar();
-            }                           
-        ?>
+    <?php sampression_readmore_link() ?>
 </article>
