@@ -21,11 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 <link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_bloginfo( 'stylesheet_url' ) ); ?>" media="all" />
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
 <?php sampression_favicons(); ?>
-<?php wp_head(); ?>
 <!--[if lt IE 9]>
 <script src="<?php echo SAM_FW_JS_URL; ?>/modernizr.js"></script>
 <![endif]-->
 <?php do_action( 'sampression_before_head_close' ); ?>
+<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php do_action( 'sampression_after_body' ); ?>

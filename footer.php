@@ -25,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 </div>
 <!--/#wrapper-->
 <?php do_action('sampression_after_footer'); ?>
-<?php wp_footer();  ?>
 <!--[if lt IE 9]>
     <script src="<?php echo SAM_FW_JS_URL; ?>/selectivizr.js?v=1.0.1"></script>
 <![endif]-->
@@ -37,5 +36,6 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 	<script> DD_belatedPNG.fix('img, .png-bg'); </script>
 <![endif]-->
 <?php do_action( 'sampression_before_body_close' ); ?>
+<?php wp_footer();  ?>
 </body>
 </html>
