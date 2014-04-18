@@ -55,6 +55,9 @@ if (!function_exists('sampression_setup')):
     }
 endif;
 
+// Remove text color optopn from header options
+define( 'NO_HEADER_TEXT', true );
+
 /*
  * Sampression - Social Media Icons
  * @param $location header / footer
@@ -968,7 +971,7 @@ if ( ! function_exists( 'sampression_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see bijay_custom_header_setup().
+ * @see sampression_custom_header_setup().
  */
 function sampression_admin_header_style() {
         $sampression_logo_icon = (object) sampression_logos_icons();
@@ -995,13 +998,13 @@ function sampression_admin_header_style() {
 	</style>
 <?php
 }
-endif; // bijay_admin_header_style
+endif; // sampression_admin_header_style
 
 if ( ! function_exists( 'sampression_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see bijay_custom_header_setup().
+ * @see sampression_custom_header_setup().
  */
 function sampression_admin_header_image() {
 ?>
