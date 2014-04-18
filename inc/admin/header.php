@@ -2,7 +2,7 @@
 <div id="sam-wrapper">
     <div id="header" class=" clearfix">
         <div id="logo">
-            <h2><?php _e( 'nay&#225; lite', 'sampression' );?></h2>
+            <h2><?php _e( 'naya lite', 'sampression' );?></h2>
             <span class="tagline"><?php _e( 'a new theme', 'sampression' );?></span>
         </div>
         <div class="sam-version">

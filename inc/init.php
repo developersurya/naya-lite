@@ -34,11 +34,6 @@ add_action( 'sampression_init', 'sampression_constants' );
  * Define Sampression Constants
  */
 function sampression_constants() {
-	/** Define Theme Info Constants */
-	define( 'SAM_FW_THEME_NAME', 'Naya-Lite' );
-	define( 'SAM_FW_THEME_VERSION', '1.0' );
-	define( 'SAM_FW_DB_VERSION', '1' );
-	define( 'SAM_FW_THEME_RELEASE_DATE', date_i18n( 'F j, Y', '1382542963' ) );
 
 	/** Define Directory Location Constants */
 	define( 'SAM_FW_THEME_DIR', get_template_directory() );

@@ -5,10 +5,28 @@ Theme URI: http://sampression.com/themes/naya-lite
 Author: Sampression
 Author URI: http://www.sampression.com
 
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+== Bundled Files ==
+
+1. modernizr jQuery file
+ = Item URL: http://modernizr.com
+ = Licence: MIT
+ = Licence URI: http://opensource.org/licenses/mit-license.html
+ 
+2. selectivizr jQuery file
+ = Item URL: http://selectivizr.com
+ = Licence: MIT
+ = Licence URI: http://opensource.org/licenses/mit-license.html
+ 
+3. Fonts
+ = Item URL: http://icomoon.io
+ = Licence: GPL & CC BY 3.0
+ = Licence GPL: http://www.gnu.org/licenses/gpl.html
+ = Licence CC BY 3.0: http://creativecommons.org/licenses/by/3.0
+ 
 == Theme Description ==
 For developers and website owners, Naya Lite is a responsive framework which can perfectly serve as a parent theme if they want to create their own child themes. For bloggers, Naya is a minimal blogging theme that takes their web presence back to the early days of blogging. While Naya Lite’s design justifies the idea of a good old fashioned blog, its features emphasize on being more modern and state-of-the-art. Being both responsive and retina-ready while still maintaining the look of a classic blog, Naya Lite perfectly manages to combine the past and future of blog design.
 
@@ -84,6 +102,9 @@ Tags: white, black, green, one-column, two-columns, responsive-layout, custom-me
  = Naya Lite is distributed under the terms of the GNU GPL.
 
 == Changelog ==
+Version 1.0.2
+ = Added: License information added on readme.txt file of bundled js files and icons.
+
 Version 1.0.1
  = Fixed: Non-printable characters were replaced by web save special characters.
  = Fixed: Enqueued comment-reply script.
