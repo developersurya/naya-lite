@@ -410,8 +410,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'restore') {
     exit;
 }
 
-add_action('after_setup_theme', 'sampression_additional_image_sizes');
-
 
 /**
  * sampression navigation
