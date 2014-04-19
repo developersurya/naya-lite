@@ -51,7 +51,37 @@ if (!function_exists('sampression_setup')):
                 'flex-width'             => true,
 		'admin-head-callback'    => 'sampression_admin_header_style',
 		'admin-preview-callback' => 'sampression_admin_header_image',
-        ) );         
+        ) );   
+        
+        
+        add_theme_support( 'menus' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'automatic-feed-links' );
+        add_theme_support( 'post-formats', array( 'image', 'gallery', 'video', 'quote', 'link', 'status', 'audio', 'chat' ) );
+        //array( 'aside', 'image', 'gallery', 'video', 'quote', 'link', 'status', 'audio', 'chat' )
+        if ( ! current_theme_supports( 'sampression-menus' ) )
+            add_theme_support( 'sampression-menus', array(
+                'primary'   => __('Primary Navigation', 'sampression')
+            ) );
+
+        if ( ! current_theme_supports( 'sampression-sidebars' ) )
+            add_theme_support( 'sampression-sidebars', array(
+                'primary-sidebar'   => array(
+                    'column' => '1 Column',
+                    'name' => __('Primary Sidebar', 'sampression'),
+                    'slug' => 'primary-sidebar',
+                    'desc' => __('The Primary Widget.', 'sampression')
+                )
+            ) );
+        
+            load_theme_textdomain( 'sampression', SAM_FW_LANGUAGES_DIR );
+
+            $menus = get_theme_support( 'sampression-menus' );
+            /** Register supported menus */
+            foreach ( (array) $menus[0] as $id => $name ) {
+                    register_nav_menu( $id , $name );
+            }
+        
     }
 endif;
 
@@ -115,7 +145,49 @@ function sampression_social_media_icons($location = '', $separater = '') {
     }
     return $return;
 }
-
+/*
+ * Menu
+ */
+function _option_menu() {//SAM_FW_CURRENT_PAGE
+    
+    $menus = array(
+        'logos-icons' => array(
+            'slug' => 'sampression-options',
+            'label' => __( 'Logos &amp; Icons', 'sampression' )
+        ),
+        'styling' => array(
+            'slug' => 'sampression-options&sam-page=styling',
+            'label' => __( 'Styling', 'sampression' )
+        ),
+        'typography' => array(
+            'slug' => 'sampression-options&sam-page=typography',
+            'label' => __( 'Typography', 'sampression' )
+        ),
+        'social-media' => array(
+            'slug' => 'sampression-options&sam-page=social-media',
+            'label' => __( 'Social Media', 'sampression' )
+        ),
+        'custom-css' => array(
+            'slug' => 'sampression-options&sam-page=custom-css',
+            'label' => __( 'Custom CSS', 'sampression' )
+        ),
+        'blog' => array(
+            'slug' => 'sampression-options&sam-page=blog',
+            'label' => __( 'Blog', 'sampression' )
+        ),
+        'hooks' => array(
+            'slug' => 'sampression-options&sam-page=hooks',
+            'label' => __( 'Hooks', 'sampression' )
+        )
+    );
+    
+    foreach ( (array) $menus as $key => $val ) {
+        ?>
+        <li class="<?php echo $key; if($key == SAM_FW_CURRENT_PAGE) { echo ' current'; } ?>"><a href="themes.php?page=<?php echo $val['slug']; ?>"><i class="icon-sam-<?php echo $key; ?>"></i><?php echo $val['label']; ?></a></li>
+    <?php
+    }
+    
+}
 /**
  * Sampression Post thumbnail
  *
@@ -340,22 +412,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'restore') {
 
 add_action('after_setup_theme', 'sampression_additional_image_sizes');
 
-/**
- * sampression image sizes
- *
- * @global type $image_settings_serialize
- */
-function sampression_additional_image_sizes() {
-    global $image_settings_serialize;
-    $image_option = get_option('sam-image-settings', $image_settings_serialize);
-    $image_settings = unserialize($image_option);
-    $custom_sizes = $image_settings['image_sizes'];
-    //sam_p($custom_sizes);
-    for ($i = 0; $i < count($custom_sizes); $i++) {
-        add_image_size($custom_sizes[$i]['slug'], $custom_sizes[$i]['width'], $custom_sizes[$i]['height'], true);
-    }
-    add_filter( 'image_size_names_choose', 'sampression_custom_image_sizes' );
-}
 
 /**
  * sampression navigation
@@ -447,25 +503,6 @@ if (!function_exists('sampression_post_meta')) :
     }
 
 endif;
-
-/**
- * sampression custom image sizes
- *
- * @global $_wp_additional_image_sizes
- * @param $image_sizes size-id
- * @return array
- */
-function sampression_custom_image_sizes( $image_sizes ) {
-    global $_wp_additional_image_sizes;
-    if( empty( $_wp_additional_image_sizes ) )
-        return $image_sizes;
-
-    foreach ( $_wp_additional_image_sizes as $id => $data ) {
-        if( !isset($image_sizes[$id]) )
-            $image_sizes[$id] = ucwords( str_replace( '-', ' ', $id ) );
-    }
-    return $image_sizes;
-}
 
 add_filter( 'widget_text', 'do_shortcode');
 
@@ -672,53 +709,6 @@ function sampression_previous_post_link($url) {
 
 add_filter('pre_get_posts','sampression_exclude_categories');
 
-/**
- * Popular post function
- * @param $args arguments
- */
-function sampression_popular_post($args=array()){
-	$by = isset($args['by']) ? (strip_tags($args['by'])): 'comment_count';
-	$number = isset($args['number']) ? (strip_tags($args['number'])) : 10;
-	$meta_key = '';
-	$order_by = 'comment_count';
-	if($by == 'views'){
-		$meta_key = 'post_views_count';
-		$order_by = 'meta_value_num';
-	}
-	$argument = array(
-		'post_type' => 'post',
-		'posts_per_page' => $number,
-		'meta_key' => $meta_key,
-		'orderby' => $order_by
-	);
-	$loop = new WP_Query($argument);
-	while( $loop -> have_posts()): $loop -> the_post();
-?>
-	<li> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </li>
-<?php
-
-	endwhile; wp_reset_postdata();
-}
-
-/**
- * Recent post function
- *
- * @param type $args arguments
- */
-function sampression_recent_post($args=array()){
-	$number = isset($args['number']) ? (strip_tags($args['number'])) : 10;
-	$argument = array(
-		'post_type' => 'post',
-		'posts_per_page' => $number
-	);
-	$loop = new WP_Query($argument);
-	while( $loop -> have_posts()): $loop -> the_post();
-?>
-	<li> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </li>
-<?php
-
-	endwhile; wp_reset_postdata();
-}
 
 /*=======================================================================
  * Comment Reply
