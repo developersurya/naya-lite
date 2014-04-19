@@ -53,8 +53,8 @@ class Sampression_Admin {
     public function sampression_stylesheets_scripts() {
         $this->sampression_enqueue_skeleton();
 
-        wp_enqueue_style( 'gfont-kreon', 'fonts.googleapis.com/css?family=Kreon:400,700' );
-        wp_enqueue_style( 'gfont-droid', 'fonts.googleapis.com/css?family=Droid+Serif:400,400italic' );
+        wp_enqueue_style( 'gfont-kreon', '//fonts.googleapis.com/css?family=Kreon:400,700' );
+        wp_enqueue_style( 'gfont-droid', '//fonts.googleapis.com/css?family=Droid+Serif:400,400italic' );
         wp_enqueue_style( 'custom-css', SAM_FW_CSS_URL . '/custom-css.css' );
 
         wp_enqueue_script( 'plugins', SAM_FW_JS_URL . '/plugins.js', array('jquery'), '1.0', true );
@@ -93,7 +93,7 @@ class Sampression_Admin {
     public function admin_styles() {
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_style( 'admin-style', SAM_FW_ADMIN_CSS_URL . '/admin-style.css', false, false, 'screen' );
-        wp_enqueue_style( 'font-style', 'fonts.googleapis.com/css?family=Kreon', false, false, 'screen' );
+        wp_enqueue_style( 'font-style', 'http://fonts.googleapis.com/css?family=Kreon', false, false, 'screen' );
     }
 
     /**
