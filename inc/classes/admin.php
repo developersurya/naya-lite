@@ -9,7 +9,7 @@ class Sampression_Admin {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_admin_menu' ), 5 );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-        add_action( 'admin_enqueue_styles', array( $this, 'admin_styles' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
         add_action( 'admin_head', array( $this, 'admin_ie_js_css' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'sampression_stylesheets_scripts' ) );
     }

@@ -418,7 +418,6 @@ add_action('after_setup_theme', 'sampression_additional_image_sizes');
  */
 function sampression_navigation() {
     $args = array(
-        'menu' => 'primary',
         'menu_class' => 'main-nav clearfix',
         'theme_location' => 'primary',
         'container'       => 'div',
