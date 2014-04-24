@@ -328,38 +328,3 @@ function sampression_blog($defaults = false) {
     }
     return unserialize(get_option('sam-blog-page-settings', $blog_page_serialize));
 }
-
-/**
- * Hook setting defaults
- * If $defaults is set to true, returns default hook setting array
- * else fetch from table
- *
- * @param $defaults
- * @return  array
- */
-function sampression_hooks_setting($defaults = false) {
-    $hooks = array(
-        'hook' => array(
-            'sam_before_head_close' => array(
-                'label' => 'Before HEAD Tag Close',
-                'description' => 'Choosing this option will place the code before HEAD Tag close.',
-                'code' => "do_action('sampression_before_head_close');<br>remove_action('sampression_after_body', 'sam_hook_after_body');",
-                'execute' => 'no',
-                'content' => ''
-            ),
-            'sam_before_body_close' => array(
-                'label' => 'Before BODY Tag Close',
-                'description' => 'Choosing this option will place the code before BODY Tag close.',
-                'code' => "do_action('sampression_before_body_close');<br>remove_action('sampression_before_body', 'sam_hook_before_body');",
-                'execute' => 'no',
-                'content' => ''
-            )
-        )
-    );
-
-    $hooks_serialize = serialize($hooks);
-    if($defaults === true) {
-        return unserialize($hooks_serialize);
-    }
-    return unserialize(get_option('sam-hooks-settings', $hooks_serialize));
-}

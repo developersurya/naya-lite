@@ -22,12 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 <!--[if lt IE 9]>
 <script src="<?php echo SAM_FW_JS_URL; ?>/modernizr.js"></script>
 <![endif]-->
-<?php do_action( 'sampression_before_head_close' ); ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php do_action( 'sampression_after_body' ); ?>
-<?php do_action( 'sampression_before_header' ); ?>
 <div id="wrapper">
     <div id="inner-wrapper">
         <header id="header" class="block">
@@ -58,4 +55,3 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
             </div>
         </header>
         <!--/#header-->
-        <?php do_action( 'sampression_after_header' ); ?>

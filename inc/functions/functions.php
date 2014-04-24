@@ -174,10 +174,6 @@ function sampression_option_menu() {//SAM_FW_CURRENT_PAGE
         'blog' => array(
             'slug' => 'sampression-options&sam-page=blog',
             'label' => __( 'Blog', 'sampression' )
-        ),
-        'hooks' => array(
-            'slug' => 'sampression-options&sam-page=hooks',
-            'label' => __( 'Hooks', 'sampression' )
         )
     );
     
@@ -379,7 +375,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'restore') {
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     WP_Filesystem();
     global $wp_filesystem;
-    $key_values = array('sam-logos-icons-settings', 'sam-style-settings', 'sam-typography-settings', 'sam-social-media-settings', 'sam-custom-css-settings', 'sam-blog-page-settings', 'sam-hooks-settings');
+    $key_values = array('sam-logos-icons-settings', 'sam-style-settings', 'sam-typography-settings', 'sam-social-media-settings', 'sam-custom-css-settings', 'sam-blog-page-settings');
     $counter = 0;
     foreach ($key_values as $key_value) {
         if (delete_option($key_value)) {

@@ -192,24 +192,7 @@ function save_style_callback() {
             )
         );
         //sam_p($data); die;
-    } elseif (isset($elements['meta_data']) && $elements['meta_data'] == 'hooks-settings') {
-        $key = 'sam-hooks-settings';
-        $hook_array = array();
-        if ($elements['hook_name']) {
-            foreach ($elements['hook_name'] as $hook) {
-                $hook_array[$hook] = array(
-                    'label' => $elements['sam-hook-label-' . $hook],
-                    'description' => stripcslashes($elements['sam-hook_description-' . $hook]),
-                    'code' => $elements['sam-hook_code-' . $hook],
-                    'execute' => $elements['sam-use-excute-' . $hook],
-                    'content' => stripcslashes($elements[$hook . '_content'])
-                );
-            }
-        }
-        $data = array(
-            'hook' => $hook_array
-        );
-    }
+    } 
     $serialize = serialize($data);
     if (get_option($key)) {
         update_option($key, $serialize);

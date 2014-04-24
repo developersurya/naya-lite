@@ -27,7 +27,7 @@ class Sampression_Admin {
     }
     
     function sampression_load_page() {
-        $pages = array( 'styling', 'typography', 'social-media', 'custom-css', 'blog', 'hooks' );
+        $pages = array( 'styling', 'typography', 'social-media', 'custom-css', 'blog' );
         if( isset( $_GET['sam-page'] ) && in_array( $_GET['sam-page'], $pages ) ) {
             $page_slug = str_replace( '-', '_', $_GET['sam-page'] );
             $this->layout( $page_slug );
@@ -148,12 +148,4 @@ class Sampression_Admin {
     public function blog() {
         $this->layout( 'blog' );
     }
-
-    /**
-     * Load hooks layout
-     */
-    public function hooks() {
-        $this->layout( 'hooks' );
-    }
-
 }
