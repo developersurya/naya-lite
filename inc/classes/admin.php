@@ -93,7 +93,7 @@ class Sampression_Admin {
     public function admin_styles() {
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_style( 'admin-style', SAM_FW_ADMIN_CSS_URL . '/admin-style.css', false, false, 'screen' );
-        wp_enqueue_style( 'font-style', 'http://fonts.googleapis.com/css?family=Kreon', false, false, 'screen' );
+        wp_enqueue_style( 'font-style', '//fonts.googleapis.com/css?family=Kreon', false, false, 'screen' );
     }
 
     /**
