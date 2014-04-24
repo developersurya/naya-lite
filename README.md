@@ -69,12 +69,6 @@ Installation
  - Here you select the meta values to show on the blog page and also hide the posts from any specific category from the blog page.
  - You can also write your own text as "read more" text that links to the single post.
 
-12. Hooks:
- - Login to your wp-admin area and go to Appearance -> Sampression.
- - Select "Hooks" tab.
- - Here you can add different codes to the header and footer of theme. Please be careful to add codes because it might crop the functionality and appearance of theme.
- - You can also add the Webmaster verification codes for Google, Bing and Yahoo.
-
 9. Copyright & License
  - Naya Lite, Copyright 2014 Sampression.com
  - Naya Lite is distributed under the terms of the GNU GPL.
