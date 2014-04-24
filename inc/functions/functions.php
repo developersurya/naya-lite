@@ -287,12 +287,12 @@ function sampression_sidebar_position() {
 function sampression_blog_title() {
     $logo_icon = (object) sampression_logos_icons();
     if ($logo_icon->logo_icon['active']['name'] === 'use-title') {
-        echo '<h1 class="site-title"><a href="'.get_bloginfo('wpurl').'" class="home-link">' . get_bloginfo('name') . '</a></h1>';
+        echo '<h1 class="site-title"><a href="'.home_url().'" class="home-link">' . get_bloginfo('name') . '</a></h1>';
         if ($logo_icon->logo_icon['web_desc']['use_desc'] === 'yes') {
             echo '<h2 class="site-description">' . get_bloginfo('description') . '</h2>';
         }
     } else {
-        echo '<div id="logo"><a href="'.get_bloginfo('wpurl').'" class="home-link"><img src="' . $logo_icon->logo_icon['image'] . '" title="' . get_bloginfo('name') . '" alt="' . get_bloginfo('name') . '" /></a></div>';
+        echo '<div id="logo"><a href="'.home_url().'" class="home-link"><img src="' . $logo_icon->logo_icon['image'] . '" title="' . get_bloginfo('name') . '" alt="' . get_bloginfo('name') . '" /></a></div>';
     }
 }
 
@@ -558,8 +558,8 @@ function sampression_content_nav(  ) {
                 $next_image = sampression_get_previous_image_id(false);
                 
                 ?>
-                <span class="nav-next alignright"><?php next_image_link(FALSE, truncate_text($next_image->post_title, 35)) ?></span>
-                <span class="nav-prev alignleft"><?php previous_image_link(FALSE, truncate_text($prev_image->post_title, 35)) ?></span>
+                <span class="nav-next alignright"><?php next_image_link(FALSE, sampression_truncate_text($next_image->post_title, 35)) ?></span>
+                <span class="nav-prev alignleft"><?php previous_image_link(FALSE, sampression_truncate_text($prev_image->post_title, 35)) ?></span>
                 <?php
         } elseif ( is_single() ) { // navigation links for single posts ?>
                 <?php 
@@ -568,10 +568,10 @@ function sampression_content_nav(  ) {
                 ?>
 		<?php
                 if(!empty($prev_post)) {
-                    previous_post_link( '%link', truncate_text(get_the_title($prev_post->ID), 35) );//'%title'
+                    previous_post_link( '%link', sampression_truncate_text(get_the_title($prev_post->ID), 35) );//'%title'
                 }
                 if(!empty($next_post)) {
-                    next_post_link( '%link', truncate_text(get_the_title($next_post->ID), 35) );//'%title'
+                    next_post_link( '%link', sampression_truncate_text(get_the_title($next_post->ID), 35) );//'%title'
                 }
                 ?>
 
@@ -797,7 +797,7 @@ function sampression_get_link_url() {
  * @param $file File basename
  * @return truncated file name
  */
-function truncate_text($str, $length = 20) {
+function sampression_truncate_text($str, $length = 20) {
     if(strlen($str) <= $length) {
         return $str;
     }
