@@ -176,9 +176,6 @@ function save_style_callback() {
                 'date_time' => array(
                     'date_format' => array('F j, Y', 'jS F, Y', 'Y/m/d', 'Y-m-d', 'm/d/Y', 'm-d-Y', 'd/m/Y', 'd-m-Y', 'd M, Y'),
                     'date_active' => 'F j, Y'
-                ),
-                'others' => array(
-                    'more_text' => $elements['read_more_text']
                 )
             ),
             'blog_category' => array(
@@ -247,10 +244,10 @@ function sampression_generate_custom_css() {
         $logo_icon_option = get_option('sam-logos-icons-settings');
         $logo_icon = (object) unserialize($logo_icon_option);
         if ($logo_icon->logo_icon['active']['name'] === 'use-title') {
-            $css .= '.site-title .home-link { font: ' . $logo_icon->logo_icon['active']['style'] . ' ' . $logo_icon->logo_icon['active']['size'] . 'px ' . $logo_icon->logo_icon['active']['font'] . '; color: ' . $logo_icon->logo_icon['active']['color'] . '; }' . PHP_EOL;
+            $css .= '.site-title .home-link { font: ' . $logo_icon->logo_icon['active']['style'] . ' ' . $logo_icon->logo_icon['active']['size'] . 'px/1.3 ' . $logo_icon->logo_icon['active']['font'] . '; color: ' . $logo_icon->logo_icon['active']['color'] . '; }' . PHP_EOL;
             //$css .= '.site-title .home-link { color: ' . $logo_icon->logo_icon['active']['color'] . '; }' . PHP_EOL;
             if ($logo_icon->logo_icon['web_desc']['use_desc'] === 'yes') {
-                $css .= '.site-description { font: ' . $logo_icon->logo_icon['web_desc']['style'] . ' ' . $logo_icon->logo_icon['web_desc']['size'] . 'px ' . $logo_icon->logo_icon['web_desc']['font'] . '; color: ' . $logo_icon->logo_icon['web_desc']['color'] . '; }' . PHP_EOL;
+                $css .= '.site-description { font: ' . $logo_icon->logo_icon['web_desc']['style'] . ' ' . $logo_icon->logo_icon['web_desc']['size'] . 'px/1.3 ' . $logo_icon->logo_icon['web_desc']['font'] . '; color: ' . $logo_icon->logo_icon['web_desc']['color'] . '; }' . PHP_EOL;
             }
         }
     }
@@ -258,9 +255,9 @@ function sampression_generate_custom_css() {
         $style_option = get_option('sam-typography-settings');
         $sampression_style = (object) unserialize($style_option);
         //sam_p($sampression_style);die;
-        $css .= 'body { font: ' . $sampression_style->typography['general']['p']['active']['size'] . 'px ' . $sampression_style->typography['general']['p']['active']['font'] . '; }' . PHP_EOL;
-        $css .= '.entry-title { font: ' . $sampression_style->typography['post_pages']['title']['text']['active']['size'] . 'px ' . $sampression_style->typography['post_pages']['title']['text']['active']['font'] . '; }' . PHP_EOL;
-        $css .= '.entry-meta { font: ' . $sampression_style->typography['post_pages']['meta']['text']['active']['size'] . 'px ' . $sampression_style->typography['post_pages']['meta']['text']['active']['font'] . '; }' . PHP_EOL;
+        $css .= 'body { font: ' . $sampression_style->typography['general']['p']['active']['size'] . 'px/1.6 ' . $sampression_style->typography['general']['p']['active']['font'] . '; }' . PHP_EOL;
+        $css .= '.entry-title { font: ' . $sampression_style->typography['post_pages']['title']['text']['active']['size'] . 'px/1.3 ' . $sampression_style->typography['post_pages']['title']['text']['active']['font'] . '; }' . PHP_EOL;
+        $css .= '.entry-meta { font: ' . $sampression_style->typography['post_pages']['meta']['text']['active']['size'] . 'px/1.6 ' . $sampression_style->typography['post_pages']['meta']['text']['active']['font'] . '; }' . PHP_EOL;
     }
     if(get_option('sam-custom-css-settings')) {
         $css_option = get_option('sam-custom-css-settings');

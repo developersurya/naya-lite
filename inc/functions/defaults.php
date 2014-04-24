@@ -306,9 +306,6 @@ function sampression_blog($defaults = false) {
             'date_time' => array(
                 'date_format' => array('F j, Y', 'jS F, Y', 'Y/m/d', 'Y-m-d', 'm/d/Y', 'm-d-Y', 'd/m/Y', 'd-m-Y', 'd M, Y'),
                 'date_active' => 'F j, Y'
-            ),
-            'others' => array(
-                'more_text' => ''
             )
         ),
         'blog_category' => array(

@@ -81,12 +81,12 @@ if (!function_exists('sampression_setup')):
             foreach ( (array) $menus[0] as $id => $name ) {
                     register_nav_menu( $id , $name );
             }
-        
+      
+            // Remove text color optopn from header options
+            define( 'NO_HEADER_TEXT', true );
+            
     }
 endif;
-
-// Remove text color optopn from header options
-define( 'NO_HEADER_TEXT', true );
 
 /**
  * Displays title. @uses wp_title() 
