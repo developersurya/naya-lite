@@ -236,7 +236,7 @@ function sampression_write_custom_css() {
     global $wp_filesystem;    
     
     $file = SAM_FW_CSS_DIR . '/custom-css.css';
-    $css = generate_custom_css();
+    $css = sampression_generate_custom_css();
     if($css === '') {
         return;
     }
@@ -258,7 +258,7 @@ function sampression_write_custom_css() {
     }
 }
 
-function generate_custom_css() {
+function sampression_generate_custom_css() {
     $css = '';
     if (get_option('sam-logos-icons-settings')) {
         $logo_icon_option = get_option('sam-logos-icons-settings');

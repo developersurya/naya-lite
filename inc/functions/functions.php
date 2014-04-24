@@ -148,7 +148,7 @@ function sampression_social_media_icons($location = '', $separater = '') {
 /*
  * Menu
  */
-function _option_menu() {//SAM_FW_CURRENT_PAGE
+function sampression_option_menu() {//SAM_FW_CURRENT_PAGE
     
     $menus = array(
         'logos-icons' => array(
@@ -325,7 +325,7 @@ function sampression_favicons() {
 /**
  * message info
  */
-function message_info() {
+function sampression_message_info() {
     if (isset($_GET['message'])) {// class="message success auto-close"
         switch ($_GET['message']) {
             case 1:

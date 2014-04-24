@@ -19,4 +19,4 @@
     </nav>
     <!-- #top-nav-->
     <div id="sam-main-content" class="clearfix">
-        <?php message_info() ?>
+        <?php sampression_message_info() ?>
