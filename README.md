@@ -89,5 +89,5 @@ Installation
 
 Child Theme Support
 ------------------------------------------------
- Naya Lite supports child themes. Please use child themes for customization of Naya Lite". For further reading: http://codex.wordpress.org/Child_Themes.
+ Naya Lite supports child themes. Please use child themes for customization of "Naya Lite". For further reading: http://codex.wordpress.org/Child_Themes.
 	
