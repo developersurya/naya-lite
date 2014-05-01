@@ -3,6 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 
 $blog_settings = sampression_blog();
 $post_meta = $blog_settings['post_meta'];
+//sam_p($post_meta);
 ?>
 <div id="content">
     <form id="sampression-metadata" onsubmit="javascript:return false;">
@@ -39,6 +40,7 @@ $post_meta = $blog_settings['post_meta'];
                     <h4><?php _e( 'Hide blog from the following categories', 'sampression' );?></h4>
                     <?php
                     $blog_category = $blog_settings['blog_category'];
+                    //sam_p($blog_category);
                     ?>
                 </div>
                 <div class="box-entry sam-lists sam-blogmeta-option exclude-cat-list">

@@ -19,42 +19,42 @@ function save_style_callback() {
             'logo_icon' => array(
                 'name' => array('use-title', 'use-logo'),
                 'active' => array(
-                    'name' => $elements['sam-logo'],
-                    'font' => $elements['website_font_face'],
-                    'size' => $elements['website_font_size'],
-                    'style' => $elements['website_font_style'],
-                    'color' => $elements['sam-site-color'],
+                    'name' => $elements['sam-logo'], // radio button value is either 'use-title' or 'use-logo'
+                    'font' => sanitize_text_field( $elements['website_font_face'] ),
+                    'size' => sanitize_text_field( $elements['website_font_size'] ),
+                    'style' => sanitize_text_field( $elements['website_font_style'] ),
+                    'color' => sanitize_text_field( $elements['sam-site-color'] ),
                 ),
-                'image' => $elements['website_image'],
+                'image' => esc_url_raw( $elements['website_image'] ),
                 'web_desc' => array(
                     'use_desc' => $elements['use_webdesc'],
-                    'font' => $elements['webdesc_font_face'],
-                    'size' => $elements['webdesc_font_size'],
-                    'style' => $elements['webdesc_font_style'],
-                    'color' => $elements['webdesc_font_color']
+                    'font' => sanitize_text_field( $elements['webdesc_font_face'] ),
+                    'size' => sanitize_text_field( $elements['webdesc_font_size'] ),
+                    'style' => sanitize_text_field( $elements['webdesc_font_style'] ),
+                    'color' => sanitize_text_field( $elements['webdesc_font_color'] )
                 )
             ),
             'fav_icon' => array(
                 'favicon_16' => array(
-                    'image' => $elements['favicon_image'],
+                    'image' => esc_url_raw( $elements['favicon_image'] ),
                     'donot_use_favicon' => $elements['use-favicon']
                 )
             ),
             'apple_icon' => array(
                 'favicon_57' => array(
-                    'image' => $elements['favicon_57_image'],
+                    'image' => esc_url_raw( $elements['favicon_57_image'] ),
                     'donot_use_favicon' => $elements['use-iphone']
                 ),
                 'favicon_72' => array(
-                    'image' => $elements['favicon_72_image'],
+                    'image' => esc_url_raw( $elements['favicon_72_image'] ),
                     'donot_use_favicon' => $elements['use-ipad']
                 ),
                 'favicon_114' => array(
-                    'image' => $elements['favicon_114_image'],
+                    'image' => esc_url_raw( $elements['favicon_114_image'] ),
                     'donot_use_favicon' => $elements['use-iphoneretina']
                 ),
                 'favicon_144' => array(
-                    'image' => $elements['favicon_144_image'],
+                    'image' => esc_url_raw( $elements['favicon_144_image'] ),
                     'donot_use_favicon' => $elements['use-ipadretina']
                 ),
                 'donot_use_apple_icon' => $elements['no-touchicon']
@@ -117,8 +117,8 @@ function save_style_callback() {
         if (isset($elements['social_media_slug'])) {
             for($i=0; $i < count($elements['social_media_slug']); $i++) {
                 $social_media_data[$elements['social_media_slug'][$i]] = array(
-                    'label' => $elements['social_media_label'][$i],
-                    'url' => $elements['social_media_url'][$i]
+                    'label' => sanitize_text_field( $elements['social_media_label'][$i] ),
+                    'url' => esc_url_raw( $elements['social_media_url'][$i] )
                 );
             }
         }
@@ -126,19 +126,19 @@ function save_style_callback() {
             'link_name' => array(
                 'facebook' => array(
                     'label' => 'Facebook',
-                    'url' => 'http://www.facebook.com/sampressiontheme'
+                    'url' => esc_url( 'http://www.facebook.com/sampressiontheme' )
                 ),
                 'twitter' => array(
                     'label' => 'Twitter',
-                    'url' => 'http://www.twitter.com/sampressiontheme'
+                    'url' => esc_url( 'http://www.twitter.com/sampressiontheme' )
                 ),
                 'youtube' => array(
                     'label' => 'Youtube',
-                    'url' => 'http://www.youtube.com/sampressiontheme'
+                    'url' => esc_url( 'http://www.youtube.com/sampressiontheme' )
                 ),
                 'linkedin' => array(
                     'label' => 'LinkedIn',
-                    'url' => 'http://www.linkedin.com/in/sampression'
+                    'url' => esc_url( 'http://www.linkedin.com/in/sampression' )
             )),
             'links' => $social_media_data,
             'link_styling' => array(
@@ -160,7 +160,7 @@ function save_style_callback() {
     } elseif (isset($elements['meta_data']) && $elements['meta_data'] == 'custom_css_settings') {
         $key = 'sam-custom-css-settings';
         $data = array(
-            'css' => $elements['code']
+            'css' => wp_kses_stripslashes( $elements['code'] )
         );
     } elseif (isset($elements['meta_data']) && $elements['meta_data'] == 'blog_page_settings') {
         $blog_settings = sampression_blog();
@@ -169,6 +169,17 @@ function save_style_callback() {
         $show_meta = array();
         foreach ($meta as $mkey => $mval) {
             $show_meta[$mkey] = $elements['show_' . $mkey];
+        }
+        // get selected categories to hide from the blog
+        if(isset($elements['categories_ids'])){
+            $category_count = count($elements['categories_ids']);
+            for($i=0; $i<$category_count; $i++)
+            {
+                $elements['categories_ids'][$i] = absint( $elements['categories_ids'][$i] ); 
+            }
+        }
+        else{
+            $elements['categories_ids'] = array();
         }
         $data = array(
             'post_meta' => array(
@@ -179,7 +190,7 @@ function save_style_callback() {
                 )
             ),
             'blog_category' => array(
-                'cat_id' => isset($elements['categories_ids']) ? $elements['categories_ids'] : array()
+                'cat_id' => $elements['categories_ids']
             ),
             'pagination' => array(
                 'type' => array('default'),
@@ -190,6 +201,7 @@ function save_style_callback() {
         );
         //sam_p($data); die;
     } 
+    
     $serialize = serialize($data);
     if (get_option($key)) {
         update_option($key, $serialize);
