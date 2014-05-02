@@ -75,6 +75,37 @@ Installation
 
 ## Changelog
 
+### Version 1.0.5
+ - home_url() escaped with esc_url() 
+ - data sanitazation, validation and escape fuctions used
+ - PHP fixes for sidebar
+ - CSS fixes for table font size
+ 
+
+### Version 1.0.4
+ - get_stylesheet_uri() used instead of bloginfo() function for main stylesheet url.
+ - google font path fixed
+ - added prefix on userdefined functions
+ - Escape functions added
+ - home_url function added to output home page url
+ - fonts with gpl license used
+ - hooks sections removed that provided theme options for arbitrary header/footer scripts.
+
+### Version 1.0.3
+ - Removed: <meta> description and author removed from header.php 
+ - Removed: Dashboard widgets removed 
+ - Fixed: wp_title filter used for title tag
+ - Fixed: Google fonts enqueued without the protocol (http:). 
+ - Fixed: Favicon icons disable by default
+ - Fixed: admin_print_scripts and admin_print_styles changed to admin_enqueue_scripts 
+ - Fixed: scripts and styles files enqueued directly without registering
+ - Fixed: output of data by using escape function
+ - Fixed: used ‘theme_location’ parameter instead of ‘menu’ in wp_nav_menu
+ - Fixed: register_nav_menu(), add_theme_support, add_image_size, add_nav_menu, register_nav_menus and load_theme_textdomain hooked into after_setup_theme action. 
+
+### Version 1.0.2
+ - Added: License information added on readme.txt file of bundled js files and icons.
+
 ### Version 1.0.1
  - Fixed: Non-printable characters were replaced by web save special characters.
  - Fixed: Enqueued comment-reply script.
