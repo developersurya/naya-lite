@@ -21,15 +21,15 @@ function save_style_callback() {
                 'active' => array(
                     'name' => $elements['sam-logo'], // radio button value is either 'use-title' or 'use-logo'
                     'font' => sanitize_text_field( $elements['website_font_face'] ),
-                    'size' => sanitize_text_field( $elements['website_font_size'] ),
+                    'size' => absint( $elements['website_font_size'] ),
                     'style' => sanitize_text_field( $elements['website_font_style'] ),
                     'color' => sanitize_text_field( $elements['sam-site-color'] ),
                 ),
                 'image' => esc_url_raw( $elements['website_image'] ),
                 'web_desc' => array(
-                    'use_desc' => $elements['use_webdesc'],
+                    'use_desc' => sanitize_text_field( $elements['use_webdesc'] ),
                     'font' => sanitize_text_field( $elements['webdesc_font_face'] ),
-                    'size' => sanitize_text_field( $elements['webdesc_font_size'] ),
+                    'size' => absint( $elements['webdesc_font_size'] ),
                     'style' => sanitize_text_field( $elements['webdesc_font_style'] ),
                     'color' => sanitize_text_field( $elements['webdesc_font_color'] )
                 )
@@ -37,48 +37,38 @@ function save_style_callback() {
             'fav_icon' => array(
                 'favicon_16' => array(
                     'image' => esc_url_raw( $elements['favicon_image'] ),
-                    'donot_use_favicon' => $elements['use-favicon']
+                    'donot_use_favicon' => sanitize_text_field( $elements['use-favicon'] )
                 )
             ),
             'apple_icon' => array(
                 'favicon_57' => array(
                     'image' => esc_url_raw( $elements['favicon_57_image'] ),
-                    'donot_use_favicon' => $elements['use-iphone']
+                    'donot_use_favicon' => sanitize_text_field( $elements['use-iphone'] )
                 ),
                 'favicon_72' => array(
                     'image' => esc_url_raw( $elements['favicon_72_image'] ),
-                    'donot_use_favicon' => $elements['use-ipad']
+                    'donot_use_favicon' => sanitize_text_field( $elements['use-ipad'] )
                 ),
                 'favicon_114' => array(
                     'image' => esc_url_raw( $elements['favicon_114_image'] ),
-                    'donot_use_favicon' => $elements['use-iphoneretina']
+                    'donot_use_favicon' => sanitize_text_field( $elements['use-iphoneretina'] )
                 ),
                 'favicon_144' => array(
                     'image' => esc_url_raw( $elements['favicon_144_image'] ),
-                    'donot_use_favicon' => $elements['use-ipadretina']
+                    'donot_use_favicon' => sanitize_text_field( $elements['use-ipadretina'] )
                 ),
-                'donot_use_apple_icon' => $elements['no-touchicon']
+                'donot_use_apple_icon' => sanitize_text_field( $elements['no-touchicon'] )
             )
         );
     } elseif (isset($elements['meta_data']) && $elements['meta_data'] == 'styling') {
         $key = 'sam-style-settings';
-        if (isset($_POST['preset'])) {
-            $style_option = get_option('sam-style-settings');
-            if ($style_option) {
-                $data = sampression_styling();
-                $data['presets']['active'] = $elements['presets'];
-            } else {
-                $data = sampression_styling(true);
-                $data['presets']['active'] = 'my-settings';
-            }
-        } else {
             $data = array(
                 'sidebar' => array(
                     'name' => array('right', 'none'),
-                    'active' => $elements['sidebar']
+                    'active' => sanitize_text_field( $elements['sidebar'] )
                 )
             );
-        }
+        
     }  elseif (isset($elements['meta_data']) && $elements['meta_data'] == 'typography') {
         $key = 'sam-typography-settings';
         $data = array(
@@ -86,8 +76,8 @@ function save_style_callback() {
                 'general' => array(
                     'p' => array(
                         'active' => array(
-                            'font' => $elements['p_font_face'],
-                            'size' => $elements['p_font_size']
+                            'font' => sanitize_text_field( $elements['p_font_face'] ),
+                            'size' => absint( $elements['p_font_size'] )
                         )
                     )
                 ),
@@ -95,16 +85,16 @@ function save_style_callback() {
                     'title' => array(
                         'text' => array(
                             'active' => array(
-                                'font' => $elements['pp_title_font_face'],
-                                'size' => $elements['pp_title_font_size']
+                                'font' => sanitize_text_field( $elements['pp_title_font_face'] ),
+                                'size' => absint( $elements['pp_title_font_size'] )
                             )
                         )
                     ),
                     'meta' => array(
                         'text' => array(
                             'active' => array(
-                                'font' => $elements['pp_meta_font_face'],
-                                'size' => $elements['pp_meta_font_size']
+                                'font' => sanitize_text_field( $elements['pp_meta_font_face'] ),
+                                'size' => absint( $elements['pp_meta_font_size'] )
                             )
                         )
                     )
@@ -168,7 +158,7 @@ function save_style_callback() {
         $key = 'sam-blog-page-settings';
         $show_meta = array();
         foreach ($meta as $mkey => $mval) {
-            $show_meta[$mkey] = $elements['show_' . $mkey];
+            $show_meta[$mkey] = sanitize_text_field( $elements['show_' . $mkey] );
         }
         // get selected categories to hide from the blog
         if(isset($elements['categories_ids'])){

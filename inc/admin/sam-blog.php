@@ -22,9 +22,9 @@ $post_meta = $blog_settings['post_meta'];
                             $meta = $post_meta['meta'];
                             foreach ( $meta as $mkey => $mval ) {
                             ?>
-                            <input type="checkbox" class="sam-checkbox" id="use-<?php echo $mkey; ?>"<?php if ( $mval == 'yes' ) echo ' checked="checked"'; ?> />
-                            <label for="use-<?php echo $mkey; ?>" class="checkbox-label show-meta"><?php echo ucwords( $mkey ); ?></label>
-                            <input type="hidden" name="show_<?php echo $mkey; ?>" id="show-use-<?php echo $mkey; ?>" value="<?php echo $mval; ?>" />
+                            <input type="checkbox" class="sam-checkbox" id="use-<?php echo esc_attr( $mkey ); ?>"<?php if ( $mval == 'yes' ) echo ' checked="checked"'; ?> />
+                            <label for="use-<?php echo esc_attr( $mkey ); ?>" class="checkbox-label show-meta"><?php echo ucwords( esc_attr( $mkey ) ); ?></label>
+                            <input type="hidden" name="show_<?php echo esc_attr( $mkey ); ?>" id="show-use-<?php echo esc_attr( $mkey ); ?>" value="<?php echo esc_attr( $mval ); ?>" />
                             <?php
                             }
                             ?>
