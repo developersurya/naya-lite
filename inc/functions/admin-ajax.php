@@ -191,12 +191,14 @@ function save_style_callback() {
         );
         //sam_p($data); die;
     } 
-    
-    $serialize = serialize($data);
+    $sam_db_data = array();
+    $serialize = serialize($data);    
+    $sam_db_data[$key] = $sam_db_data[$serialize];
+    $serilaized_data = serialize($sam_db_data);
     if (get_option($key)) {
-        update_option($key, $serialize);
+        update_option('sam-db-saved-data', $serilaized_data);
     } else {
-        add_option($key, $serialize, '', 'yes');
+        add_option('sam-db-saved-data', $serilaized_data, '', 'yes');
     }
     if (isset($elements['meta_data']) && $elements['meta_data'] == 'logos-icons') {
         sampression_write_custom_css();

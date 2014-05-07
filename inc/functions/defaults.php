@@ -11,7 +11,7 @@ if (!defined('ABSPATH'))
  */
 function sampression_dbdatasettings(){
     $sampression_dbdata = array(
-        'logos-icons-settings' => array(
+        'sam-logos-icons-settings' => array(
             'logo_icon' => array(
                 'name' => array('use-title', 'use-logo'),
                 'active' => array(
@@ -56,13 +56,13 @@ function sampression_dbdatasettings(){
                 'donot_use_apple_icon' => 'yes'
             )
         ),
-        'style-settings' => array(
+        'sam-style-settings' => array(
             'sidebar' => array(
                 'name' => array('right', 'none'),
                 'active' => 'right'
             )
         ),
-        'typography-settings' =>  array(
+        'sam-typography-settings' =>  array(
             'typography' => array(
                 'general' => array(
                     'p' => array(
@@ -92,7 +92,7 @@ function sampression_dbdatasettings(){
                 )
             )
         ),
-        'social-media-settings' => array(
+        'sam-social-media-settings' => array(
             'link_name' => array(
                 'facebook' => array(
                     'label' => 'Facebook',
@@ -129,7 +129,7 @@ function sampression_dbdatasettings(){
                 )
             )
         ),
-        'custom-css-settings' => array(
+        'sam-custom-css-settings' => array(
             'css' => "/* Some example CSS */
             /* Any changes made will appear in live site */
 
@@ -164,7 +164,7 @@ function sampression_dbdatasettings(){
               color: #418A8A;
             }*/"                        
         ),
-        'blog-page-settings' => array(
+        'sam-blog-page-settings' => array(
             'post_meta' => array(
                 'meta' => array(
                     'date' => 'yes',
@@ -242,53 +242,10 @@ function sampression_fonts_style() {
  * @return array
  */
 function sampression_logos_icons($defaults = false) {
-    $logo_icon = array(
-        'logo_icon' => array(
-            'name' => array('use-title', 'use-logo'),
-            'active' => array(
-                'name' => 'use-title',
-                'font' => 'Kreon',
-                'size' => 40,
-                'style' => 'bold',
-                'color' => '#000000'
-            ),
-            'image' => SAM_FW_ADMIN_IMAGES_URL . '/logo-naya.png',
-            'web_desc' => array(
-                'use_desc' => 'yes',
-                'font' => 'Kreon',
-                'size' => 18,
-                'style' => 'normal',
-                'color' => '#000000'
-            )
-        ),
-        'fav_icon' => array(
-            'favicon_16' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/16x16.png',
-                'donot_use_favicon' => 'yes'
-            )
-        ),
-        'apple_icon' => array(
-            'favicon_57' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-57x57.png',
-                'donot_use_favicon' => 'no'
-            ),
-            'favicon_72' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-72x72.png',
-                'donot_use_favicon' => 'no'
-            ),
-            'favicon_114' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-114x114.png',
-                'donot_use_favicon' => 'no'
-            ),
-            'favicon_144' => array(
-                'image' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-144x144.png',
-                'donot_use_favicon' => 'no'
-            ),
-            'donot_use_apple_icon' => 'yes'
-        )
-    );
-    $logo_icon = serialize($logo_icon);
-    if($defaults === true) {
+    $logos_icon_array = sampression_dbdatasettings();
+    $logo_icon = $logos_icon_array['sam-logos-icons-settings'];
+    $logo_icon = serialize( $logo_icon );
+    if( $defaults === true ) {
         return unserialize($logo_icon);
     }
     return unserialize(get_option('sam-logos-icons-settings', $logo_icon));
@@ -303,12 +260,8 @@ function sampression_logos_icons($defaults = false) {
  * @return  array
  */
 function sampression_styling($defaults = false) {
-    $styles = array(
-        'sidebar' => array(
-            'name' => array('right', 'none'),
-            'active' => 'right'
-        )
-    );
+    $styles_array = sampression_dbdatasettings();
+    $styles =  $styles_array['sam-style-settings'];
     $styles = serialize($styles);
     if($defaults === true) {
         return unserialize($styles);
@@ -325,36 +278,8 @@ function sampression_styling($defaults = false) {
  * @return array
  */
 function sampression_typography($defaults = false) {
-    $typo = array(
-        'typography' => array(
-            'general' => array(
-                'p' => array(
-                    'active' => array(
-                        'font' => 'Droid Serif',
-                        'size' => 18
-                    )
-                )
-            ),
-            'post_pages' => array(
-                'title' => array(
-                    'text' => array(
-                        'active' => array(
-                            'font' => 'Kreon',
-                            'size' => 36
-                        )
-                    )
-                ),
-                'meta' => array(
-                    'text' => array(
-                        'active' => array(
-                            'font' => 'Droid Serif',
-                            'size' => 14
-                        )
-                    )
-                )
-            )
-        )
-    );
+    $typo_array = sampression_dbdatasettings();
+    $typo =  $typo_array['sam-typography-settings'];
     $typo = serialize($typo);
     if($defaults === true) {
         return unserialize($typo);
@@ -370,45 +295,9 @@ function sampression_typography($defaults = false) {
  * @param $defaults
  * @return array
  */
-function sampression_social_media($defaults = false) {
-    $social_media = array(
-        'link_name' => array(
-            'facebook' => array(
-                'label' => 'Facebook',
-                'url' => esc_url( 'http://www.facebook.com/sampressiontheme' )
-            ),
-            'twitter' => array(
-                'label' => 'Twitter',
-                'url' => esc_url( 'http://www.twitter.com/sampressiontheme' )
-            ),
-            'youtube' => array(
-                'label' => 'Youtube',
-                'url' => esc_url( 'http://www.youtube.com/sampressiontheme' )
-            ),
-            'linkedin' => array(
-                'label' => 'LinkedIn',
-                'url' => esc_url( 'http://www.linkedin.com/in/sampression' )
-            )
-        ),
-        'links' => array(
-        ),
-        'link_styling' => array(
-            'type' => array('icon_only', 'icon_text', 'text_only'),
-            'header' => array(
-                'active' => 'yes',
-                'type' => 'icon_only',
-                'color_n' => '#666666',
-                'color_h' => '#57b94a'
-            ),
-            'footer' => array(
-                'active' => 'no',
-                'type' => 'icon_only',
-                'color_n' => '#666666',
-                'color_h' => '#57b94a'
-            )
-        )
-    );
-
+function sampression_social_media($defaults = false) {    
+    $social_media_array = sampression_dbdatasettings();
+    $social_media =  $social_media_array['sam-social-media-settings'];
     $social_media_serialize = serialize($social_media);
     if($defaults === true) {
         return unserialize($social_media_serialize);
@@ -425,42 +314,8 @@ function sampression_social_media($defaults = false) {
  * @return array
  */
 function sampression_custom_css($defaults = false) {
-    $custom_css = array(
-        'css' => "/* Some example CSS */
-    /* Any changes made will appear in live site */
-
-    /*@import url(\"something.css\");
-    body {
-      margin: 0;
-      padding: 3em 6em;
-      font-family: tahoma, arial, sans-serif;
-      color: #000;
-    }
-
-    #navigation a {
-      font-weight: bold;
-      text-decoration: none !important;
-    }
-
-    h1 {
-      font-size: 2.5em;
-    }
-
-    h2 {
-      font-size: 1.7em;
-    }
-
-    h1:before, h2:before {
-      content: \"::\";
-    }
-
-    code {
-      font-family: courier, monospace;
-      font-size: 80%;
-      color: #418A8A;
-    }*/"
-    );
-
+    $custom_css_array = sampression_dbdatasettings();
+    $custom_css =  $custom_css_array['sam-custom-css-settings'];
     $custom_css_serialize = serialize($custom_css);
     if($defaults === true) {
         return unserialize($custom_css_serialize);
@@ -475,33 +330,9 @@ function sampression_custom_css($defaults = false) {
  * @param $defaults
  * @return array
  */
-function sampression_blog($defaults = false) {
-    $blog_page = array(
-        'post_meta' => array(
-            'meta' => array(
-                'date' => 'yes',
-                'time' => 'yes',
-                'author' => 'yes',
-                'categories' => 'yes',
-                'tags' => 'yes',
-                'icon' => 'yes'
-            ),
-            'date_time' => array(
-                'date_format' => array('F j, Y', 'jS F, Y', 'Y/m/d', 'Y-m-d', 'm/d/Y', 'm-d-Y', 'd/m/Y', 'd-m-Y', 'd M, Y'),
-                'date_active' => 'F j, Y'
-            )
-        ),
-        'blog_category' => array(
-            'cat_id' => array()
-        ),
-        'pagination' => array(
-            'type' => array('default'),
-            'default' => array(
-                'active' => 'yes'
-            )
-        )
-    );
-
+function sampression_blog($defaults = false) {    
+    $blog_page_array = sampression_dbdatasettings();
+    $blog_page =  $blog_page_array['sam-blog-page-settings'];
     $blog_page_serialize = serialize($blog_page);
     if($defaults === true) {
         return unserialize($blog_page_serialize);
