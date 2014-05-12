@@ -82,7 +82,7 @@ if (!function_exists('sampression_setup')):
                     register_nav_menu( $id , $name );
             }
       
-            // Remove text color optopn from header options
+            // Remove text color option from header options
             define( 'NO_HEADER_TEXT', true );
             
     }
