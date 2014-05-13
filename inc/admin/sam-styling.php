@@ -6,8 +6,6 @@ $style = sampression_styling();
 //sam_p($style);
 $default_fonts = sampression_fonts_style();
 ?>
-<div id="content">
-    <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="styling" />
         <section class="row">
             <h3 class="sec-title"><?php _e( 'Customize', 'sampression' ); ?></h3>
@@ -45,5 +43,3 @@ $default_fonts = sampression_fonts_style();
         </section>
         <div id="response"></div>
         <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
-    </form>
-</div>

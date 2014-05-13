@@ -33,6 +33,31 @@ jQuery(function($) {
 
 jQuery(document).ready(function($) {
     
+/* Simple Tabination */	
+//Default Action
+	jQuery(".tab_content").hide(); //Hide all content
+			
+	if( jQuery.cookie("active-tab")!=null){		
+		var lastActiveTab = jQuery.cookie("active-tab"); //retriving cookie value
+		//alert(lastActiveTab);
+		jQuery("ul.tabs li a[href="+lastActiveTab+"]").parent().addClass("current"); //Activate tab from cookie value
+		jQuery(lastActiveTab).show();
+	} else {		
+		jQuery("ul.tabs li:first").addClass("current").show(); //Activate first tab
+		jQuery(".tab_content:first").show(); //Show first tab content
+	} 
+	//On Click Event
+	jQuery("ul.tabs li").click(function() {
+		jQuery("ul.tabs li").removeClass("current"); //Remove any "active" class
+		jQuery(".tab_content").hide(); //Hide all tab content                
+		jQuery(this).addClass("current"); //Add "active" class to selected tab
+		var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		jQuery(activeTab).slideDown(600); //Fade in the active content
+		jQuery.cookie("active-tab", activeTab, { expires: 1 });
+		return false;
+	});
+
+    
     $('body').addClass('noJS');
     var bodyTag = document.getElementsByTagName("body")[0];
     bodyTag.className = bodyTag.className.replace("noJS", "hasJS");
@@ -79,38 +104,38 @@ jQuery(document).ready(function($) {
     });
     
     //sanitize_text_field
-    $('input.sanitize_text').live('blur', function() {
-        $('#save').removeClass('save-data');
-        $('#save').addClass('save-disable');
-        var i = $(this);
-        var val = i.val();
-        var data = {
-            action: 'sanitize_text',
-            value: val
-        };
-        jQuery.post(ajaxurl, data,
-            function(response) {
-                i.val(response);
-                $('#save').addClass('save-data');
-                $('#save').removeClass('save-disable');
-            });
-        return false;
-    });
-    
+//    $('input.sanitize_text').live('blur', function() {
+//        $('#save').removeClass('save-data');
+//        $('#save').addClass('save-disable');
+//        var i = $(this);
+//        var val = i.val();
+//        var data = {
+//            action: 'sanitize_text',
+//            value: val
+//        };
+//        jQuery.post(ajaxurl, data,
+//            function(response) {
+//                i.val(response);
+//                $('#save').addClass('save-data');
+//                $('#save').removeClass('save-disable');
+//            });
+//        return false;
+//    });
+//    
     // generate wp slug for a string.
-    $('#new-widget-name, #edit-widget-name').live('blur', function() {
-        var i = $(this);
-        var val = i.val();
-        var data = {
-            action: 'return_slug',
-            value: val
-        };
-        jQuery.post(ajaxurl, data,
-                function(response) {
-                    i.next('input.widget-slug').val(response);
-                });
-        return false;
-    });
+//    $('#new-widget-name, #edit-widget-name').live('blur', function() {
+//        var i = $(this);
+//        var val = i.val();
+//        var data = {
+//            action: 'return_slug',
+//            value: val
+//        };
+//        jQuery.post(ajaxurl, data,
+//                function(response) {
+//                    i.next('input.widget-slug').val(response);
+//                });
+//        return false;
+//    });
 
     //Show blog from the following categories - Check all checkboxes and uncheck all checkboxes.
     $('#show-all-categories').live('click', function() {
@@ -456,39 +481,39 @@ jQuery(document).ready(function($) {
     });
 
     //Saving Theme Data
-    $('.save-data').live("click", function() {
-        if ($('#sam-custom-code').length > 0) {
-            $('#sam-custom-code').val(editor.getValue());
-        }
-        if ($(this).hasClass('saving')) {
-            return false;
-        }
-        
-        $(this).css('background-color', '#333333');
-        $(this).addClass('saving');
-        $('.save-data').html('Saving');
-        $( $(this) ).after( '<i class="icon-spinner circle alignright"></i>' );
-        var serial = $('#sampression-metadata').serialize();
-        var data = {
-            action: 'save_style',
-            elements: serial
-        };
-        jQuery.post(ajaxurl, data,
-                function(response) {
-                    $('#response').html(response);
-
-                    form_clean = $("form#sampression-metadata").serialize();
-                    if ($('[name="meta_data"]').val() == 'custom_css_settings') {
-                        form_clean = $('#sam-custom-code').val();
-                    }
-                        $('.save-data').css('background-color', '#57B94A');
-                        $('.save-data').html("Save");
-                        $('.save-data').removeClass('saving');
-                        $('.save-data').siblings('i.icon-spinner').remove();
-                });
-        return false;
-    });
-    
+//    $('.save-data').live("click", function() {
+//        if ($('#sam-custom-code').length > 0) {
+//            $('#sam-custom-code').val(editor.getValue());
+//        }
+//        if ($(this).hasClass('saving')) {
+//            return false;
+//        }
+//        
+//        $(this).css('background-color', '#333333');
+//        $(this).addClass('saving');
+//        $('.save-data').html('Saving');
+//        $( $(this) ).after( '<i class="icon-spinner circle alignright"></i>' );
+//        var serial = $('#sampression-metadata').serialize();
+//        var data = {
+//            action: 'save_style',
+//            elements: serial
+//        };
+//        jQuery.post(ajaxurl, data,
+//                function(response) {
+//                    $('#response').html(response);
+//
+//                    form_clean = $("form#sampression-metadata").serialize();
+//                    if ($('[name="meta_data"]').val() == 'custom_css_settings') {
+//                        form_clean = $('#sam-custom-code').val();
+//                    }
+//                        $('.save-data').css('background-color', '#57B94A');
+//                        $('.save-data').html("Save");
+//                        $('.save-data').removeClass('saving');
+//                        $('.save-data').siblings('i.icon-spinner').remove();
+//                });
+//        return false;
+//    });
+//    
     
     //Fancyselect for styling selectbox.
     $('.sam-select').each(function() {

@@ -10,8 +10,6 @@ $sm_links = $social_media->links;
 //sam_p($sm_links);
 $available_social_media = $social_media->link_name;
 ?>
-<div id="content">
-    <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="social_media_settings" />
         <section class="row">
             <h3 class="sec-title"><?php _e( 'Social Media', 'sampression' ); ?></h3>
@@ -83,5 +81,3 @@ $available_social_media = $social_media->link_name;
         <!-- .row-->
         <div id="response"></div>
         <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
-    </form>
-</div>

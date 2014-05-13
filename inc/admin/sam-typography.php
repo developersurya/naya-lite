@@ -8,8 +8,6 @@ $pp = $typo['typography']['post_pages'];
 //sam_p($style);
 $default_fonts = sampression_fonts_style();
 ?>
-<div id="content">
-    <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="typography" />
         <section class="row">
             <div class="box titled-box">
@@ -95,5 +93,3 @@ $default_fonts = sampression_fonts_style();
         </section><a name="response"></a>
         <div id="response"></div>
         <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' ) ?></a>
-    </form>
-</div>

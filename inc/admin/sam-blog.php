@@ -5,8 +5,6 @@ $blog_settings = sampression_blog();
 $post_meta = $blog_settings['post_meta'];
 //sam_p($post_meta);
 ?>
-<div id="content">
-    <form id="sampression-metadata" onsubmit="javascript:return false;">
         <input type="hidden" name="meta_data" value="blog_page_settings" />
         <section class="row">
             <h3 class="sec-title"><?php _e( 'Blog Page Settings', 'sampression' );?></h3>
@@ -69,5 +67,3 @@ $post_meta = $blog_settings['post_meta'];
         <!-- .row-->
         <div id="response"></div>
         <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
-    </form>
-</div>

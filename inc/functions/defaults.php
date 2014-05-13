@@ -9,6 +9,42 @@ if (!defined('ABSPATH'))
  *
  * @return array
  */
+global $sampression_option_defaults;
+$sampression_option_defaults = array(
+    'use_logo_title' => 'use_title',
+    'logo_url' => SAM_FW_ADMIN_IMAGES_URL . '/logo-naya.png',
+    'web_title_font' => 'Kreon',
+    'web_title_size' => 40,
+    'web_title_style' => 'bold',
+    'web_title_color' => '#000000',
+    'use_web_desc' => 'yes',
+    'web_desc_font' => 'Kreon',
+    'web_desc_size' => 18,
+    'web_desc_style' => 'normal',
+    'web_desc_color' => '#000000',
+    'donot_use_favicon_16' => 'yes',
+    'favicon_url_16' => SAM_FW_ADMIN_IMAGES_URL . '/16x16.png',
+    'donot_use_apple_icon_57' => 'no',
+    'apple_icon_url_57' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-57x57.png',
+    'donot_use_apple_icon_72' => 'no',
+    'apple_icon_url_72' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-72x72.png',
+    'donot_use_apple_icon_114' => 'no',
+    'apple_icon_url_114' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-114x114.png',
+    'donot_use_apple_icon_144' => 'no',
+    'apple_icon_url_144' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-144x144.png',
+    'donot_use_apple_icon' => 'yes'
+);
+
+global $sampression_options_settings;
+$sampression_options_settings = sampression_options_set_defaults( $sampression_option_defaults );
+
+function sampression_options_set_defaults( $sampression_option_defaults ) {
+    $sampression_options_settings = array_merge( $sampression_option_defaults, (array) get_option( 'sampression_theme_options', array() ) );
+    //print_r($idea_options_settings);
+    return $sampression_options_settings;
+}
+
+
 function sampression_dbdatasettings(){
     $sampression_dbdata = array(
         'sam-logos-icons-settings' => array(
@@ -241,15 +277,15 @@ function sampression_fonts_style() {
  * @param $defaults
  * @return array
  */
-function sampression_logos_icons($defaults = false) {
-    $logos_icon_array = sampression_dbdatasettings();
-    $logo_icon = $logos_icon_array['sam-logos-icons-settings'];
-    $logo_icon = serialize( $logo_icon );
-    if( $defaults === true ) {
-        return unserialize($logo_icon);
-    }
-    return unserialize(get_option('sam-logos-icons-settings', $logo_icon));
-}
+//function sampression_logos_icons($defaults = false) {
+//    $logos_icon_array = sampression_dbdatasettings();
+//    $logo_icon = $logos_icon_array['sam-logos-icons-settings'];
+//    $logo_icon = serialize( $logo_icon );
+//    if( $defaults === true ) {
+//        return unserialize($logo_icon);
+//    }
+//    return unserialize(get_option('sam-logos-icons-settings', $logo_icon));
+//}
 
 /**
  * Styling Defaults

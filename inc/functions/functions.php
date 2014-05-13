@@ -152,38 +152,39 @@ function sampression_option_menu() {//SAM_FW_CURRENT_PAGE
     
     $menus = array(
         'logos-icons' => array(
-            'slug' => 'sampression-options',
+            'slug' => 'logos-icons',
             'label' => __( 'Logos &amp; Icons', 'sampression' )
         ),
         'styling' => array(
-            'slug' => 'sampression-options&sam-page=styling',
+            'slug' => 'styling',
             'label' => __( 'Styling', 'sampression' )
         ),
         'typography' => array(
-            'slug' => 'sampression-options&sam-page=typography',
+            'slug' => 'typography',
             'label' => __( 'Typography', 'sampression' )
         ),
         'social-media' => array(
-            'slug' => 'sampression-options&sam-page=social-media',
+            'slug' => 'social-media',
             'label' => __( 'Social Media', 'sampression' )
         ),
         'custom-css' => array(
-            'slug' => 'sampression-options&sam-page=custom-css',
+            'slug' => 'custom-css',
             'label' => __( 'Custom CSS', 'sampression' )
         ),
         'blog' => array(
-            'slug' => 'sampression-options&sam-page=blog',
+            'slug' => 'blog',
             'label' => __( 'Blog', 'sampression' )
         )
     );
     
     foreach ( (array) $menus as $key => $val ) {
         ?>
-        <li class="<?php echo $key; if($key == SAM_FW_CURRENT_PAGE) { echo ' current'; } ?>"><a href="themes.php?page=<?php echo $val['slug']; ?>"><i class="icon-sam-<?php echo $key; ?>"></i><?php echo $val['label']; ?></a></li>
+        <li><a href="#<?php echo $val['slug']; ?>"><i class="icon-sam-<?php echo $key; ?>"></i><?php echo $val['label']; ?></a></li>
     <?php
     }
     
 }
+//require_once SAM_FW_ADMIN_DIR . '/theme-options.php';
 /**
  * Sampression Post thumbnail
  *

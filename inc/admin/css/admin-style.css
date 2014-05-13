@@ -420,7 +420,7 @@ or wrap each row of columns in a <div class="row"> */
 ================================================== */
 #sam-main-content #content {
     border: 1px solid #E5E5E5;
-    min-height: 1100px;
+    min-height: 500px;
     float: left;
     margin-left: -1px;
     background:#F7F7F7;
