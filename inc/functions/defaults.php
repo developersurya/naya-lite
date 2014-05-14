@@ -9,6 +9,8 @@ if (!defined('ABSPATH'))
  *
  * @return array
  */
+
+$categories = get_categories( array( 'hide_empty' => 0 ) );
 global $sampression_option_defaults;
 $sampression_option_defaults = array(
     'use_logo_title' => 'use_title',
@@ -32,7 +34,58 @@ $sampression_option_defaults = array(
     'apple_icon_url_114' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-114x114.png',
     'donot_use_apple_icon_144' => 'no',
     'apple_icon_url_144' => SAM_FW_ADMIN_IMAGES_URL . '/apple-touch-icon-144x144.png',
-    'donot_use_apple_icon' => 'yes'
+    'donot_use_apple_icon' => 'yes',
+    'sidebar_active' => 'none',
+    'body_font_family' => 'Droid Serif',
+    'body_font_size' => 18,
+    'post_title_font_family' => 'Kreon',
+    'post_title_font_size' => 36,
+    'meta_font_family' => 'Droid Serif',
+    'meta_font_size' => 14,
+    'social_facebook_url' => '',
+    'social_twitter_url' => '',
+    'social_youtube_url' => '',
+    'social_linkedin_url' => '',
+    'custom_css_value' => '/* Some example CSS */
+            /* Any changes made will appear in live site */
+
+            /*@import url(\"something.css\");
+            body {
+              margin: 0;
+              padding: 3em 6em;
+              font-family: tahoma, arial, sans-serif;
+              color: #000;
+            }
+
+            #navigation a {
+              font-weight: bold;
+              text-decoration: none !important;
+            }
+
+            h1 {
+              font-size: 2.5em;
+            }
+
+            h2 {
+              font-size: 1.7em;
+            }
+
+            h1:before, h2:before {
+              content: \"::\";
+            }
+
+            code {
+              font-family: courier, monospace;
+              font-size: 80%;
+              color: #418A8A;
+            }*/',
+    'show_meta_date' => 'yes',
+    'show_meta_time' => 'yes',
+    'show_meta_author' => 'yes',
+    'show_meta_categories' => 'yes',    
+    'show_meta_tags' => 'yes',
+    'show_meta_icon' => 'yes',
+    'hide_blog_from_category' => array(),
 );
 
 global $sampression_options_settings;
@@ -269,6 +322,22 @@ function sampression_fonts_style() {
     return $fonts;
 }
 
+//Sidebar Options to chose for
+function sampression_sidebar_options() {
+    $sidebar_options = array( 'right', 'none' );
+    return $sidebar_options;
+}
+
+
+function sampression_available_social_media(){
+    $available_social_media = array(
+        'facebook' => 'Facebook',
+        'twitter' => 'Twitter',
+        'youtube' => 'Youtube',
+        'linkedin' => 'LinkedIn'
+    );
+    return $available_social_media;
+}
 /**
  * Logos and Icons Defaults.
  * If $defaults is set to true, returns default logo-icon array
@@ -295,15 +364,15 @@ function sampression_fonts_style() {
  * @param boolean $defaults
  * @return  array
  */
-function sampression_styling($defaults = false) {
-    $styles_array = sampression_dbdatasettings();
-    $styles =  $styles_array['sam-style-settings'];
-    $styles = serialize($styles);
-    if($defaults === true) {
-        return unserialize($styles);
-    }
-    return unserialize(get_option('sam-style-settings', $styles));
-}
+//function sampression_styling($defaults = false) {
+//    $styles_array = sampression_dbdatasettings();
+//    $styles =  $styles_array['sam-style-settings'];
+//    $styles = serialize($styles);
+//    if($defaults === true) {
+//        return unserialize($styles);
+//    }
+//    return unserialize(get_option('sam-style-settings', $styles));
+//}
 
 /**
  * Typography Setting Defaults
@@ -313,15 +382,15 @@ function sampression_styling($defaults = false) {
  * @param $defaults
  * @return array
  */
-function sampression_typography($defaults = false) {
-    $typo_array = sampression_dbdatasettings();
-    $typo =  $typo_array['sam-typography-settings'];
-    $typo = serialize($typo);
-    if($defaults === true) {
-        return unserialize($typo);
-    }
-    return unserialize(get_option('sam-typography-settings', $typo));
-}
+//function sampression_typography($defaults = false) {
+//    $typo_array = sampression_dbdatasettings();
+//    $typo =  $typo_array['sam-typography-settings'];
+//    $typo = serialize($typo);
+//    if($defaults === true) {
+//        return unserialize($typo);
+//    }
+//    return unserialize(get_option('sam-typography-settings', $typo));
+//}
 
 /**
  * Social Media Defaults
@@ -349,15 +418,15 @@ function sampression_social_media($defaults = false) {
  * @param $defaults
  * @return array
  */
-function sampression_custom_css($defaults = false) {
-    $custom_css_array = sampression_dbdatasettings();
-    $custom_css =  $custom_css_array['sam-custom-css-settings'];
-    $custom_css_serialize = serialize($custom_css);
-    if($defaults === true) {
-        return unserialize($custom_css_serialize);
-    }
-    return unserialize(get_option('sam-custom-css-settings', $custom_css_serialize));
-}
+//function sampression_custom_css($defaults = false) {
+//    $custom_css_array = sampression_dbdatasettings();
+//    $custom_css =  $custom_css_array['sam-custom-css-settings'];
+//    $custom_css_serialize = serialize($custom_css);
+//    if($defaults === true) {
+//        return unserialize($custom_css_serialize);
+//    }
+//    return unserialize(get_option('sam-custom-css-settings', $custom_css_serialize));
+//}
 
 /**
  * Blog Setting Defaults

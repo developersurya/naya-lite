@@ -1,10 +1,11 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 
-$css_settings = sampression_custom_css();
+//$css_settings = sampression_custom_css();
 //sam_p($css_settings);
 ?>
-        <input type="hidden" name="meta_data" value="custom_css_settings" />
-        <textarea id="sam-custom-code" name="code"><?php echo esc_attr( $css_settings['css'] ); ?></textarea>
+        <textarea id="sam-custom-code" name="sampression_theme_options[custom_css_value]"><?php echo esc_attr( $options['custom_css_value'] ); ?></textarea>
         <div id="response"></div>
-        <a id="save" href="javascript:void(0);" class="button1 alignright save-data"><?php _e( 'Save', 'sampression' );?></a>
+        <p class="submit">
+                    <input type="submit" name="sampression-theme-settings" id="submit" class="button1 alignright save-data" value="Save" />
+                </p>

@@ -68,19 +68,19 @@ $default_fonts = (object) sampression_fonts_style();
                         <div class="clearfix remove-description">
                             <input id="no-webdesc" class="sam-checkbox samp-style" type="checkbox" <?php if ($options['use_web_desc'] == 'yes') echo ' checked="checked"'; ?>>
                             <label class="checkbox-label" for="no-webdesc"><?php echo _e( 'Website Description', 'sampression' ); ?></label>
-                            <input type="hidden" id="sam-use-webdesc" name="sampression_theme_options[use_webdesc]" value="<?php echo esc_attr( $options['use_web_desc'] ); ?>" />
+                            <input type="hidden" id="sam-use-webdesc" name="sampression_theme_options[use_web_desc]" value="<?php echo esc_attr( $options['use_web_desc'] ); ?>" />
                         </div>
                         <div class="sam-site-desc font-demo" style="font: <?php echo esc_attr( $options['web_desc_style'] ); ?> <?php echo absint( $options['web_desc_size'] ); ?>px <?php echo esc_attr( $options['web_desc_font'] ); ?>; color: <?php echo esc_attr( $options['web_desc_color'] ); ?>;<?php if( $options['web_desc_color'] == '#ffffff' ) { echo ' background-color: #57B94A;'; } ?>"><?php echo get_bloginfo( 'description' ) ? get_bloginfo( 'description' ) : _e( 'a new theme', 'sampression' ); ?></div>
                         <div class="select-wrapper font-face medium-select alignleft" >
-                            <?php sampression_font_select( 'sampression_theme_options[webdesc_font_face]', 'sam-select change-sitedesc-fontface', esc_attr( $options['web_desc_font'] ) ) ?>
+                            <?php sampression_font_select( 'sampression_theme_options[web_desc_font]', 'sam-select change-sitedesc-fontface', esc_attr( $options['web_desc_font'] ) ) ?>
                         </div>
                         <div class="select-wrapper font-size small-select alignleft">
-                            <?php sampression_font_size_select( 'sampression_theme_options[webdesc_font_size]', 'sam-select change-sitedesc-fontsize', absint( $options['web_desc_size'] ), absint( $size['min_value'] ), absint( $size['max_value'] ) ) ?>
+                            <?php sampression_font_size_select( 'sampression_theme_options[web_desc_size]', 'sam-select change-sitedesc-fontsize', absint( $options['web_desc_size'] ), absint( $size['min_value'] ), absint( $size['max_value'] ) ) ?>
                         </div>
                         <div class="select-wrapper font-style small-select alignleft" style="margin-right: 0;">
-                            <?php sampression_font_style_select( 'sampression_theme_options[webdesc_font_style]', 'sam-select change-sitedesc-fontstyle', esc_attr( $options['web_desc_style'] ) ) ?>
+                            <?php sampression_font_style_select( 'sampression_theme_options[web_desc_style]', 'sam-select change-sitedesc-fontstyle', esc_attr( $options['web_desc_style'] ) ) ?>
                         </div>
-                        <input type="text" name="sampression_theme_options[webdesc_font_color]" value="<?php echo esc_attr( $options['web_desc_color'] ); ?>" class="sam-site-desc-color wp-color-picker" data-default-color="#00CC99" />
+                        <input type="text" name="sampression_theme_options[web_desc_color]" value="<?php echo esc_attr( $options['web_desc_color'] ); ?>" class="sam-site-desc-color wp-color-picker" data-default-color="#00CC99" />
                     </div>
                 </div>
             </div>
