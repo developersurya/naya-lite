@@ -255,9 +255,10 @@ function sampression_content_class($classes = array()) {
 }
 
 function sampression_sidebar_position() {
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
     if ( (is_front_page() && is_home()) || is_author() || is_category() || is_tag()) {
-        $sampression_position = (object) sampression_styling();
-        $position = $sampression_position->sidebar['active'];
+        $position = $options['sidebar_active'];
         return $position;
     }
     else{
@@ -273,9 +274,8 @@ function sampression_sidebar_position() {
         if(is_page() || is_single() || is_front_page() || is_home()) {
             $position = get_post_meta($post_id, 'sam_sidebar_by_post', true);
         }
-        $sampression_position = (object) sampression_styling();
         if($position == '' || $position == 'default') {
-            $position = $sampression_position->sidebar['active'];
+            $position = $options['sidebar_active'];
         }
         return $position;
    }
@@ -289,14 +289,15 @@ function sampression_sidebar_position() {
  * @global type $sampression_logo_icon
  */
 function sampression_blog_title() {
-    $logo_icon = (object) sampression_logos_icons();
-    if ($logo_icon->logo_icon['active']['name'] === 'use-title') {
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
+    if (esc_attr($options['use_logo_title']) === 'use_title') {
         echo '<h1 class="site-title"><a href="'.esc_url(home_url()).'" class="home-link">' . get_bloginfo('name') . '</a></h1>';
-        if ($logo_icon->logo_icon['web_desc']['use_desc'] === 'yes') {
+        if ( esc_attr( $options['use_web_desc'] )  === 'yes') {
             echo '<h2 class="site-description">' . get_bloginfo('description') . '</h2>';
         }
     } else {
-        echo '<div id="logo"><a href="'.esc_url(home_url()).'" class="home-link"><img src="' . $logo_icon->logo_icon['image'] . '" title="' . get_bloginfo('name') . '" alt="' . get_bloginfo('name') . '" /></a></div>';
+        echo '<div id="logo"><a href="'.esc_url(home_url()).'" class="home-link"><img src="' . esc_url( $options['logo_url'] ) . '" title="' . get_bloginfo('name') . '" alt="' . get_bloginfo('name') . '" /></a></div>';
     }
 }
 
@@ -306,22 +307,23 @@ function sampression_blog_title() {
  * @global type $sampression_logo_icon
  */
 function sampression_favicons() {
-    $sampression_logo_icon = (object) sampression_logos_icons();
-    if ($sampression_logo_icon->fav_icon['favicon_16']['donot_use_favicon'] === 'no') {
-        echo '<link rel="shortcut icon" href="' . $sampression_logo_icon->fav_icon['favicon_16']['image'] . '" />';
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
+    if (esc_attr($options['donot_use_favicon_16']) === 'no') {
+        echo '<link rel="shortcut icon" href="' . esc_url($options['favicon_url_16']) . '" />';
     }
-    if ($sampression_logo_icon->apple_icon['donot_use_apple_icon'] === 'no') {
-        if ($sampression_logo_icon->apple_icon['favicon_57']['donot_use_favicon'] === 'no') {
-            echo '<link rel="apple-touch-icon" sizes="57x57" href="' . $sampression_logo_icon->apple_icon['favicon_57']['image'] . '" />';
+    if (esc_attr($options['donot_use_apple_icon']) === 'no') {
+        if (esc_attr($options['donot_use_apple_icon_57']) === 'no') {
+            echo '<link rel="apple-touch-icon" sizes="57x57" href="' . esc_url($options['apple_icon_url_57']) . '" />';
         }
-        if ($sampression_logo_icon->apple_icon['favicon_72']['donot_use_favicon'] === 'no') {
-            echo '<link rel="apple-touch-icon" sizes="72x72" href="' . $sampression_logo_icon->apple_icon['favicon_72']['image'] . '" />';
+        if (esc_attr($options['donot_use_apple_icon_72']) === 'no'){
+            echo '<link rel="apple-touch-icon" sizes="72x72" href="' . esc_url($options['apple_icon_url_72']) . '" />';
         }
-        if ($sampression_logo_icon->apple_icon['favicon_114']['donot_use_favicon'] === 'no') {
-            echo '<link rel="apple-touch-icon" sizes="114x114" href="' . $sampression_logo_icon->apple_icon['favicon_114']['image'] . '" />';
+        if (esc_attr($options['donot_use_apple_icon_114']) === 'no') {
+            echo '<link rel="apple-touch-icon" sizes="114x114" href="' . esc_url($options['apple_icon_url_114']) . '" />';
         }
-        if ($sampression_logo_icon->apple_icon['favicon_144']['donot_use_favicon'] === 'no') {
-            echo '<link rel="apple-touch-icon" sizes="144x144" href="' . $sampression_logo_icon->apple_icon['favicon_144']['image'] . '" />';
+        if (esc_attr($options['donot_use_apple_icon_144']) === 'no') {
+            echo '<link rel="apple-touch-icon" sizes="144x144" href="' . esc_url($options['apple_icon_url_144']) . '" />';
         }
     }
 }

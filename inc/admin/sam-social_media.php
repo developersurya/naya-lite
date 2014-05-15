@@ -2,12 +2,12 @@
 if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 
 $social_media = (object) sampression_social_media();
-sam_p($social_media);
+//sam_p($social_media);
 //
 // social media links
-$sm_links = $social_media->links;
-sam_p($sm_links);
-$available_social_media = $social_media->link_name;
+//$sm_links = $social_media->links;
+//sam_p($sm_links);
+//$available_social_media = $social_media->link_name;
 ?>
         <input type="hidden" name="meta_data" value="social_media_settings" />
         <section class="row">
@@ -17,7 +17,6 @@ $available_social_media = $social_media->link_name;
 
                     <ul class="social-media-list clearfix">
                         <?php
-                        $count = 0;
                         
                         if($options['social_facebook_url'] || $options['social_twitter_url'] || $options['social_youtube_url'] || $options['social_linkedin_url']){
                         // check if any social media links saved
