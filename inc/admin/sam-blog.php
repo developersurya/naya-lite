@@ -58,7 +58,7 @@ $post_meta = $blog_settings['post_meta'];
                     <?php
                     $blog_category = $options['hide_blog_from_category'];
                     //sam_p($blog_category);
-                    print_r($blog_category);
+                    //print_r($blog_category);
                     ?>
                 </div>
                 <div class="box-entry sam-lists sam-blogmeta-option exclude-cat-list">

@@ -215,74 +215,45 @@ if (!defined('ABSPATH'))
 //    die();
 //}
 //
-//function sampression_write_custom_css() {
-//    WP_Filesystem();
-//    global $wp_filesystem;    
-//    
-//    $file = SAM_FW_CSS_DIR . '/custom-css.css';
-//    $css = sampression_generate_custom_css();
-//    if($css === '') {
-//        return;
-//    }
-//    if (!is_writable($file)) {
-//        $str = '<p class="message info">' . $file . ' is not writeable.<br />Copy the generated css from the text area below and paste it in the file above.</p>';
-//        $str .= '<textarea id="custom-css-select" style="width: 100%; height: 150px;">' . $css . '</textarea><br /><br />';
-//        $str .= '<script>window.document.getElementById("custom-css-select").select();</script>';
-//        echo $str;
-//        return;
-//    }
-//    if ( ! $wp_filesystem->put_contents( $file, ' ', FS_CHMOD_FILE) ) {
-//        echo __('CSS could not be written at this time. Please try again later.', 'sampression');
-//    }
-//    
-//    if (file_exists($file)) {
-//        if ( ! $wp_filesystem->put_contents( $file, $css, FS_CHMOD_FILE) ) {
-//            echo __('CSS could not be written at this time. Please try again later.', 'sampression');
-//        }
-//    }
-//}
-//
-//function sampression_generate_custom_css() {
-//    $css = '';
-//    if (get_option('sam-logos-icons-settings')) {
-//        $logo_icon_option = get_option('sam-logos-icons-settings');
-//        $logo_icon = (object) unserialize($logo_icon_option);
-//        if ($logo_icon->logo_icon['active']['name'] === 'use-title') {
-//            $css .= '.site-title .home-link { font: ' . $logo_icon->logo_icon['active']['style'] . ' ' . $logo_icon->logo_icon['active']['size'] . 'px/1.3 ' . $logo_icon->logo_icon['active']['font'] . '; color: ' . $logo_icon->logo_icon['active']['color'] . '; }' . PHP_EOL;
-//            //$css .= '.site-title .home-link { color: ' . $logo_icon->logo_icon['active']['color'] . '; }' . PHP_EOL;
-//            if ($logo_icon->logo_icon['web_desc']['use_desc'] === 'yes') {
-//                $css .= '.site-description { font: ' . $logo_icon->logo_icon['web_desc']['style'] . ' ' . $logo_icon->logo_icon['web_desc']['size'] . 'px/1.3 ' . $logo_icon->logo_icon['web_desc']['font'] . '; color: ' . $logo_icon->logo_icon['web_desc']['color'] . '; }' . PHP_EOL;
-//            }
-//        }
-//    }
-//    if(get_option('sam-typography-settings')) {
-//        $style_option = get_option('sam-typography-settings');
-//        $sampression_style = (object) unserialize($style_option);
-//        //sam_p($sampression_style);die;
-//        $css .= 'body { font: ' . $sampression_style->typography['general']['p']['active']['size'] . 'px/1.6 ' . $sampression_style->typography['general']['p']['active']['font'] . '; }' . PHP_EOL;
-//        $css .= '.entry-title { font: ' . $sampression_style->typography['post_pages']['title']['text']['active']['size'] . 'px/1.3 ' . $sampression_style->typography['post_pages']['title']['text']['active']['font'] . '; }' . PHP_EOL;
-//        $css .= '.entry-meta { font: ' . $sampression_style->typography['post_pages']['meta']['text']['active']['size'] . 'px/1.6 ' . $sampression_style->typography['post_pages']['meta']['text']['active']['font'] . '; }' . PHP_EOL;
-//    }
-//    if(get_option('sam-custom-css-settings')) {
-//        $css_option = get_option('sam-custom-css-settings');
-//        $css_settings = (object) unserialize($css_option);
-//        $css .= $css_settings->css;
-//    }
-//    return $css;
-//}
-//
-//add_action('wp_ajax_return_slug', 'return_slug_callback');
-//add_action('wp_ajax_nopriv_return_slug', 'return_slug_callback');
-//
-//function return_slug_callback() {
-//    echo sanitize_title($_POST['value']);
-//    die;
-//}
-//
-//add_action('wp_ajax_sanitize_text', 'sanitize_text_callback');
-//add_action('wp_ajax_nopriv_sanitize_text', 'sanitize_text_callback');
-//
-//function sanitize_text_callback() {
-//    echo sanitize_text_field($_POST['value']);
-//    die;
-//}
+
+add_action('wp_head', 'sampression_write_custom_css');
+function sampression_write_custom_css() {
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    WP_Filesystem();
+    global $wp_filesystem;    
+    
+    $file = SAM_FW_CSS_DIR . '/custom-css.css';
+    $css = sampression_generate_custom_css();
+    if($css === '') {
+        return;
+    }
+    if (!is_writable($file)) {
+        $str = '<p class="message info">' . $file . ' is not writeable.<br />Copy the generated css from the text area below and paste it in the file above.</p>';
+        $str .= '<textarea id="custom-css-select" style="width: 100%; height: 150px;">' . $css . '</textarea><br /><br />';
+        $str .= '<script>window.document.getElementById("custom-css-select").select();</script>';
+        echo $str;
+        return;
+    }
+    if ( ! $wp_filesystem->put_contents( $file, ' ', FS_CHMOD_FILE) ) {
+        echo __('CSS could not be written at this time. Please try again later.', 'sampression');
+    }
+    
+    if (file_exists($file)) {
+        if ( ! $wp_filesystem->put_contents( $file, $css, FS_CHMOD_FILE) ) {
+            echo __('CSS could not be written at this time. Please try again later.', 'sampression');
+        }
+    }
+}
+
+function sampression_generate_custom_css(){
+    $css = '';
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
+    $css .= '.site-title .home-link { font: ' . $options['web_title_style'] . ' ' . $options['web_title_size'] . 'px/1.3 ' . $options['web_title_font'] . '; color: ' . $options['web_title_color'] . '; }' . PHP_EOL;
+    $css .= '.site-description { font: ' . $options['web_desc_style'] . ' ' . $options['web_desc_size'] . 'px/1.3 ' . $options['web_desc_font'] . '; color: ' . $options['web_desc_color'] . '; }' . PHP_EOL;
+    $css .= 'body { font: ' . $options['body_font_size'] . 'px/1.6 ' . $options['body_font_family'] . '; }' . PHP_EOL;
+    $css .= '.entry-title { font: ' . $options['post_title_font_size'] . 'px/1.3 ' . $options['post_title_font_family'] . '; }' . PHP_EOL;
+    $css .= '.entry-meta { font: ' . $options['meta_font_size'] . 'px/1.6 ' . $options['meta_font_family'] . '; }' . PHP_EOL;
+    $css .=  $options['custom_css_value'] . "\n";
+    return $css;
+}

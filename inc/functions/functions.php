@@ -385,34 +385,24 @@ if (isset($_GET['action']) && $_GET['action'] === 'restore') {
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     WP_Filesystem();
     global $wp_filesystem;
-    $key_values = array('sam-logos-icons-settings', 'sam-style-settings', 'sam-typography-settings', 'sam-social-media-settings', 'sam-custom-css-settings', 'sam-blog-page-settings');
-    $counter = 0;
-    foreach ($key_values as $key_value) {
-        if (delete_option($key_value)) {
-            $counter++;
-        }
-    }
-    
-    $message = 2;
-    if ($counter === 0) {
-        $message = 3;
+    $message = 0;
+    if(get_option('sampression_theme_options')){
+        delete_option('sampression_theme_options');
+        $message = 2;
     }
     $file = SAM_FW_CSS_DIR . '/custom-css.css';
     $css = ' ';
     if (!is_writable($file)) {
         $message = 4;
+        wp_redirect('themes.php?page=sampression-options&message=' . $message);
     } else {
         if (file_exists($file)) {
             if ( ! $wp_filesystem->put_contents( $file, $css, FS_CHMOD_FILE) ) {
                 echo __('CSS could not be written at this time. Please try again later.', 'sampression');
             }
         }
-    }
-    $link = '';
-    if(isset($_GET['sam-page']) && $_GET['sam-page']!= '') {
-        $link = '&sam-page='.$_GET['sam-page'];
-    }
-    wp_redirect('themes.php?page=' . $_GET['page'] . $link . '&message=' . $message);
+        wp_redirect('themes.php?page=sampression-options');
+    }    
     exit;
 }
 
@@ -993,8 +983,8 @@ if ( ! function_exists( 'sampression_admin_header_style' ) ) :
  * @see sampression_custom_header_setup().
  */
 function sampression_admin_header_style() {
-        $sampression_logo_icon = (object) sampression_logos_icons();
-        
+        global $sampression_options_settings;
+        $options = $sampression_options_settings;        
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #admin-heading {
@@ -1004,13 +994,13 @@ function sampression_admin_header_style() {
                     margin: 0;
 		}
 		#admin-heading h1.site-title a {
-                   color: <?php echo $sampression_logo_icon->logo_icon['active']['color']; ?>;
+                   color: <?php echo $options['web_title_color']; ?>;
                    text-decoration: none;
-                   font: <?php echo $sampression_logo_icon->logo_icon['active']['style'].' '. $sampression_logo_icon->logo_icon['active']['size'] . 'px '. $sampression_logo_icon->logo_icon['active']['font']; ?>;
+                   font: <?php echo $options['web_title_style'].' '. $options['web_title_size'] . 'px '. $options['web_title_font']; ?>;
 		}
 		#desc {
-                   color: <?php echo $sampression_logo_icon->logo_icon['web_desc']['color']; ?>;
-                   font: <?php echo $sampression_logo_icon->logo_icon['web_desc']['style'].' '. $sampression_logo_icon->logo_icon['web_desc']['size'] . 'px '. $sampression_logo_icon->logo_icon['web_desc']['font']; ?>;
+                   color: <?php echo $options['web_desc_color']; ?>;
+                   font: <?php echo $options['web_desc_style'].' '. $options['web_desc_size'] . 'px '. $options['web_desc_font']; ?>;
                    padding-top: 0;
                    padding-bottom: 10px;
 		}

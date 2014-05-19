@@ -29,7 +29,6 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                 <div id="sidebar-nav">
                     <ul class="clearfix tabs" id="admin-menu">
                         <?php sampression_option_menu() ?>
-
                     </ul>
                 </div>
                 <div class="sam-saving-info"><?php echo _e( 'Please save your changes by clicking save button at the bottom', 'sampression' ); ?></div>
@@ -43,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                             //print_r($options);
                          ?>
                         <div style="display: none;" id="logos-icons" class="tab_content">
-                           <?php  include('sam-logos_icons.php'); ?>
+                           <?php  include('sam-logos-icons.php'); ?>
                         </div>
                         <div style="display: none;" id="styling" class="tab_content">
                             <?php  include('sam-styling.php'); ?>
@@ -52,10 +51,10 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                             <?php include('sam-typography.php'); ?>
                         </div>
                         <div style="display: none;" id="social-media" class="tab_content">
-                            <?php include('sam-social_media.php'); ?> 
+                            <?php include('sam-social-media.php'); ?> 
                         </div>
                         <div style="display: none;" id="custom-css" class="tab_content">
-                            <?php include('sam-custom_css.php'); ?>
+                            <?php include('sam-custom-css.php'); ?>
                         </div>
                         <div style="display: none;" id="blog" class="tab_content">
                             <?php include('sam-blog.php'); ?>
@@ -63,13 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                     </form>
                 </div>
                 <!-- footer -->
-                <?php
-                $link = '';
-                if( isset( $_GET['sam-page'] ) && $_GET['sam-page']!= '' ) {
-                    $link = '&sam-page='.$_GET['sam-page'];
-                }
-                ?>
-                <a href="themes.php?page=<?php echo $_GET['page'] ?><?php echo $link ?>&action=restore" class="button4 sampression-restore"><?php echo _e( 'Restore all to default settings', 'sampression' ); ?></a>
+                <a href="themes.php?page=sampression-options&action=restore" class="button4 sampression-restore"><?php echo _e( 'Restore all to default settings', 'sampression' ); ?></a>
                 </div>
                 <!-- #sam-main-content-->
                 </div>
@@ -94,7 +87,7 @@ function get_sampression_option($option_name) {
     $input = array();
     $input = $options;
     
-print_r($options);
+//print_r($options);
     // Data Validation for Radio Button for chosing website logo or website name		
     if ( isset( $input[ 'use_logo_title' ] ) ) {
         $validated[ 'use_logo_title' ] = $input[ 'use_logo_title' ];
