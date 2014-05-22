@@ -924,6 +924,10 @@ color: #0274B3;
     padding: 0;
 }
 
+.social-footer{
+    margin-top:0;
+}
+
 .jumbotron{
     clear: both;
     padding-top: 10px;

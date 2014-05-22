@@ -1,19 +1,11 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
-
-//$logo_icon = (object) sampression_logos_icons();
 $default_fonts = (object) sampression_fonts_style();
-//sam_p($logo_icon);
-//echo $options['use_logo_title'];
+global $sampression_options_settings;
+$options = $sampression_options_settings;  
 ?>
         <section class="row sam-logooption">
             <h3 class="sec-title"><?php echo _e( 'Logos &amp; Icons', 'sampression' ); ?></h3>
-            <?php
-//            $logo_icons = (object) $logo_icon->logo_icon;
-//            $logo_icons_name = $logo_icons->name;
-//            $logo_icon_active = $logo_icons->active;
-//            $logo_icon_image = esc_url( $logo_icons->image );
-            ?>
             <div class="sam-section-wrapper clearfix">
                 <div class="box titled-box col first-child">
                     <div  class="box-title">
@@ -27,10 +19,10 @@ $default_fonts = (object) sampression_fonts_style();
                             <img src="<?php echo $options['logo_url']; ?>" alt="Sampression" id="website-image-preview" />
                         </figure>
                         <div class="backgroundimage-option alignleft">
-                            <div class="image-title" id="website-image-title"><?php echo sampression_truncate_text( basename( $options['logo_url'] ) ); ?></div>
+                            <div class="image-title" id="website-image-title"><?php echo sampression_truncate_text( basename( esc_url( $options['logo_url'] ) ) ); ?></div>
                             <div class="fileUpload button1 button2">
                                 <span><?php _e( 'Change', 'sampression' );?></span>
-                                <input type="hidden" id="website_image" class="upload_image" name="sampression_theme_options[logo_url]" value="<?php echo $options['logo_url']; ?>" />
+                                <input type="hidden" id="website_image" class="upload_image" name="sampression_theme_options[logo_url]" value="<?php echo esc_url( $options['logo_url'] ); ?>" />
                                 <input type="button" id="websiteimage" name="websiteimage" class="upload_image_button" />
                             </div>
                         </div>

@@ -1,9 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
-
-$blog_settings = sampression_blog();
-$post_meta = $blog_settings['post_meta'];
-//sam_p($post_meta);
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
 ?>
         <input type="hidden" name="meta_data" value="blog_page_settings" />
         <section class="row">
@@ -55,32 +53,30 @@ $post_meta = $blog_settings['post_meta'];
             <div class="box titled-box">
                 <div  class="box-title">
                     <h4><?php _e( 'Hide blog from the following categories', 'sampression' );?></h4>
-                    <?php
-                    $blog_category = $options['hide_blog_from_category'];
-                    //sam_p($blog_category);
-                    //print_r($blog_category);
-                    ?>
                 </div>
                 <div class="box-entry sam-lists sam-blogmeta-option exclude-cat-list">
                     <ul class=" clearfix">
                         <li class="clearfix">
                             <?php
+                            $hidden_categories_value = esc_attr( $options['hide_blog_from_category'] ); // Get string value from database for hidden categories id
+                            $hidden_categories = explode(',', $hidden_categories_value); // Convert string to array for hidden categories id
                             $categories = get_categories( array( 'hide_empty' => 0 ) );
                             ?>
                             <div class="sam-margin10">
-                                <input type="checkbox" class="sam-checkbox" id="show-all-categories"<?php if( count( $blog_category) === count( $categories ) ) { echo 'checked="checked"'; } ?> />
+                                <input type="checkbox" class="sam-checkbox" id="show-all-categories" <?php if( count( $hidden_categories) === count( $categories ) ) { echo 'checked="checked"'; } ?> />
                                 <label for="show-all-categories" class="checkbox-label"><?php _e( 'All', 'sampression' );?></label>
                             </div>
                             <?php
                             foreach ( $categories as $category ) {
                             ?>
-                            <input type="checkbox" name="sampression_theme_options[hide_blog_from_category[]]" value="<?php echo $category->term_id; ?>" class="sam-checkbox show-categories" id="cat-<?php echo $category->slug; ?>"<?php if( in_array( $category->term_id, $blog_category ) ) { echo 'checked="checked"'; } ?> />
+                            <input type="checkbox" name="sampression_hide_category" value="<?php echo $category->term_id; ?>" class="sam-checkbox show-categories" id="cat-<?php echo $category->slug; ?>"<?php  if( in_array( $category->term_id, $hidden_categories ) ) { echo 'checked="checked"'; }  ?> />
                                 <label for="cat-<?php echo $category->slug; ?>" class="checkbox-label"><?php echo $category->name; ?></label>
                             <?php
                             }
                             ?>
                         </li>
                     </ul>
+                    <input type="hidden" name="sampression_theme_options[hide_blog_from_category]" id="sam-hide-category" class="sam-hide-category" value="<?php echo esc_attr( $options['hide_blog_from_category'] ); ?>" >
                 </div>
             </div>
         </section>

@@ -13,9 +13,6 @@ class Sampression_Admin {
         add_action( 'admin_enqueue_scripts', array( $this, 'sampression_admin_styles' ) );
         add_action( 'admin_head', array( $this, 'admin_ie_js_css' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'sampression_stylesheets_scripts' ) );
-        require_once SAM_FW_ADMIN_DIR . '/theme-options.php';
-      //  add_action( 'admin_menu', 'sampression_theme_menu' );
-       // add_action( 'admin_init', 'register_idea_setting' );
     }
 
     /**
@@ -26,9 +23,6 @@ class Sampression_Admin {
     /**
      * add admin menu
      */
-//    public function add_admin_menu() {
-//        add_theme_page( 'Sampression', 'Theme Options', 'edit_theme_options', 'sampression-options', array( $this, 'sampression_load_page' ) );
-//    }
     
     public function sampression_theme_menu() {
     add_theme_page( 
@@ -61,18 +55,6 @@ class Sampression_Admin {
         require_once SAM_FW_ADMIN_DIR . '/footer.php';
         
     }
-    
-    
-
-//    public function sampression_theme_menu() {
-//        add_theme_page( 
-//            'Theme Options', // Name of page
-//            'Theme Options', // Label in menu
-//            'edit_theme_options', // Capability required
-//            'sampression-options', // Menu slug, used to uniquely identify the page
-//            'sampression_theme_settings' // Function that renders the options page
-//        );
-//    }
 
     public function register_sampression_setting() {
         register_setting( 'sampression_options', 'sampression_theme_options', 'sampression_theme_validate' ); 
@@ -113,8 +95,8 @@ class Sampression_Admin {
         wp_enqueue_script( 'SelectBox', SAM_FW_ADMIN_JS_URL . '/SelectBox.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'jScrollPane', SAM_FW_ADMIN_JS_URL . '/jScrollPane.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'jquerymousewheel', SAM_FW_ADMIN_JS_URL . '/jquery.mousewheel.js', array( 'jquery' ), '1.0', true );
-        wp_enqueue_script( 'codemirror', SAM_FW_ADMIN_JS_URL . '/codemirror.js', array(), '1.0', true);
-        wp_enqueue_script( 'csscodemirror', SAM_FW_ADMIN_JS_URL . '/csscodemirror.js', array(), '1.0', true);
+        //wp_enqueue_script( 'codemirror', SAM_FW_ADMIN_JS_URL . '/codemirror.js', array(), '1.0', true);
+       // wp_enqueue_script( 'csscodemirror', SAM_FW_ADMIN_JS_URL . '/csscodemirror.js', array(), '1.0', true);
         wp_enqueue_script( 'admin-script', SAM_FW_ADMIN_JS_URL . '/admin-script.js', array( 'jquery', 'wp-color-picker','jquery-ui-tooltip' ), '1.0', true );//, 'thickbox', 'media-upload'
         wp_enqueue_script( 'jquery-cookies', SAM_FW_ADMIN_JS_URL . '/jquery.cookies.js', array( 'jquery' ), '1.0' );
     }

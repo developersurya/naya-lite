@@ -2,10 +2,9 @@
 if ( !defined( 'ABSPATH' ) )
     exit( 'restricted access' );
 
-$sidebar_options = sampression_sidebar_options();
-//print_r($sidebar_options);
-//sam_p($sidebar_options);
-//$default_fonts = sampression_fonts_style();
+    $sidebar_options = sampression_sidebar_options();
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
 ?>
         <section class="row">
             <h3 class="sec-title"><?php _e( 'Customize', 'sampression' ); ?></h3>
@@ -16,9 +15,6 @@ $sidebar_options = sampression_sidebar_options();
                 <div class="box-entry">
                     <ul id="sidebar-selector" class="style-selector-list clearfix">
                         <?php
-//                        $sidebar = $style['sidebar'];
-//                        $sidebar_name = $sidebar['name'];
-//                        $sidebar_active = esc_attr( $sidebar['active'] );
                         for ( $i = 0; $i < count( $sidebar_options ); $i++ ) {
                             ?>
                             <li class="<?php

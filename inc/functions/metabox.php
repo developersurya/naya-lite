@@ -8,7 +8,6 @@ function sam_meta_box_add() {
 
 function sampression_options_metabox($post) {
     $values = get_post_custom($post->ID);
-   // $style = sampression_styling();
     $sidebar_options = sampression_sidebar_options();
     global $sampression_options_settings;
     $options = $sampression_options_settings;
@@ -18,8 +17,6 @@ function sampression_options_metabox($post) {
         <div class="box">
             <ul id="sidebar-selector" class="style-selector-list clearfix">
                 <?php
-                //$sidebar = $style['sidebar'];
-                //$sidebar_name = $sidebar['name'];
                 $sidebar_active = isset($values['sam_sidebar_by_post']) ? esc_attr($values['sam_sidebar_by_post'][0]) : 'default';
                 ?>
                 <li class="first style-selector<?php if ($sidebar_active == 'default') {
@@ -47,7 +44,7 @@ function sampression_options_metabox($post) {
                 }
                 ?>
             </ul>
-            <input type="hidden" name="sam_sidebar_by_post" id="sidebar" value="<?php echo $sidebar_options; ?>" />
+            <input type="hidden" name="sam_sidebar_by_post" id="sidebar" value="<?php echo $sidebar_active; ?>" />
             <?php wp_nonce_field( 'sam_meta_box_nonce', 'meta_box_nonce' ); ?>
         </div>
     </section>

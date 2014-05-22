@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                     </div>
                 </div>
                 <div class="social-connect">
-                    <?php echo sampression_social_media_icons( $location = 'header', $separater = '' ) ?>
+                    <?php sampression_social_media_icons() ?>
                 </div>
                 <?php $header_image = get_header_image();
         		if ( ! empty( $header_image ) ) : ?>

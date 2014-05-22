@@ -33,43 +33,44 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                 </div>
                 <div class="sam-saving-info"><?php echo _e( 'Please save your changes by clicking save button at the bottom', 'sampression' ); ?></div>
                 <!-- content -->
+                <form method="post" action="options.php">
                 <div id="content">
-                    <form method="post" action="options.php">
+                    
                          <?php
                             settings_fields( 'sampression_options' );
-                            global $sampression_options_settings;
-                            $options = $sampression_options_settings;
                             //print_r($options);
                          ?>
                         <div style="display: none;" id="logos-icons" class="tab_content">
-                           <?php  include('sam-logos-icons.php'); ?>
+                            <?php get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'sam-logos-icons' ); ?>
                         </div>
                         <div style="display: none;" id="styling" class="tab_content">
-                            <?php  include('sam-styling.php'); ?>
+                            <?php get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'sam-styling' ); ?>
                         </div>
                         <div style="display: none;" id="typography" class="tab_content">
-                            <?php include('sam-typography.php'); ?>
+                            <?php get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'sam-typography' ); ?>
                         </div>
                         <div style="display: none;" id="social-media" class="tab_content">
-                            <?php include('sam-social-media.php'); ?> 
+                            <?php get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'sam-social-media' ); ?>
                         </div>
                         <div style="display: none;" id="custom-css" class="tab_content">
-                            <?php include('sam-custom-css.php'); ?>
+                            <?php get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'sam-custom-css' ); ?>
                         </div>
                         <div style="display: none;" id="blog" class="tab_content">
-                            <?php include('sam-blog.php'); ?>
+                            <?php get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'sam-blog' ); ?>
                         </div>
-                    </form>
-                </div>
-                <!-- footer -->
-                <a href="themes.php?page=sampression-options&action=restore" class="button4 sampression-restore"><?php echo _e( 'Restore all to default settings', 'sampression' ); ?></a>
+                    
+                </div> <!-- content -->
+                <input name="reset" class="button4 sampression-restore" type="submit" value="Reset to theme default settings" >
+                <input type="hidden" name="action" value="reset" />
+                </form>
                 </div>
                 <!-- #sam-main-content-->
                 </div>
-                <!-- #sam-wrapper -->                               
-
-<?php
+                <!-- #sam-wrapper -->    
+                <?php
     }
+    
+    
     
 function get_sampression_option($option_name) {
     
@@ -269,8 +270,8 @@ function get_sampression_option($option_name) {
     }
     
     // Data validation for not showing posts of category
-    if ( isset( $input[ 'hide_blog_from_category[]' ] ) ) {
-        $validated[ 'hide_blog_from_category[]' ] = $input[ 'hide_blog_from_category[]' ];
+    if ( isset( $input[ 'hide_blog_from_category' ] ) ) {
+        $validated[ 'hide_blog_from_category' ] = $input[ 'hide_blog_from_category' ];
     }
     
     // Data Validation for facebook url
@@ -283,5 +284,17 @@ function get_sampression_option($option_name) {
         $validated[ 'social_twitter_url' ] = esc_url_raw( $input[ 'social_twitter_url' ] );
     }
     
+    // Data Validation for linkedin url
+    if ( isset( $input[ 'social_linkedin_url' ] ) ) {
+        $validated[ 'social_linkedin_url' ] = esc_url_raw( $input[ 'social_linkedin_url' ] );
+    }
+    
+    // Data Validation for youtube url
+    if ( isset( $input[ 'social_youtube_url' ] ) ) {
+        $validated[ 'social_youtube_url' ] = esc_url_raw( $input[ 'social_youtube_url' ] );
+    }
+    
     return $validated;
-}
+
+    }
+    

@@ -119,34 +119,34 @@ function sampression_filter_wp_title( $title, $sep = '|' ){
  * @param $location header / footer
  * @return Social Media Links
  */
-function sampression_social_media_icons($location = '', $separater = '') {
-    if($location == '') {
-        return '';
-    }
-    $icons = sampression_social_media();
-    //sam_p($icons);
-    if(count($icons['links']) == 0) {
-        return '';
-    }
-    $return = '';
-    $media = array();
-    if($icons['link_styling'][$location]['active'] == 'yes') {
-        //sam_p($icons['links']);
-        foreach($icons['links'] as $key => $val) {
-            if($icons['link_styling'][$location]['type'] == 'icon_only') {
-                $media[] = '<a href="'.$val['url'].'" class="social-'.$key.'"><i class="icon-social-'.$key.'"></i></a>';
-            } elseif($icons['link_styling'][$location]['type'] == 'text_only') {
-                $media[] = '<a href="'.$val['url'].'" class="social-'.$key.'">'.$val['label'].'</a>';
-            } else {
-                $media[] = '<a href="'.$val['url'].'" class="social-'.$key.'"><i class="icon-social-'.$key.'"></i>'.$val['label'].'</a>';
-            }
+function sampression_social_media_icons() {
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
+    if( $options['social_facebook_url'] || $options['social_twitter_url'] || $options['social_linkedin_url'] || $options['social_youtube_url'] ){
+        if( $options['social_facebook_url'] ){
+        ?>
+            <a href="<?php echo esc_url( $options['social_facebook_url'] ); ?>" class="social-facebook"> <i class="icon-social-facebook"></i> </a>
+        <?php
         }
-        $return = implode($separater, $media);
+        if( $options['social_twitter_url'] ){
+        ?>
+            <a href="<?php echo esc_url( $options['social_twitter_url'] ); ?>" class="social-twitter"> <i class="icon-social-twitter"></i> </a>
+        <?php
+        }
+        if( $options['social_linkedin_url'] ){
+        ?>
+            <a href="<?php echo esc_url( $options['social_linkedin_url'] ); ?>" class="social-linkedin"> <i class="icon-social-linkedin"></i> </a>
+        <?php
+        }
+        if( $options['social_youtube_url'] ){
+        ?>
+            <a href="<?php echo esc_url( $options['social_youtube_url'] ); ?>" class="social-youtube"> <i class="icon-social-youtube"></i> </a>
+        <?php
+        }
     }
-    return $return;
 }
 /*
- * Menu
+ *  Menu of theme option
  */
 function sampression_option_menu() {//SAM_FW_CURRENT_PAGE
     
@@ -212,9 +212,7 @@ function sampression_post_thumbnail() {
 function sampression_sidebar_class($classes = array()) {
     $position = sampression_sidebar_position();
     $class = '';
-    if ($position === 'left') {
-        $class = 'four columns';
-    } elseif ($position === 'right') {
+    if ($position === 'right') {
         $class = 'four columns offset-by-one';
     } else {
         $class = '';
@@ -254,11 +252,14 @@ function sampression_content_class($classes = array()) {
     echo $class;
 }
 
+/*
+ * Sampression sidebar postition/ layout
+ */
 function sampression_sidebar_position() {
     global $sampression_options_settings;
     $options = $sampression_options_settings;
     if ( (is_front_page() && is_home()) || is_author() || is_category() || is_tag()) {
-        $position = $options['sidebar_active'];
+        $position = esc_attr( $options['sidebar_active'] );
         return $position;
     }
     else{
@@ -275,7 +276,7 @@ function sampression_sidebar_position() {
             $position = get_post_meta($post_id, 'sam_sidebar_by_post', true);
         }
         if($position == '' || $position == 'default') {
-            $position = $options['sidebar_active'];
+            $position = esc_attr( $options['sidebar_active'] );
         }
         return $position;
    }
@@ -381,7 +382,10 @@ function sam_p($array) {
     echo '</pre>';
 }
 
-if (isset($_GET['action']) && $_GET['action'] === 'restore') {
+/**
+ * restore theme options 
+ */
+if(isset($_POST['reset'])) {
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     WP_Filesystem();
     global $wp_filesystem;
@@ -449,7 +453,8 @@ if (!function_exists('sampression_post_meta')) :
      * Prints HTML with meta information for the current post-date/time and author.
      */
     function sampression_post_meta() {
-        $sampression_blog_settings = (object) sampression_blog();
+        global $sampression_options_settings;
+        $options = $sampression_options_settings;
         $posted = '';
         $post_format = 'posted';
         if(get_post_format() === 'chat') {
@@ -459,7 +464,7 @@ if (!function_exists('sampression_post_meta')) :
         } elseif(get_post_format() === 'video') {
             $post_format = 'video';
         }
-        if($sampression_blog_settings->post_meta['meta']['author'] === 'yes') {
+        if( $options['show_meta_author'] === 'yes' ) {
             global $authordata;
             $posted .= sprintf(
                         '<span class="author">%4$s by <a href="%1$s" title="%2$s" rel="author">%3$s</a></span> ',
@@ -469,25 +474,25 @@ if (!function_exists('sampression_post_meta')) :
                         $post_format
                     );
         }
-        if($sampression_blog_settings->post_meta['meta']['date'] === 'yes') {
+        if( $options['show_meta_date'] === 'yes' ) {
             $time = '';
-            if($sampression_blog_settings->post_meta['meta']['time'] === 'yes') {
+            if( $options['show_meta_time'] === 'yes' ) {
                 $time = ' ' . get_the_time();
             }
             $posted .= sprintf(
                         '<time datetime="%2$s" class="entry-date"><a href="%3$s">%1$s' . $time . '</a></time>',
-                        get_the_date($sampression_blog_settings->post_meta['date_time']['date_active']),
+                        get_the_date(),
                         get_the_date('c'),
                         get_permalink()
                     );
         }
 
-        if($sampression_blog_settings->post_meta['meta']['categories'] === 'yes') {
+        if($options['show_meta_categories'] === 'yes') {
             if(get_the_category_list()) {
                 $posted .= '<span class="categories-links"> under ' . get_the_category_list(__(', ', 'sampression')) . '</span> ';
             }
         }
-        if($sampression_blog_settings->post_meta['meta']['tags'] === 'yes') {
+        if($options['show_meta_tags'] === 'yes') {
             if(get_the_tag_list()) {
                 $posted .= '<span class="tags-links">' . get_the_tag_list( '', ', ', '' ) .'</span>';
             }
@@ -497,12 +502,17 @@ if (!function_exists('sampression_post_meta')) :
 
 endif;
 
+/*
+ * Filter to support shortcode in widget
+ */
 add_filter( 'widget_text', 'do_shortcode');
 
 function sampression_exclude_categories($query) {
-    $sampression_blog_settings = (object) sampression_blog();
-    if(count($sampression_blog_settings->blog_category['cat_id']) > 0) {
-        $exclude = $sampression_blog_settings->blog_category['cat_id'];
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;    
+    $hidden_categories_value = esc_attr( $options['hide_blog_from_category'] ); // Get string value from database for hidden categories id
+    $exclude = explode(',', $hidden_categories_value); // Convert string to array for hidden categories id
+    if(count($exclude) > 0) {
         if ($query->is_home) {
             $query->set('category__not_in', $exclude);
         }
@@ -572,11 +582,7 @@ function sampression_content_nav(  ) {
                 ?>
 
         <?php } elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { // navigation links for home, archive, and search pages ?>
-                <?php
-                $sampression_blog_settings = (object) sampression_blog();
-                //sam_p($sampression_blog_settings);
-                if($sampression_blog_settings->pagination['default']['active'] === 'yes') {
-                ?>
+                
 		<?php if ( get_next_posts_link() ) : ?>
 		<?php next_posts_link( __( 'Older Posts', 'sampression' ) ); ?>
 		<?php endif; ?>
@@ -584,11 +590,6 @@ function sampression_content_nav(  ) {
 		<?php if ( get_previous_posts_link() ) : ?>
 		<?php previous_posts_link( __( 'Newer Posts', 'sampression' ) ); ?>
 		<?php endif; ?>
-                <?php
-                } else {
-                     sampression_pagination();
-                }
-                ?>
 
     <?php } ?>
 
@@ -660,23 +661,6 @@ if(!function_exists('sampression_attached_image')) {
     }
     
 }
-
-if ( ! function_exists( 'sampression_pagination' ) ) :
-	function sampression_pagination() {
-		global $wp_query;
-
-		$big = 999999999; // need an unlikely integer
-
-		echo paginate_links( array(
-			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-			'format' => '?paged=%#%',
-			'current' => max( 1, get_query_var('paged') ),
-			'total' => $wp_query->max_num_pages,
-                        'prev_text' => __('<', 'sampression'),
-                        'next_text' => __('>', 'sampression')
-		) );
-	}
-endif;
 
 add_filter('next_posts_link_attributes', 'sampression_next_posts_link_attributes');
 add_filter('previous_posts_link_attributes', 'sampression_previous_posts_link_attributes');
@@ -910,19 +894,15 @@ function sampression_get_template($template_name) {
 
 function sampression_readmore_link() {
     if(sampression_get_the_excerpt()) {
-        $blog_settings = (object) sampression_blog();
         $more = 'Read more';
-        if(!empty($blog_settings->post_meta['others']['more_text'])) {
-            $more = $blog_settings->post_meta['others']['more_text'];
-        }
         printf( '<div class="entry-footer"><a href="%2$s">%1$s</a></div>', $more, get_permalink() );
     }
 }
 
 function sampression_post_class() {
-    
-    $blog_settings = (object)sampression_blog();
-    if($blog_settings->post_meta['meta']['icon'] == 'yes') {
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;  
+    if($options['show_meta_icon'] == 'yes') {
         return array('format-icon', 'clearfix');
     }
     return array('clearfix');
@@ -994,13 +974,13 @@ function sampression_admin_header_style() {
                     margin: 0;
 		}
 		#admin-heading h1.site-title a {
-                   color: <?php echo $options['web_title_color']; ?>;
+                   color: <?php echo esc_attr( $options['web_title_color'] ); ?>;
                    text-decoration: none;
-                   font: <?php echo $options['web_title_style'].' '. $options['web_title_size'] . 'px '. $options['web_title_font']; ?>;
+                   font: <?php echo esc_attr( $options['web_title_style'] ).' '. absint( $options['web_title_size'] ) . 'px '. esc_attr( $options['web_title_font'] ); ?>;
 		}
 		#desc {
-                   color: <?php echo $options['web_desc_color']; ?>;
-                   font: <?php echo $options['web_desc_style'].' '. $options['web_desc_size'] . 'px '. $options['web_desc_font']; ?>;
+                   color: <?php echo esc_attr( $options['web_desc_color'] ); ?>;
+                   font: <?php echo esc_attr( $options['web_desc_style'] ).' '. absint( $options['web_desc_size'] ) . 'px '. esc_attr( $options['web_desc_font'] ); ?>;
                    padding-top: 0;
                    padding-bottom: 10px;
 		}

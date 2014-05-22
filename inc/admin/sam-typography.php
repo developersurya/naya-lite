@@ -1,12 +1,9 @@
 <?php
 if ( !defined( 'ABSPATH' ) )
     exit( 'restricted access' );
-
-//$typo = sampression_typography();
-//$general = $typo['typography']['general'];
-//$pp = $typo['typography']['post_pages'];
-//sam_p($style);
-$default_fonts = sampression_fonts_style();
+    $default_fonts = sampression_fonts_style();
+    global $sampression_options_settings;
+    $options = $sampression_options_settings;
 ?>
         <section class="row">
             <div class="box titled-box">

@@ -29,6 +29,7 @@ function sampression_constants() {
         define( 'SAM_FW_CLS_TPL_PART_DIR', 'inc/classes/' );
         define( 'SAM_FW_FUNC_TPL_PART_DIR', 'inc/functions/' );
         define( 'SAM_FW_WIDGET_TPL_PART_DIR', 'inc/widgets/' );
+        define( 'SAM_FW_ADMIN_TPL_PART_DIR', 'inc/admin/' );
 
 	/** Define URL Location Constants */
 	define( 'SAM_FW_SITE_URL', site_url() );
@@ -81,11 +82,12 @@ function sampression_load_framework() {
         get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'metabox' );
 
 	/** Load Widgets */
-	get_template_part( SAM_FW_WIDGET_TPL_PART_DIR . 'adminbar-menu' );
+	get_template_part( SAM_FW_WIDGET_TPL_PART_DIR . 'adminbar-menu' );      
+        
 
 	/** Load Admin */
 	if ( is_admin() ) :
-
+               get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'theme-options' );
 	endif;
 
 	/** Load Javascript */

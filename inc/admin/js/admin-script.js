@@ -102,49 +102,6 @@ jQuery(document).ready(function($) {
             i.slideUp(1000);
         }, 5000);
     });
-    
-    //sanitize_text_field
-//    $('input.sanitize_text').live('blur', function() {
-//        $('#save').removeClass('save-data');
-//        $('#save').addClass('save-disable');
-//        var i = $(this);
-//        var val = i.val();
-//        var data = {
-//            action: 'sanitize_text',
-//            value: val
-//        };
-//        jQuery.post(ajaxurl, data,
-//            function(response) {
-//                i.val(response);
-//                $('#save').addClass('save-data');
-//                $('#save').removeClass('save-disable');
-//            });
-//        return false;
-//    });
-//    
-    // generate wp slug for a string.
-//    $('#new-widget-name, #edit-widget-name').live('blur', function() {
-//        var i = $(this);
-//        var val = i.val();
-//        var data = {
-//            action: 'return_slug',
-//            value: val
-//        };
-//        jQuery.post(ajaxurl, data,
-//                function(response) {
-//                    i.next('input.widget-slug').val(response);
-//                });
-//        return false;
-//    });
-
-    //Show blog from the following categories - Check all checkboxes and uncheck all checkboxes.
-    $('#show-all-categories').live('click', function() {
-        if ($(this).is(':checked')) {
-            $('.show-categories').attr('checked', 'checked');
-        } else {
-            $('.show-categories').removeAttr('checked');
-        }
-    });
 
     //Show Meta - Blog Page Setting - check/uncheck checkbox
     $('.show-meta').live('click', function() {
@@ -154,174 +111,6 @@ jQuery(document).ready(function($) {
         } else {
             $('#show-' + id).val('yes');
         }
-    });
-
-    //Add New - Social Media
-    $('.add-custom-social-media').live('click', function() {
-        /*if ($("ul.custom-social-media-sizes li:nth-last-child(1) div.message").length > 0) {
-            return false;
-        }*/
-
-        var social_media_name = $.trim($('#social_media_name').val());
-        var social_media_url = $.trim($('#social_media_url').val());
-        var social_media_label = $('#social_media_name>option:selected').text();
-        if (social_media_url === '') {
-            remove_add_solial_media_notice();
-            $(this).parent('li').append('<div class="message error">Social Media Name and Url fields are required.</div>');
-            setTimeout(function() {
-                $("ul.custom-social-media-sizes li:nth-last-child(1) div.message").remove();
-            }, 5000);
-            return false;
-        }
-        if (urlPattern.test(social_media_url)) {
-            if ($('.social-media-list i.icon-' + social_media_name).length > 0) {
-                remove_add_solial_media_notice();
-                $(this).parent('li').append('<div class="message error">Already Created. Please click on edit button to modify</div>');
-                setTimeout(function() {
-                    $("ul.custom-social-media-sizes li:nth-last-child(1) div.message").remove();
-                }, 5000);
-                return false;
-            }
-
-            var box = '<li class="row sam-no-border" style="display: none;">';
-            box += '<label for="use-' + social_media_name + '" class=""><i class="icon-' + social_media_name + '"></i>' + social_media_url + '</label>';
-            box += '<div class="button-wrapper alignright">';
-            box += '<a data-social-media-slug="' + social_media_name + '" data-social-media-url="' + social_media_url + '" data-social-media-label="' + social_media_label + '" class="button3 edit-social-media" href="javascript:;">EDIT</a>';
-            box += '<a class="button4 delete-social-media" href="javascript:;">DELETE</a>';
-            box += '</div>';
-            box += '<input type="hidden" name="social_media_slug[]" value="' + social_media_name + '" />';
-            box += '<input type="hidden" name="social_media_url[]" value="' + social_media_url + '" />';
-            box += '<input type="hidden" name="social_media_label[]" value="' + social_media_label + '" />';
-            box += '</li>';
-            $('ul.social-media-list li').removeClass('sam-no-border');
-            $(box).insertBefore('.add-social-option');
-            var $new = $('ul.social-media-list').children('li:nth-last-child(2)');
-            $new.show('slow');
-            $('#social_media_url').val('');
-            remove_add_solial_media_notice();
-        } else {
-            remove_add_solial_media_notice();
-            $(this).parent('li').append('<div class="message error">Invalid Url</div>');
-            setTimeout(function() {
-                remove_add_solial_media_notice();
-            }, 5000);
-            return false;
-        }
-    });
-    
-    function remove_add_solial_media_notice() {
-        if($("ul.custom-social-media-sizes li:nth-last-child(1) div.message").length > 0) {
-            $("ul.custom-social-media-sizes li:nth-last-child(1) div.message").remove();
-        }
-    }
-
-    //Edit Social Media List
-    $('.edit-social-media').live('click', function() {
-        if ($('ul.social-media-list li').hasClass('edit-area')) {
-            return false;
-        }
-        $('.save-data').addClass('dont-save-social-media').removeClass('save-data');
-        $(this).parent('div').parent('li').addClass('edit-area');
-        $('ul.social-media-list li:last-child').hide();
-        var social_media_name = $.trim($(this).attr('data-social-media-slug'));
-        var social_media_url = $.trim($(this).attr('data-social-media-url'));
-        var social_media_label = $.trim($(this).attr('data-social-media-label'));
-        var box = '';
-        box += '<label for="use-' + social_media_name + '" class=""><i class="icon-' + social_media_name + '"></i></label>';
-        box += '<input type="text" id="edit_social_media_url" value="' + social_media_url + '" />';
-        box += '<input type="hidden" id="edit_social_media_slug" value="' + social_media_name + '" />';
-        box += '<input type="hidden" id="edit_social_media_label" value="' + social_media_label + '" />';
-        box += '<a class="button1 small-button update-social-media" href="javascript:void(0);">Update</a> <a class="cancel-update-social-media" data-social-media-slug="' + social_media_name + '" data-social-media-url="' + social_media_url + '" data-social-media-label="' + social_media_label + '" href="javascript:void(0);">Cancel</a>'
-        $(this).parent('div').parent('li').html(box);
-    });
-
-    // Cancel Update Social Media
-    $('.cancel-update-social-media').live('click', function() {
-        $('ul.social-media-list li:last-child').show();
-        var social_media_name = $.trim($(this).attr('data-social-media-slug'));
-        var social_media_url = $.trim($(this).attr('data-social-media-url'));
-        var social_media_label = $.trim($(this).attr('data-social-media-label'));
-        var box = '';
-        box += '<label for="use-' + social_media_name + '" class=""><i class="icon-' + social_media_name + '"></i>' + social_media_url + '</label>';
-        box += '<div class="button-wrapper alignright">';
-        box += '<a data-social-media-slug="' + social_media_name + '" data-social-media-url="' + social_media_url + '" data-social-media-label="' + social_media_label + '" class="button3 edit-social-media" href="javascript:;">EDIT</a>';
-        box += '<a class="button4 delete-social-media" href="javascript:;">DELETE</a>';
-        box += '</div>';
-        box += '<input type="hidden" name="social_media_slug[]" value="' + social_media_name + '" />';
-        box += '<input type="hidden" name="social_media_url[]" value="' + social_media_url + '" />';
-        box += '<input type="hidden" name="social_media_label[]" value="' + social_media_label + '" />';
-        $(this).parent('li').html(box);
-        $('ul.social-media-list li').removeClass('edit-area');
-        $('.dont-save-social-media').addClass('save-data').removeClass('dont-save-social-media');
-    });
-
-    //Update Social Media
-    $('.update-social-media').live('click', function() {
-
-        var social_media_name = $.trim($('#edit_social_media_slug').val());
-        var social_media_url = $.trim($('#edit_social_media_url').val());
-        var social_media_label = $.trim($('#edit_social_media_label').val());
-
-        if (social_media_url === '') {
-            $(this).parent('li').append('<div class="message error">Social Media Name and Url fields are required.</div>');
-            setTimeout(function() {
-                $(this).parent("li div.message").remove();
-            }, 5000);
-            return false;
-        }
-        if (urlPattern.test(social_media_url)) {
-            var box = '';
-            box += '<label for="use-' + social_media_name + '" class=""><i class="icon-' + social_media_name + '"></i>' + social_media_url + '</label>';
-            box += '<div class="button-wrapper alignright">';
-            box += '<a data-social-media-slug="' + social_media_name + '" data-social-media-url="' + social_media_url + '" data-social-media-label="' + social_media_label + '" class="button3 edit-social-media" href="javascript:;">EDIT</a>';
-            box += '<a class="button4 delete-social-media" href="javascript:;">DELETE</a>';
-            box += '</div>';
-            box += '<input type="hidden" name="social_media_slug[]" value="' + social_media_name + '" />';
-            box += '<input type="hidden" name="social_media_url[]" value="' + social_media_url + '" />';
-            box += '<input type="hidden" name="social_media_label[]" value="' + social_media_label + '" />';
-
-            $(this).parent('li').html(box);
-            $('ul.social-media-list li').removeClass('edit-area');
-            $('ul.social-media-list li:last-child').show();
-        } else {
-            $(this).parent('li').append('<div class="message error">Invalid Url</div>');
-            setTimeout(function() {
-                $("ul.custom-social-media-sizes li:nth-last-child(1) div.message").remove();
-            }, 5000);
-            return false;
-        }
-        $('.dont-save-social-media').addClass('save-data').removeClass('dont-save-social-media');
-
-    });
-
-    //Message if update or cancel is not clicked on clicking edit button - Generate while clicked on Save button
-    $('.dont-save-social-media').live('click', function() {
-        var box = '<div class="message info">Please update or cancel Social media to save.</div>';
-        $('#response').html(box);
-        setTimeout(function() {
-            $('#response').children('div.message').remove();
-        }, 5000);
-        return false;
-    });
-
-    //Delete Social Media Confirmation Message
-    $('.delete-social-media').live('click', function() {
-        if ($(this).parent('div').parent('li').parent('ul').find('.message').length > 0) {
-            return false;
-        }
-        $(this).parent('div').parent('li.row').append('<div class="message info">Are you sure you want to delete this Social Media? <a href="javascript:void(0);" id="yes-delete-this-social-media">Yes</a> <a href="javascript:void(0);" id="cancel-delete-this-social-media">Cancel</a></div>');
-    });
-
-    //Cancel deleting Social Media
-    $('#cancel-delete-this-social-media').live('click', function() {
-        $(this).parent('div.message').remove();
-    });
-
-    //Delete Social Media
-    $('#yes-delete-this-social-media').live('click', function() {
-        $(this).parent('div.message').parent('li.row').slideUp("slow", function() {
-            $(this).remove();
-        });
     });
 
     //Check/Uncheck checkbox - Apple Touch Icons - Logos & Icons
@@ -480,41 +269,7 @@ jQuery(document).ready(function($) {
         $(this).parent('li').addClass('active');
     });
 
-    //Saving Theme Data
-//    $('.save-data').live("click", function() {
-//        if ($('#sam-custom-code').length > 0) {
-//            $('#sam-custom-code').val(editor.getValue());
-//        }
-//        if ($(this).hasClass('saving')) {
-//            return false;
-//        }
-//        
-//        $(this).css('background-color', '#333333');
-//        $(this).addClass('saving');
-//        $('.save-data').html('Saving');
-//        $( $(this) ).after( '<i class="icon-spinner circle alignright"></i>' );
-//        var serial = $('#sampression-metadata').serialize();
-//        var data = {
-//            action: 'save_style',
-//            elements: serial
-//        };
-//        jQuery.post(ajaxurl, data,
-//                function(response) {
-//                    $('#response').html(response);
-//
-//                    form_clean = $("form#sampression-metadata").serialize();
-//                    if ($('[name="meta_data"]').val() == 'custom_css_settings') {
-//                        form_clean = $('#sam-custom-code').val();
-//                    }
-//                        $('.save-data').css('background-color', '#57B94A');
-//                        $('.save-data').html("Save");
-//                        $('.save-data').removeClass('saving');
-//                        $('.save-data').siblings('i.icon-spinner').remove();
-//                });
-//        return false;
-//    });
-//    
-    
+     
     //Fancyselect for styling selectbox.
     $('.sam-select').each(function() {
         var sb = new SelectBox({
@@ -530,25 +285,6 @@ jQuery(document).ready(function($) {
                 }
             }
         });
-    });
-
-    /**
-     * add css to select element in social media page
-     * for some modification from default
-     **/
-    $('#social_media_name').css({
-        'position': 'absolute',
-        'left': '-999em'
-    });
-
-    // apply style to select box
-    new SelectBox({
-        selectbox: $('#social_media_name'),
-        height: 250,
-        changeCallback: function(val) {
-            $('.example').addClass('hidden');
-            $('#social_example_' + val).removeClass('hidden');
-        }
     });
     
     /*
@@ -757,21 +493,40 @@ jQuery(document).ready(function($) {
     //calling equal height function on .box.col
     equalHeight('.sam-logooption', '.col');
 
-    if ($('#sam-custom-code').length > 0) {
-        var editor = CodeMirror.fromTextArea(document.getElementById("sam-custom-code"), {
-            lineNumbers: true,
-            styleActiveLine: true,
-            matchBrackets: true
-        });
-
-    }
-
     // generate tooltip
     $('.sam-tooltip').tooltip({
         position: {
             my: "left+20 center-5"
         }
     });
+    
+    /*
+    * Get selected categories id from 'hide blog from' section on blog menu
+    */
+    $('.show-categories').live('click', function(){
+        var chkId = '';
+        $('.show-categories:checked').each(function() {
+          chkId += $(this).val() + ",";
+        });
+        chkId =  chkId.slice(0,-1);
+        $("#sam-hide-category").val(chkId); // Place checked values in hidden input field to save on database
+    });
+    
+    
+    $('#show-all-categories').live('click', function() {
+        //Show blog from the following categories - Check all checkboxes and uncheck all checkboxes.
+        if ($(this).is(':checked')) {
+            $('.show-categories').attr('checked', 'checked');
+        } else {
+            $('.show-categories').removeAttr('checked');
+        }
+        // Get value of checked field and then place in hidden field to save on database
+        var chkId = '';
+        $('.show-categories:checked').each(function() {
+          chkId += $(this).val() + ",";
+        });
+        chkId =  chkId.slice(0,-1);
+        $("#sam-hide-category").val(chkId); // Place checked values in hidden input field to save on database
+    });
 
-});
-// end ready function here.
+});// end ready function here.
