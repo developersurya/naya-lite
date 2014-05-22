@@ -258,7 +258,7 @@ function sampression_content_class($classes = array()) {
 function sampression_sidebar_position() {
     global $sampression_options_settings;
     $options = $sampression_options_settings;
-    if ( (is_front_page() && is_home()) || is_author() || is_category() || is_tag()) {
+    if ( (is_front_page() && is_home()) || is_author() || is_category() || is_tag() || is_404()) {
         $position = esc_attr( $options['sidebar_active'] );
         return $position;
     }

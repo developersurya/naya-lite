@@ -50,12 +50,6 @@ function sampression_constants() {
 	define( 'SAM_FW_WIDGETS_URL', SAM_FW_INC_URL . '/widgets' );
 	define( 'SAM_FW_LANGUAGES_URL', SAM_FW_THEME_URL . '/languages' );
 
-	/** ------- */
-	if ( isset( $_REQUEST['sam-page'] ) ) {
-		define( 'SAM_FW_CURRENT_PAGE', mysql_real_escape_string( strtolower( trim( strip_tags( $_REQUEST['sam-page'] ) ) ) ) );
-	} else {
-		define( 'SAM_FW_CURRENT_PAGE', 'logos-icons' );
-	}
 }
 
 add_action( 'sampression_init', 'sampression_load_framework' );
@@ -75,19 +69,16 @@ function sampression_load_framework() {
 
 	/** Load Functions */
 	get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'functions' );
-        get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'update-notifier' );
-	get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'menu' );
 	get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'sidebar' );
 	get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'admin-ajax' );
         get_template_part( SAM_FW_FUNC_TPL_PART_DIR . 'metabox' );
 
 	/** Load Widgets */
-	get_template_part( SAM_FW_WIDGET_TPL_PART_DIR . 'adminbar-menu' );      
-        
+	    
 
 	/** Load Admin */
-	if ( is_admin() ) :
-               get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'theme-options' );
+	if ( is_admin() ) :               
+            get_template_part( SAM_FW_ADMIN_TPL_PART_DIR . 'theme-options' );
 	endif;
 
 	/** Load Javascript */

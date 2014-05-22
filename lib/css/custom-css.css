@@ -6,7 +6,7 @@ body { font: 18px/1.6 Droid Serif; }
 /* Some example CSS */
             /* Any changes made will appear in live site */
 
-            /*@import url(\&quot;something.css\&quot;);
+            /*@import url(&quot;something.css&quot;);
             body {
               margin: 0;
               padding: 3em 6em;

@@ -61,7 +61,6 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
                     
                 </div> <!-- content -->
                 <input name="reset" class="button4 sampression-restore" type="submit" value="Reset to theme default settings" >
-                <input type="hidden" name="action" value="reset" />
                 </form>
                 </div>
                 <!-- #sam-main-content-->

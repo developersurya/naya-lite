@@ -9,6 +9,7 @@ class Sampression_Admin {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'sampression_theme_menu' ), 5 );
         add_action( 'admin_init', array( $this, 'register_sampression_setting' ), 5 );
+        add_action( 'admin_init', array( $this, 'add_theme_options' ), 5 );
         add_action( 'admin_enqueue_scripts', array( $this, 'sampression_admin_scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'sampression_admin_styles' ) );
         add_action( 'admin_head', array( $this, 'admin_ie_js_css' ) );
@@ -55,6 +56,10 @@ class Sampression_Admin {
         require_once SAM_FW_ADMIN_DIR . '/footer.php';
         
     }
+    
+     public function add_theme_options() {
+         require_once get_template_directory().'/inc/admin/theme-options.php';
+    }
 
     public function register_sampression_setting() {
         register_setting( 'sampression_options', 'sampression_theme_options', 'sampression_theme_validate' ); 
@@ -95,8 +100,6 @@ class Sampression_Admin {
         wp_enqueue_script( 'SelectBox', SAM_FW_ADMIN_JS_URL . '/SelectBox.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'jScrollPane', SAM_FW_ADMIN_JS_URL . '/jScrollPane.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'jquerymousewheel', SAM_FW_ADMIN_JS_URL . '/jquery.mousewheel.js', array( 'jquery' ), '1.0', true );
-        //wp_enqueue_script( 'codemirror', SAM_FW_ADMIN_JS_URL . '/codemirror.js', array(), '1.0', true);
-       // wp_enqueue_script( 'csscodemirror', SAM_FW_ADMIN_JS_URL . '/csscodemirror.js', array(), '1.0', true);
         wp_enqueue_script( 'admin-script', SAM_FW_ADMIN_JS_URL . '/admin-script.js', array( 'jquery', 'wp-color-picker','jquery-ui-tooltip' ), '1.0', true );//, 'thickbox', 'media-upload'
         wp_enqueue_script( 'jquery-cookies', SAM_FW_ADMIN_JS_URL . '/jquery.cookies.js', array( 'jquery' ), '1.0' );
     }
