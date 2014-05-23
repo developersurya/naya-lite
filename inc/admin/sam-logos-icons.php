@@ -10,7 +10,7 @@ $options = $sampression_options_settings;
                 <div class="box titled-box col first-child">
                     <div  class="box-title">
                         <div class="sam-radio clearfix">
-                            <input id="sam-use-logo" type="radio" value="use_logo" name="sampression_theme_options[use_logo_title]" <?php echo $options['use_logo_title'] == 'use_logo' ? 'checked="checked"' : ''; ?>>
+                            <input id="sam-use-logo" type="radio" value="use_logo" name="sampression_theme_options[use_logo_title]" <?php checked( $options['use_logo_title'], 'use_logo' );  ?>>
                             <label for="sam-use-logo"><?php echo _e( 'Website Logo', 'sampression' ); ?></label>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ $options = $sampression_options_settings;
                     ?>
                     <div  class="box-title">
                         <div class="sam-radio clearfix">
-                            <input id="sam-use-title" type="radio" value="use_title" name="sampression_theme_options[use_logo_title]" <?php echo $options['use_logo_title'] == 'use_title' ? 'checked="checked"' : ''; ?>>
+                            <input id="sam-use-title" type="radio" value="use_title" name="sampression_theme_options[use_logo_title]" <?php checked( $options['use_logo_title'], 'use_title' ); ?>>
                             <label for="sam-use-title"><?php echo _e( 'Website Title', 'sampression' ); ?></label>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ $options = $sampression_options_settings;
                     </div>
                     <div class="box-entry">
                         <div class="clearfix remove-description">
-                            <input id="no-webdesc" class="sam-checkbox samp-style" type="checkbox" <?php if ($options['use_web_desc'] == 'yes') echo ' checked="checked"'; ?>>
+                            <input id="no-webdesc" class="sam-checkbox samp-style" type="checkbox" <?php checked( $options['use_web_desc'], 'yes' ); ?>>
                             <label class="checkbox-label" for="no-webdesc"><?php echo _e( 'Website Description', 'sampression' ); ?></label>
                             <input type="hidden" id="sam-use-webdesc" name="sampression_theme_options[use_web_desc]" value="<?php echo esc_attr( $options['use_web_desc'] ); ?>" />
                         </div>
@@ -100,7 +100,7 @@ $options = $sampression_options_settings;
                             </div>
                             <div class="alignleft sam-section-detail">
                                 <p><?php _e( 'Favicon must be 16px x 16px<br>jpg, png, gif, ico are supported.', 'sampression' ); ?></p>
-                                <input type="checkbox" class="sam-checkbox samp-style" id="use-favicon"<?php if ( $options['donot_use_favicon_16'] == 'yes' ) echo ' checked="checked"'; ?> />
+                                <input type="checkbox" class="sam-checkbox samp-style" id="use-favicon"<?php checked( $options['donot_use_favicon_16'], 'yes' ); ?> />
                                 <label for="use-favicon" class="checkbox-label"><?php echo _e('Disable', 'sampression'); ?></label>
                                 <input type="hidden" class="sam-use-favicon" name="sampression_theme_options[donot_use_favicon_16]" value="<?php echo esc_attr( $options['donot_use_favicon_16'] ); ?>" />
                             </div>
@@ -117,7 +117,7 @@ $options = $sampression_options_settings;
             <div class="box titled-box ">
                 <div class="box-title"><h4><?php _e( 'Apple Touch Icons', 'sampression' );?></h4>
                     <div class="right-cnt">
-                    <input type="checkbox" class="sam-checkbox samp-style" <?php if ( $options['donot_use_apple_icon'] == 'yes' ) echo ' checked="checked"'; ?> id="no-touchicon" />
+                    <input type="checkbox" class="sam-checkbox samp-style" <?php checked( $options['donot_use_apple_icon'], 'yes' ); ?> id="no-touchicon" />
 
                     <label for="no-touchicon" class="checkbox-label"><?php _e( 'Disable All', 'sampression' );?></label>
                     <input type="hidden" class="sam-no-touchicon" name="sampression_theme_options[donot_use_apple_icon]" value="<?php echo esc_attr( $options['donot_use_apple_icon'] ); ?>" />
@@ -139,7 +139,7 @@ $options = $sampression_options_settings;
                             </div>
                             <div class="alignleft sam-section-detail">
                                 <p><?php _e( 'Upload Apple iPhone Icon (57px x 57px)', 'sampression' );?></p>
-                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php if ( $options['donot_use_apple_icon_57'] == 'yes' ) echo ' checked="checked"'; ?> id="use-iphone" />
+                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php checked( $options['donot_use_apple_icon_57'], 'yes' ); ?> id="use-iphone" />
 
                                 <label for="use-iphone" class="checkbox-label"><?php _e( 'Disable', 'sampression' );?></label>
                                 <input type="hidden" class="sam-use-iphone" name="sampression_theme_options[donot_use_apple_icon_57]" value="<?php echo esc_attr( $options['donot_use_apple_icon_57'] ); ?>" />
@@ -159,7 +159,7 @@ $options = $sampression_options_settings;
                             </div>
                             <div class="alignleft sam-section-detail">
                                 <p><?php _e( 'Upload Apple iPad Icon (72px x 72px)', 'sampression' );?></p>
-                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php if ( $options['donot_use_apple_icon_72'] == 'yes' ) echo ' checked="checked"'; ?> id="use-ipad" />
+                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php checked( $options['donot_use_apple_icon_72'], 'yes' ); ?> id="use-ipad" />
 
                                 <label for="use-ipad" class="checkbox-label"><?php _e( 'Disable', 'sampression' );?></label>
                                 <input type="hidden" class="sam-use-ipad" name="sampression_theme_options[donot_use_apple_icon_72]" value="<?php echo esc_attr( $options['donot_use_apple_icon_72'] ); ?>" />
@@ -179,10 +179,10 @@ $options = $sampression_options_settings;
                             </div>
                             <div class="alignleft sam-section-detail">
                                 <p><?php _e( 'Upload Apple iPhone Retina Icon (114px x 114px)', 'sampression' );?></p>
-                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php if ( $options['donot_use_apple_icon_144'] == 'yes' ) echo ' checked="checked"'; ?> id="use-iphoneretina" />
+                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php checked( $options['donot_use_apple_icon_114'], 'yes' ); ?> id="use-iphoneretina" />
 
                                 <label for="use-iphoneretina" class="checkbox-label"><?php _e( 'Disable', 'sampression' );?></label>
-                                <input type="hidden" class="sam-use-iphoneretina" name="sampression_theme_options[donot_use_apple_icon_144]" value="<?php echo esc_attr( $options['favicon_144']['donot_use_apple_icon_144'] ); ?>" />
+                                <input type="hidden" class="sam-use-iphoneretina" name="sampression_theme_options[donot_use_apple_icon_114]" value="<?php echo esc_attr( $options['donot_use_apple_icon_114'] ); ?>" />
                             </div>
                         </li>
                         <li class="clearfix sam-no-spacing sam-no-border">
@@ -199,7 +199,7 @@ $options = $sampression_options_settings;
                             </div>
                             <div class="alignleft sam-section-detail">
                                 <p><?php _e( 'Upload Apple iPad Retina Icon (144px x 144px)', 'sampression' );?></p>
-                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php if ( $options['donot_use_apple_icon_144'] == 'yes' ) echo ' checked="checked"'; ?> id="use-ipadretina" />
+                                <input type="checkbox" class="sam-checkbox samp-style appleicons" <?php checked( $options['donot_use_apple_icon_144'], 'yes' ); ?> id="use-ipadretina" />
 
                                 <label for="use-ipadretina" class="checkbox-label"><?php _e( 'Disable', 'sampression' );?></label>
                                 <input type="hidden" class="sam-use-ipadretina" name="sampression_theme_options[donot_use_apple_icon_144]" value="<?php echo esc_attr( $options['donot_use_apple_icon_144'] ); ?>" />
