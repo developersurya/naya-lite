@@ -75,6 +75,10 @@ Installation
 
 ## Changelog
 
+### Version 1.0.8
+ - style.css enqueued from function instead of header
+ - Added more options to add social medias : Google Plus, Vimeo and Flickr
+ 
 ### Version 1.0.7
  - Error occured while editing post fixed
 
