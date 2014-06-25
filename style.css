@@ -856,36 +856,39 @@ a.home-link {
     text-decoration: none;
 }
 
-#header .social-connect a.social-facebook:hover {
+#header .social-connect a.social-facebook:hover,
+#footer .social-connect a.social-facebook:hover {
     color: #3C599F;
 }
 
-#header .social-connect a.social-twitter:hover {
+#header .social-connect a.social-twitter:hover,
+#footer .social-connect a.social-twitter:hover {
     color: #3CD0FE;
 }
 
-#header .social-connect a.social-youtube:hover {
+#header .social-connect a.social-youtube:hover,
+#footer .social-connect a.social-youtube:hover {
     color: #E02927;
 }
 
-#header .social-connect a.social-linkedin:hover {
+#header .social-connect a.social-linkedin:hover,
+#footer .social-connect a.social-linkedin:hover {
     color: #0274B3;
 }
 
-#footer .social-connect a.social-facebook:hover {
-color: #3C599F;
+#header .social-connect a.social-googleplus:hover,
+#footer .social-connect a.social-googleplus:hover {
+    color: #D64532;
 }
 
-#footer .social-connect a.social-twitter:hover {
-color: #3CD0FE;
+#header .social-connect a.social-flickr:hover,
+#footer .social-connect a.social-flickr:hover {
+    color: #0061DC;
 }
 
-#footer .social-connect a.social-youtube:hover {
-color: #E02927;
-}
-
-#footer .social-connect a.social-linkedin:hover {
-color: #0274B3;
+#header .social-connect a.social-vimeo:hover,
+#footer .social-connect a.social-vimeo:hover {
+    color: #BB161E;
 }
 
 .social-connect [class*="icon-social-"] {
