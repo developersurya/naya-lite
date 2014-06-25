@@ -75,6 +75,12 @@ Installation
 
 ## Changelog
 
+### Version 1.0.7
+ - Error occured while editing post fixed
+
+### Version 1.0.6
+ - Theme option datas are now saved in a single array.
+
 ### Version 1.0.5
  - home_url() escaped with esc_url() 
  - data sanitazation, validation and escape fuctions used
