@@ -74,7 +74,7 @@ Installation
  - Naya Lite is distributed under the terms of the GNU GPL.
 
 ## Changelog
-### Version 1.0.8
+### Version 1.0.9
  - style.css enqueued from function instead of header
  - Added more options to add social medias : Google Plus, Vimeo and Flickr
 
