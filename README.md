@@ -80,18 +80,15 @@ Installation
 ### Version 1.0.10
  - Fixed: Audio player responsive css
  - Fixed: Some CSS issues
-
  - Removed: Sticky Post background color
  - Removed: SAM_FW_TIMTHUMB_DIR - Directory Location Constant
  - Removed: SAM_FW_WIDGETS_DIR - Directory Location Constant
  - Removed: SAM_FW_WIDGET_TPL_PART_DIR -  Template Part Constants
  - Removed: SAM_FW_TIMTHUMB_URL - URL Location Constant
  - Removed: SAM_FW_WIDGETS_URL - URL Location Constant
-
  - Added: Script for do not submit search form if empty
  - Added: Open social media link on new tab
  - Added: SAM_NAYA_LITE_VERSION - Constant in init
-
  - Changed: Link of community forum on theme option page
  - Changed: screenshot.png
 
