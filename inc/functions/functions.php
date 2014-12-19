@@ -125,37 +125,37 @@ function sampression_social_media_icons() {
     if( $options['social_facebook_url'] || $options['social_twitter_url'] || $options['social_linkedin_url'] || $options['social_youtube_url'] || $options['social_googleplus_url'] || $options['social_flickr_url'] || $options['social_vimeo_url'] ){
         if( $options['social_facebook_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_facebook_url'] ); ?>" class="social-facebook"> <i class="icon-social-facebook"></i> </a>
+            <a href="<?php echo esc_url( $options['social_facebook_url'] ); ?>" target="_blank" class="social-facebook"> <i class="icon-social-facebook"></i> </a>
         <?php
         }
         if( $options['social_twitter_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_twitter_url'] ); ?>" class="social-twitter"> <i class="icon-social-twitter"></i> </a>
+            <a href="<?php echo esc_url( $options['social_twitter_url'] ); ?>" target="_blank" class="social-twitter"> <i class="icon-social-twitter"></i> </a>
         <?php
         }
         if( $options['social_linkedin_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_linkedin_url'] ); ?>" class="social-linkedin"> <i class="icon-social-linkedin"></i> </a>
+            <a href="<?php echo esc_url( $options['social_linkedin_url'] ); ?>" target="_blank" class="social-linkedin"> <i class="icon-social-linkedin"></i> </a>
         <?php
         }
         if( $options['social_youtube_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_youtube_url'] ); ?>" class="social-youtube"> <i class="icon-social-youtube"></i> </a>
+            <a href="<?php echo esc_url( $options['social_youtube_url'] ); ?>" target="_blank" class="social-youtube"> <i class="icon-social-youtube"></i> </a>
         <?php
         }
         if( $options['social_googleplus_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_googleplus_url'] ); ?>" class="social-googleplus"> <i class="icon-social-googleplus"></i> </a>
+            <a href="<?php echo esc_url( $options['social_googleplus_url'] ); ?>" target="_blank" class="social-googleplus"> <i class="icon-social-googleplus"></i> </a>
         <?php
         }
         if( $options['social_flickr_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_flickr_url'] ); ?>" class="social-flickr"> <i class="icon-social-flicker"></i> </a>
+            <a href="<?php echo esc_url( $options['social_flickr_url'] ); ?>" target="_blank" class="social-flickr"> <i class="icon-social-flicker"></i> </a>
         <?php
         }
         if( $options['social_vimeo_url'] ){
         ?>
-            <a href="<?php echo esc_url( $options['social_vimeo_url'] ); ?>" class="social-vimeo"> <i class="icon-social-viemo"></i> </a>
+            <a href="<?php echo esc_url( $options['social_vimeo_url'] ); ?>" target="_blank" class="social-vimeo"> <i class="icon-social-viemo"></i> </a>
         <?php
         }
     }
@@ -581,21 +581,21 @@ function sampression_content_nav(  ) {
                 ?>
 		<?php
                 if(!empty($prev_post)) {
-                    previous_post_link( '%link', sampression_truncate_text(get_the_title($prev_post->ID), 35) );//'%title'
+                    previous_post_link( '%link', '&larr; ' . sampression_truncate_text(get_the_title($prev_post->ID), 35) );//'%title'
                 }
                 if(!empty($next_post)) {
-                    next_post_link( '%link', sampression_truncate_text(get_the_title($next_post->ID), 35) );//'%title'
+                    next_post_link( '%link', sampression_truncate_text(get_the_title($next_post->ID), 35) . ' &rarr;' );//'%title'
                 }
                 ?>
 
         <?php } elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { // navigation links for home, archive, and search pages ?>
                 
 		<?php if ( get_next_posts_link() ) : ?>
-		<?php next_posts_link( __( 'Older Posts', 'sampression' ) ); ?>
+		<?php next_posts_link( __( 'Older Posts &rarr;', 'sampression' ) ); ?>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<?php previous_posts_link( __( 'Newer Posts', 'sampression' ) ); ?>
+		<?php previous_posts_link( __( '&larr; Newer Posts', 'sampression' ) ); ?>
 		<?php endif; ?>
 
     <?php } ?>

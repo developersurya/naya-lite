@@ -5,7 +5,7 @@ Theme URI: http://sampression.com/themes/naya-lite
 Author: Sampression
 Author URI: http://www.sampression.com
 
-Version: 1.0.9
+Version: 1.0.11
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,7 +44,7 @@ All files, unless otherwise stated, are released under the GNU General Public Li
  = Licence GPL: http://www.gnu.org/licenses/gpl.html
  
 == Theme Description ==
-For developers and website owners, Naya Lite is a responsive framework which can perfectly serve as a parent theme if they want to create their own child themes. For bloggers, Naya is a minimal blogging theme that takes their web presence back to the early days of blogging. While Naya Lite’s design justifies the idea of a good old fashioned blog, its features emphasize on being more modern and state-of-the-art. Being both responsive and retina-ready while still maintaining the look of a classic blog, Naya Lite perfectly manages to combine the past and future of blog design.
+Naya Lite is a minimal responsive blogging theme. While its design is basic and it manages to strictly stick to the idea of a good old fashioned blog, its features emphasize on being more modern and state-of-the-art. Naya Lite’s design will take your web presence back to the early days of blogging while its functionality will make sure you reach out to your current audiences and their multiple internet devices. Being both responsive and retina-ready while still maintaining the look of a classic blog, Naya Lite perfectly manages to combine the past and future of blog design.
 
 == Features ==
 Responsive design, Theme Options, Custom Logo/Fav Icons/Apple Touch Icons, Custom Menu, Sticky Post, W3C validated, supports social media, supports webmaster tools, post formats
@@ -112,6 +112,27 @@ Tags: white, black, green, one-column, two-columns, responsive-layout, custom-me
  = Naya Lite is distributed under the terms of the GNU GPL.
 
 == Changelog ==
+Version 1.0.11
+ = Fixed: Some CSS issues
+
+Version 1.0.10
+ = Fixed: Audio player responsive css
+ = Fixed: Some CSS issues
+
+ = Removed: Sticky Post background color
+ = Removed: SAM_FW_TIMTHUMB_DIR - Directory Location Constant
+ = Removed: SAM_FW_WIDGETS_DIR - Directory Location Constant
+ = Removed: SAM_FW_WIDGET_TPL_PART_DIR -  Template Part Constants
+ = Removed: SAM_FW_TIMTHUMB_URL - URL Location Constant
+ = Removed: SAM_FW_WIDGETS_URL - URL Location Constant
+
+ = Added: Script for do not submit search form if empty
+ = Added: Open social media link on new tab
+ = Added: SAM_NAYA_LITE_VERSION - Constant in init
+
+ = Changed: Link of community forum on theme option page
+ = Changed: screenshot.png
+
 Version 1.0.9
  = Added some action hooks on header and footer.
  = Removed unwanted PHP funtions

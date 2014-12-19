@@ -7,10 +7,11 @@ add_action( 'sampression_init', 'sampression_constants' );
  */
 function sampression_constants() {
 
+	define( 'SAM_NAYA_LITE_VERSION', '1.0.11');
+
 	/** Define Directory Location Constants */
 	define( 'SAM_FW_THEME_DIR', get_template_directory() );
 	define( 'SAM_FW_IMAGES_DIR', SAM_FW_THEME_DIR . '/images' );
-        define( 'SAM_FW_TIMTHUMB_DIR', SAM_FW_THEME_DIR . '/timthumb' );
 	define( 'SAM_FW_LIB_DIR', SAM_FW_THEME_DIR . '/lib' );
 	define( 'SAM_FW_INC_DIR', SAM_FW_THEME_DIR . '/inc' );
 	define( 'SAM_FW_TEMPLATE_DIR', SAM_FW_THEME_DIR . '/inc/templates' );
@@ -22,21 +23,18 @@ function sampression_constants() {
 	define( 'SAM_FW_CSS_DIR', SAM_FW_LIB_DIR . '/css' );
 	define( 'SAM_FW_CLASSES_DIR', SAM_FW_INC_DIR . '/classes' );
 	define( 'SAM_FW_FUNCTIONS_DIR', SAM_FW_INC_DIR . '/functions' );
-	define( 'SAM_FW_WIDGETS_DIR', SAM_FW_INC_DIR . '/widgets' );
 	define( 'SAM_FW_LANGUAGES_DIR', SAM_FW_THEME_DIR . '/languages' );
         
-        /** Define Template Part Constants **/
-        define( 'SAM_FW_CLS_TPL_PART_DIR', 'inc/classes/' );
-        define( 'SAM_FW_FUNC_TPL_PART_DIR', 'inc/functions/' );
-        define( 'SAM_FW_WIDGET_TPL_PART_DIR', 'inc/widgets/' );
-        define( 'SAM_FW_ADMIN_TPL_PART_DIR', 'inc/admin/' );
+    /** Define Template Part Constants **/
+    define( 'SAM_FW_CLS_TPL_PART_DIR', 'inc/classes/' );
+    define( 'SAM_FW_FUNC_TPL_PART_DIR', 'inc/functions/' );
+    define( 'SAM_FW_ADMIN_TPL_PART_DIR', 'inc/admin/' );
 
 	/** Define URL Location Constants */
 	define( 'SAM_FW_SITE_URL', site_url() );
-        define( 'SAM_FW_SITE_WPADMIN_URL', admin_url() );
+    define( 'SAM_FW_SITE_WPADMIN_URL', admin_url() );
 	define( 'SAM_FW_THEME_URL', get_template_directory_uri() );
 	define( 'SAM_FW_IMAGES_URL', SAM_FW_THEME_URL . '/images' );
-        define( 'SAM_FW_TIMTHUMB_URL', SAM_FW_THEME_URL . '/timthumb' );
 	define( 'SAM_FW_LIB_URL', SAM_FW_THEME_URL . '/lib' );
 	define( 'SAM_FW_INC_URL', SAM_FW_THEME_URL . '/inc' );
 	define( 'SAM_FW_ADMIN_URL', SAM_FW_INC_URL . '/admin' );
@@ -47,7 +45,6 @@ function sampression_constants() {
 	define( 'SAM_FW_CSS_URL', SAM_FW_LIB_URL . '/css' );
 	define( 'SAM_FW_CLASSES_URL', SAM_FW_INC_URL . '/classes' );
 	define( 'SAM_FW_FUNCTIONS_URL', SAM_FW_INC_URL . '/functions' );
-	define( 'SAM_FW_WIDGETS_URL', SAM_FW_INC_URL . '/widgets' );
 	define( 'SAM_FW_LANGUAGES_URL', SAM_FW_THEME_URL . '/languages' );
 
 }

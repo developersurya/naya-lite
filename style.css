@@ -1,10 +1,10 @@
 /*
-Theme Name: naya lite
+Theme Name: Naya Lite
 Theme URI: http://sampression.com/themes/naya-lite
 Author: Sampression
 Author URI: http://sampression.com
-Description: For developers and website owners, Naya Lite is a responsive framework which can perfectly serve as a parent theme if they want to create their own child themes. For bloggers, Naya is a minimal blogging theme that takes their web presence back to the early days of blogging. While Naya Lite’s design justifies the idea of a good old fashioned blog, its features emphasize on being more modern and state-of-the-art. Being both responsive and retina-ready while still maintaining the look of a classic blog, Naya Lite perfectly manages to combine the past and future of blog design.
-Version: 1.0.9
+Description: Naya Lite is a minimal responsive blogging theme. While its design is basic and it manages to strictly stick to the idea of a good old fashioned blog, its features emphasize on being more modern and state-of-the-art. Naya Lite’s design will take your web presence back to the early days of blogging while its functionality will make sure you reach out to your current audiences and their multiple internet devices. Being both responsive and retina-ready while still maintaining the look of a classic blog, Naya Lite perfectly manages to combine the past and future of blog design.
+Version: 1.0.11
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, responsive-layout, custom-header, custom-background, custom-menu, editor-style, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options
@@ -133,6 +133,8 @@ th {
     padding: 8px;
     border-width: 0 1px 1px 0;
     text-transform: uppercase;
+    color: #666;
+    font-weight: bold;
 }
 
 html,
@@ -691,14 +693,17 @@ textarea {
     font-family: 'Droid Serif', serif;
     font-size: 18px;
     outline: none;
-    -webkit-appearance: inherit;
-    -moz-appearance: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 57%;
 }
 
 input[type="file"] {
     color: #333;
     font-family: 'kreon', serif;
-    font-size: 14px;
+    font-size: 16px;
+    padding: 18px 0;
+    outline: none;
 }
 
 form {
@@ -726,11 +731,13 @@ input[type="password"] {
 }
 
 select {
-    width: 60%; 
+    width: 62%;
+    -webkit-appearance: menulist;
 }
 
 input[type="checkbox"] {
-    display: inline; 
+    display: inline;
+    margin-right: 10px;
 }
 
 label span,
@@ -741,7 +748,7 @@ legend span {
 }
 
 input[type="radio"] {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .search-form .submit {
@@ -973,7 +980,6 @@ a.home-link {
 
 .post.sticky {
     padding: 30px 40px;
-	background: #FBF9E2;
 }
 
 .entry-title {
@@ -1225,7 +1231,7 @@ dl.gallery-item dt.gallery-icon {
 
 .paging-navigation, .single .post-navigation {
     border-top: 1px solid #E2E2E2;
-    padding: 20px 0;
+    padding: 20px 0 50px;
 }
 
 .single .post-navigation.clearfix a, 
@@ -1393,6 +1399,7 @@ dl.gallery-item dt.gallery-icon {
 
 #wp-calendar td {
     border: 0 none;
+    padding:4px 8px;
 }
 
 #wp-calendar th {
@@ -1621,7 +1628,9 @@ input#s:focus {
 .comment-list ol {
     margin-left: 60px;
 }
-
+.comment-subscription-form{
+    margin-bottom: 7px;
+}
 /* no result */
 
 .search-form .submit {
@@ -1633,9 +1642,8 @@ input#s:focus {
 /* archive */
 
 .archive-header {
-	padding: 30px 40px 16px;
-	margin-bottom: 60px;
-    background: #f9f9f9;
+    margin-bottom: 60px;
+    padding: 0 0 1px;
 }
 
 .archive-title {
