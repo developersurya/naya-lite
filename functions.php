@@ -6,4 +6,6 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 
-require_once( dirname( __FILE__ ) . '/inc/init.php' ); 
+require_once( dirname( __FILE__ ) . '/inc/init.php' );
+
+add_theme_support( 'title-tag' );

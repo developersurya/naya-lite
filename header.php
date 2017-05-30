@@ -14,8 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) exit( 'restricted access' );
 <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-
-    <title> <?php wp_title( '|', true, 'right' ); ?></title>
     <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
     <?php sampression_favicons(); ?>
     <!--[if lt IE 9]>
